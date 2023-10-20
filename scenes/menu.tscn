@@ -1,11 +1,7 @@
 [gd_scene load_steps=12 format=3 uid="uid://ce3bfu2fifown"]
 
 [ext_resource type="Script" path="res://scripts/menu.gd" id="1_0puyd"]
-[ext_resource type="PackedScene" uid="uid://c7uma5pfs22tx" path="res://scenes/level_design.tscn" id="2_bs7fc"]
-[ext_resource type="TileSet" uid="uid://dqiohjw4a40w2" path="res://resources/level_tileset.tres" id="3_4jo1r"]
-[ext_resource type="Script" path="res://scenes/nodes/LightedTilemap.gd" id="4_knlel"]
-[ext_resource type="FontFile" uid="uid://c2jjiune36dx4" path="res://assets/DEATHBLOOD.ttf" id="4_s4gep"]
-[ext_resource type="Script" path="res://scripts/Darkness.gd" id="5_ii4b0"]
+[ext_resource type="PackedScene" uid="uid://b3duyvop2nftn" path="res://levels/Level1.tscn" id="2_ud6vy"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_prhx3"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -71,7 +67,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = SubResource("Theme_fb3pe")
 script = ExtResource("1_0puyd")
-start_scene = ExtResource("2_bs7fc")
+start_scene = ExtResource("2_ud6vy")
 
 [node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/Menu"]
 layout_mode = 2
