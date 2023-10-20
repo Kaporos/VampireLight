@@ -668,7 +668,7 @@ animations = [{
 [node name="Vampire" type="CharacterBody2D"]
 collision_mask = 4
 script = ExtResource("1_vq3cx")
-BAT_SPEED = 600
+BAT_SPEED = 500
 
 [node name="BatCollision" type="CollisionShape2D" parent="."]
 position = Vector2(54, 78)
@@ -696,3 +696,9 @@ autoplay = "idle_right"
 frame_progress = 0.816147
 
 [node name="Camera2D" type="Camera2D" parent="."]
+limit_left = 0
+limit_top = 0
+limit_bottom = 1000
+position_smoothing_enabled = true
+drag_vertical_enabled = true
+drag_top_margin = 0.4
