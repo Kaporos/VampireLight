@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://dlseh4xdh5bks"]
+[gd_scene load_steps=8 format=3 uid="uid://dlseh4xdh5bks"]
 
 [ext_resource type="Script" path="res://components/lights/SimplePointLight.gd" id="1_6cae2"]
 
@@ -51,6 +51,10 @@ _data = {
 "glow": SubResource("Animation_hq53u")
 }
 
+[sub_resource type="Curve" id="Curve_dxh3f"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.430108, 0.547368), 0.0, 0.0, 0, 0, Vector2(0.774194, 0.463158), 0.0, 0.0, 0, 0]
+point_count = 3
+
 [node name="SimplePointLight" type="PointLight2D"]
 color = Color(0.768627, 0.301961, 0.0862745, 1)
 energy = 1.2
@@ -62,3 +66,18 @@ script = ExtResource("1_6cae2")
 libraries = {
 "": SubResource("AnimationLibrary_jrefq")
 }
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+position = Vector2(0, -5)
+amount = 4
+lifetime = 0.6
+randomness = 0.5
+emission_shape = 1
+emission_sphere_radius = 13.0
+gravity = Vector2(0, -200)
+radial_accel_min = 5.0
+radial_accel_max = 5.0
+scale_amount_min = 6.0
+scale_amount_max = 6.0
+scale_amount_curve = SubResource("Curve_dxh3f")
+color = Color(0.556863, 0.556863, 0.556863, 1)
