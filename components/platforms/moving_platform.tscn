@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://cyfw5khdfsw5j"]
 
-[ext_resource type="Script" path="res://components/Moving_platform.gd" id="1_v4pui"]
+[ext_resource type="Script" path="res://components/platforms/Moving_platform.gd" id="1_v4pui"]
 
 [node name="Moving Platform" type="CharacterBody2D" node_paths=PackedStringArray("point_list")]
 script = ExtResource("1_v4pui")

@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://scripts/Darkness.gd" id="1_rp6a3"]
 [ext_resource type="Texture2D" uid="uid://bautesv1cckbu" path="res://icon.svg" id="2_8rlhi"]
 [ext_resource type="Script" path="res://scenes/SupposedPlayer.gd" id="2_yxhu5"]
-[ext_resource type="PackedScene" uid="uid://b6v524cujs6xg" path="res://components/LightDetector.tscn" id="4_3ulug"]
+[ext_resource type="PackedScene" uid="uid://b6v524cujs6xg" path="res://components/lights/LightDetector.tscn" id="4_3ulug"]
 
 [sub_resource type="Gradient" id="Gradient_r4ohl"]
 offsets = PackedFloat32Array(0, 0.226994)
