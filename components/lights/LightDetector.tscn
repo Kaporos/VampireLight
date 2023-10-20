@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://b6v524cujs6xg"]
 
-[ext_resource type="Script" path="res://components/LightDetector.gd" id="1_bt4eg"]
+[ext_resource type="Script" path="res://components/lights/LightDetector.gd" id="1_bt4eg"]
 
 [node name="LightDetector" type="Area2D"]
 collision_layer = 0
