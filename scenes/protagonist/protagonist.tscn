@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=3 uid="uid://ciwxkect8vqqd"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0aq3r"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"left_movement",
+"speed": 5.0
+}]
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_0aq3r")
+animation = &"left_movement"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
