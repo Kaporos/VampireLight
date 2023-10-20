@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://c7uma5pfs22tx"]
+[gd_scene load_steps=11 format=3 uid="uid://c7uma5pfs22tx"]
 
 [ext_resource type="PackedScene" uid="uid://bfg0pl4n5f661" path="res://scenes/protagonist/vampire.tscn" id="1_52hp8"]
 [ext_resource type="TileSet" uid="uid://dqiohjw4a40w2" path="res://resources/level_tileset.tres" id="1_cm01s"]
 [ext_resource type="PackedScene" uid="uid://nts0a2yks63o" path="res://scenes/HUD.tscn" id="1_dp0kw"]
 [ext_resource type="Script" path="res://scenes/nodes/LightedTilemap.gd" id="1_f2y1v"]
+[ext_resource type="PackedScene" uid="uid://cyfw5khdfsw5j" path="res://components/platforms/moving_platform.tscn" id="1_m21ca"]
 [ext_resource type="Script" path="res://scripts/Darkness.gd" id="3_12k5j"]
 [ext_resource type="Script" path="res://resources/HealthStats.gd" id="4_s0ysw"]
 
@@ -11,6 +12,12 @@
 script = ExtResource("4_s0ysw")
 health = 100
 maxHealth = 115
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_12p8r"]
+size = Vector2(150, 50)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fcodh"]
+size = Vector2(150, 20)
 
 [node name="level_design" type="Node2D"]
 
@@ -42,3 +49,20 @@ player = NodePath("../../Vampire")
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 color = Color(0.392157, 0.392157, 0.392157, 1)
 script = ExtResource("3_12k5j")
+
+[node name="Moving Platform" parent="." node_paths=PackedStringArray("point_list") instance=ExtResource("1_m21ca")]
+position = Vector2(264, 227)
+point_list = [NodePath("../Start"), NodePath("../End")]
+retour = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Moving Platform"]
+texture = SubResource("PlaceholderTexture2D_12p8r")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Moving Platform"]
+shape = SubResource("RectangleShape2D_fcodh")
+
+[node name="Start" type="Node2D" parent="."]
+position = Vector2(86, 223)
+
+[node name="End" type="Node2D" parent="."]
+position = Vector2(517, 221)

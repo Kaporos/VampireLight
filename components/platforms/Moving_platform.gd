@@ -23,12 +23,13 @@ func _process(delta):
 		velocity = direction.normalized() * speed;
 		if(direction.length() < 5):
 			index = index + 1
-			global_position = point_list[(index) % point_list.size()].global_position;
-			if(index == point_list.size() - 1):
-				if(retour):
-					index = 0
-				else :
-					stop = true 
+			print(index)
+			if(index == point_list.size()):
+				index = 0
+			if (index == point_list.size() - 1) && !retour:
+				stop = true 
+			global_position = point_list[index].global_position;
+
 		move_and_collide(velocity * delta);
 		if(should_rotate):
 			rotation = (destination.global_position.y - global_position.y)/(destination.global_position.x - global_position.x)
