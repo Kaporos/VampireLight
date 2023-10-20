@@ -1,0 +1,39 @@
+[gd_scene load_steps=3 format=3 uid="uid://nts0a2yks63o"]
+
+[ext_resource type="Script" path="res://scripts/HUD.gd" id="1_1xvwp"]
+[ext_resource type="Texture2D" uid="uid://bdcq414d7l8g5" path="res://assets/icons/heart.png" id="3_jnykx"]
+
+[node name="HUD" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_1xvwp")
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+text = "Decrease health"
+
+[node name="Health" type="TextureProgressBar" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -51.0
+offset_top = 7.0
+offset_right = 460.0
+offset_bottom = 518.0
+grow_horizontal = 0
+scale = Vector2(0.08, 0.08)
+value = 100.0
+fill_mode = 3
+texture_under = ExtResource("3_jnykx")
+texture_progress = ExtResource("3_jnykx")
+tint_under = Color(0.658824, 0.658824, 0.658824, 1)
+tint_progress = Color(1, 0, 0, 1)
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
