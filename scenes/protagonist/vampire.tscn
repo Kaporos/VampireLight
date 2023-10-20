@@ -668,6 +668,7 @@ animations = [{
 [node name="Vampire" type="CharacterBody2D"]
 collision_mask = 4
 script = ExtResource("1_vq3cx")
+BAT_SPEED = 600
 
 [node name="BatCollision" type="CollisionShape2D" parent="."]
 position = Vector2(54, 83)
