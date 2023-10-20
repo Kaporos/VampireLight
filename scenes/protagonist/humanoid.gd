@@ -23,7 +23,7 @@ func _physics_process(delta):
 	var spaced_pressed = Input.is_action_pressed("ui_accept")
 	var transform_command = Input.is_action_pressed("bat_transform")
 
-	if transform_command:
+	if transform_command and is_on_floor():
 		is_tranforming = true
 		if orientation_was_right:
 			_animated_sprite.play("bat_transform_right")
