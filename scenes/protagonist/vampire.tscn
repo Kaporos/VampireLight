@@ -1,15 +1,15 @@
 [gd_scene load_steps=93 format=3 uid="uid://bfg0pl4n5f661"]
 
 [ext_resource type="Script" path="res://scenes/protagonist/vampire.gd" id="1_vq3cx"]
-[ext_resource type="Texture2D" uid="uid://cfafokeg0gcmb" path="res://assets/vampire.png" id="2_0xlqs"]
+[ext_resource type="Texture2D" uid="uid://caciyihgsgatx" path="res://assets/vampire.png" id="2_0xlqs"]
 [ext_resource type="Texture2D" uid="uid://cjmdbxfewfpf8" path="res://assets/bat_inverted.png" id="3_3vyk1"]
 [ext_resource type="Texture2D" uid="uid://g7bjinswylx" path="res://assets/bat.png" id="4_qhuc1"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_b5oyx"]
-size = Vector2(52, 36)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_wpcga"]
+height = 54.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cyrja"]
-size = Vector2(52, 88)
+size = Vector2(38, 59)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rsxsd"]
 atlas = ExtResource("2_0xlqs")
@@ -668,19 +668,21 @@ animations = [{
 [node name="Vampire" type="CharacterBody2D"]
 collision_mask = 4
 script = ExtResource("1_vq3cx")
+BAT_SPEED = 500
 
 [node name="BatCollision" type="CollisionShape2D" parent="."]
-position = Vector2(54, 83)
-shape = SubResource("RectangleShape2D_b5oyx")
+position = Vector2(54, 78)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_wpcga")
 
 [node name="HumanoidCollision" type="CollisionShape2D" parent="."]
-position = Vector2(54, 84)
+position = Vector2(57, 81.5)
 shape = SubResource("RectangleShape2D_cyrja")
 
 [node name="HumanoidAnimation" type="AnimatedSprite2D" parent="."]
 visible = false
 position = Vector2(64, 64)
-scale = Vector2(4, 4)
+scale = Vector2(2.8, 2.8)
 sprite_frames = SubResource("SpriteFrames_qtv1s")
 animation = &"bat_transform_right"
 frame_progress = 0.145651
@@ -694,3 +696,9 @@ autoplay = "idle_right"
 frame_progress = 0.816147
 
 [node name="Camera2D" type="Camera2D" parent="."]
+limit_left = 0
+limit_top = 0
+limit_bottom = 1000
+position_smoothing_enabled = true
+drag_vertical_enabled = true
+drag_top_margin = 0.4

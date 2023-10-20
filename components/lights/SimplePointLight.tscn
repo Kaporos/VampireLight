@@ -1,0 +1,83 @@
+[gd_scene load_steps=8 format=3 uid="uid://dlseh4xdh5bks"]
+
+[ext_resource type="Script" path="res://components/lights/SimplePointLight.gd" id="1_6cae2"]
+
+[sub_resource type="Gradient" id="Gradient_q5kc7"]
+offsets = PackedFloat32Array(0, 0.660377)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_1wj1p"]
+gradient = SubResource("Gradient_q5kc7")
+width = 500
+height = 500
+fill = 1
+fill_from = Vector2(0.490991, 0.463964)
+
+[sub_resource type="Animation" id="Animation_xa6pp"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture_scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.999833]
+}
+
+[sub_resource type="Animation" id="Animation_hq53u"]
+resource_name = "glow"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture_scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.505714, 1.11803, 1.25779, 1.4321, 1.99692),
+"transitions": PackedFloat32Array(1, 0.466517, 1, 1.27456, 1, 0.210224, 1),
+"update": 0,
+"values": [0.999833, 0.9, 0.95, 0.85, 0.9, 0.93, 0.95]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_jrefq"]
+_data = {
+"RESET": SubResource("Animation_xa6pp"),
+"glow": SubResource("Animation_hq53u")
+}
+
+[sub_resource type="Curve" id="Curve_dxh3f"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.430108, 0.547368), 0.0, 0.0, 0, 0, Vector2(0.774194, 0.463158), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[node name="SimplePointLight" type="PointLight2D"]
+color = Color(0.768627, 0.301961, 0.0862745, 1)
+energy = 1.2
+texture = SubResource("GradientTexture2D_1wj1p")
+texture_scale = 0.999833
+script = ExtResource("1_6cae2")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_jrefq")
+}
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+position = Vector2(0, -5)
+amount = 4
+lifetime = 0.6
+randomness = 0.5
+emission_shape = 1
+emission_sphere_radius = 13.0
+gravity = Vector2(0, -200)
+radial_accel_min = 5.0
+radial_accel_max = 5.0
+scale_amount_min = 6.0
+scale_amount_max = 6.0
+scale_amount_curve = SubResource("Curve_dxh3f")
+color = Color(0.556863, 0.556863, 0.556863, 1)

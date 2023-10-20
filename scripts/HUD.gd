@@ -1,18 +1,15 @@
 extends Control
 
 
-@export var maxHealth = 100;
-var health = maxHealth: set = _setted_health;
+@export var player: Vampire;
+
 
 func _ready():
-	reset();
+	player.stats.health_changed.connect(health_changed)
 
-func reset():
-	health = maxHealth
+func health_changed(value):
+	$Health.value = value
 
-func _setted_health(value):
-	$Health.value = health;
-	health = value
 
 func _on_button_pressed():
-	health -= 5
+	player.stats.hit(10)

@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://bt3n046gcsnj1"]
+
+[ext_resource type="Script" path="res://scenes/nodes/LightedTilemap.gd" id="1_iicq1"]
+
+[node name="LightedTilemap" type="TileMap"]
+format = 2
+script = ExtResource("1_iicq1")

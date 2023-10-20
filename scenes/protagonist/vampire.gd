@@ -1,4 +1,6 @@
 extends CharacterBody2D
+class_name Vampire
+@export var stats: HealthStats;
 
 # @onready var humanoid = load("res://scenes/protagonist/humanoid.tscn")
 
@@ -8,7 +10,7 @@ var is_bat = false;
 @export var HUMANOID_SPEED = 100
 
 const SPEED = 300.0
-const JUMP_VELOCITY = -400.0
+const JUMP_VELOCITY = -750.0
 
 var collision_offset = false
 var orientation_was_right = true
