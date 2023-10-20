@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bvvi8erupfw7b"
-path="res://.godot/imported/vampire_sprite_sheet.png-320276ad34172c6a4c40056fcf6c33f7.ctex"
+uid="uid://cjmdbxfewfpf8"
+path="res://.godot/imported/bat_inverted.png-e20178d4e88c10017e8dc38ee8441207.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/vampire_sprite_sheet.png"
-dest_files=["res://.godot/imported/vampire_sprite_sheet.png-320276ad34172c6a4c40056fcf6c33f7.ctex"]
+source_file="res://assets/bat_inverted.png"
+dest_files=["res://.godot/imported/bat_inverted.png-e20178d4e88c10017e8dc38ee8441207.ctex"]
 
 [params]
 
