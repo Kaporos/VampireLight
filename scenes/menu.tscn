@@ -1,0 +1,38 @@
+[gd_scene load_steps=2 format=3 uid="uid://ce3bfu2fifown"]
+
+[ext_resource type="Script" path="res://scripts/menu.gd" id="1_0puyd"]
+
+[node name="Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_0puyd")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Start" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Start the game"
+
+[node name="Leave" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Leave the game
+"
+
+[connection signal="pressed" from="VBoxContainer/Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="VBoxContainer/Leave" to="." method="_on_leave_pressed"]
