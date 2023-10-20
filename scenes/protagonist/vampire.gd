@@ -1,5 +1,6 @@
 extends Node2D
-
+class_name Vampire
+@export var stats: HealthStats;
 # @onready var humanoid = load("res://scenes/protagonist/humanoid.tscn")
 
 # Called when the node enters the scene tree for the first time.
