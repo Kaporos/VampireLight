@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bfg0pl4n5f661"]
+
+[ext_resource type="Script" path="res://scenes/protagonist/vampire.gd" id="1_vq3cx"]
+
+[node name="Vampire" type="Node2D"]
+script = ExtResource("1_vq3cx")
