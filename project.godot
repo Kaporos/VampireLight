@@ -15,6 +15,16 @@ run/main_scene="res://scenes/menu.tscn"
 config/features=PackedStringArray("4.1", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[autoload]
+
+RayCaster="*res://scripts/Raycaster.gd"
+
+[layer_names]
+
+2d_physics/layer_1="Player"
+2d_physics/layer_2="Lights"
+2d_physics/layer_3="Obstacles"
+
 [rendering]
 
 renderer/rendering_method="gl_compatibility"
