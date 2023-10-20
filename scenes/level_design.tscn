@@ -1,8 +1,15 @@
-[gd_scene load_steps=4 format=3 uid="uid://c7uma5pfs22tx"]
+[gd_scene load_steps=7 format=3 uid="uid://c7uma5pfs22tx"]
 
 [ext_resource type="PackedScene" uid="uid://bfg0pl4n5f661" path="res://scenes/protagonist/vampire.tscn" id="1_52hp8"]
 [ext_resource type="TileSet" uid="uid://dqiohjw4a40w2" path="res://resources/level_tileset.tres" id="1_cm01s"]
+[ext_resource type="PackedScene" uid="uid://nts0a2yks63o" path="res://scenes/HUD.tscn" id="1_dp0kw"]
 [ext_resource type="Script" path="res://levels/level1/tilemap1.gd" id="2_4wxai"]
+[ext_resource type="Script" path="res://resources/HealthStats.gd" id="4_s0ysw"]
+
+[sub_resource type="Resource" id="Resource_pq4g1"]
+script = ExtResource("4_s0ysw")
+health = 100
+maxHealth = 115
 
 [node name="level_design" type="Node2D"]
 
@@ -16,3 +23,9 @@ script = ExtResource("2_4wxai")
 
 [node name="Vampire" parent="." instance=ExtResource("1_52hp8")]
 position = Vector2(414, 261)
+stats = SubResource("Resource_pq4g1")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="HUD" parent="CanvasLayer" node_paths=PackedStringArray("player") instance=ExtResource("1_dp0kw")]
+player = NodePath("../../Vampire")

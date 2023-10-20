@@ -1,4 +1,6 @@
 extends CharacterBody2D
+class_name Vampire
+@export var stats: HealthStats;
 
 # @onready var humanoid = load("res://scenes/protagonist/humanoid.tscn")
 
