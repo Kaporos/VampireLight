@@ -1,8 +1,8 @@
-[gd_scene load_steps=19 format=3 uid="uid://ce3bfu2fifown"]
+[gd_scene load_steps=20 format=3 uid="uid://ce3bfu2fifown"]
 
 [ext_resource type="Script" path="res://scripts/menu.gd" id="1_0puyd"]
 [ext_resource type="TileSet" uid="uid://dqiohjw4a40w2" path="res://resources/level_tileset.tres" id="3_4jo1r"]
-[ext_resource type="PackedScene" uid="uid://cy5r404jbs526" path="res://levels/level_2.tscn" id="3_484iq"]
+[ext_resource type="FontFile" uid="uid://dlbue7kc8su7i" path="res://assets/28 Days Later.ttf" id="3_hkqhw"]
 [ext_resource type="Script" path="res://scenes/nodes/LightedTilemap.gd" id="4_knlel"]
 [ext_resource type="FontFile" uid="uid://c2jjiune36dx4" path="res://assets/DEATHBLOOD.ttf" id="4_s4gep"]
 [ext_resource type="Script" path="res://scripts/Darkness.gd" id="5_ii4b0"]
@@ -119,7 +119,6 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = SubResource("Theme_fb3pe")
 script = ExtResource("1_0puyd")
-start_scene = ExtResource("3_484iq")
 
 [node name="Label" type="Label" parent="CanvasLayer/Menu"]
 layout_mode = 1
@@ -133,7 +132,7 @@ offset_top = -41.0
 offset_right = 183.5
 grow_horizontal = 2
 grow_vertical = 0
-theme_override_fonts/font = ExtResource("4_6gnm7")
+theme_override_fonts/font = ExtResource("3_hkqhw")
 theme_override_font_sizes/font_size = 25
 theme_override_styles/normal = SubResource("StyleBoxFlat_itghe")
 text = "A game made by us"
