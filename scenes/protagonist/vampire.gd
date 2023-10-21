@@ -22,7 +22,12 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass
+	stats.health_changed.connect(_show_hit_anim)
+
+func _show_hit_anim(_v, isHitted):
+	if !isHitted:
+		return
+	$HitAnimationPlayer.play("hit")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -167,14 +172,15 @@ func check_for_transform():
 				await get_tree().create_timer(0.3).timeout
 				elevate_bat = false
 				$BatAnimation.play("bat_transform_right")
-				await get_tree().create_timer(0.7).timeout
+				await $BatAnimation.animation_finished
+
 				is_tranforming = false
 				is_bat = false
 			else:
 				await get_tree().create_timer(0.3).timeout
 				elevate_bat = false
 				$BatAnimation.play("bat_transform_left")
-				await get_tree().create_timer(0.7).timeout
+				await $BatAnimation.animation_finished
 				is_tranforming = false
 				is_bat = false
 			return
@@ -182,12 +188,12 @@ func check_for_transform():
 			is_tranforming = true
 			if orientation_was_right:
 				$HumanoidAnimation.play("bat_transform_right")
-				await get_tree().create_timer(1.1).timeout
+				await $HumanoidAnimation.animation_finished
 				is_tranforming = false
 				is_bat = true
 			else:
 				$HumanoidAnimation.play("bat_transform_left")
-				await get_tree().create_timer(1.1).timeout
+				await $HumanoidAnimation.animation_finished
 				is_tranforming = false
 				is_bat = true
 			return

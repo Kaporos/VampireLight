@@ -7,7 +7,7 @@ extends Control
 func _ready():
 	player.stats.health_changed.connect(health_changed)
 
-func health_changed(value):
+func health_changed(value, _hit):
 	$Health.value = value
 
 
