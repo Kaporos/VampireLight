@@ -226,11 +226,8 @@ position = Vector2(2512, 361)
 
 [node name="platforms" type="Node2D" parent="."]
 
-[node name="Moving Platform" parent="platforms" node_paths=PackedStringArray("idle_points_list") instance=ExtResource("6_daoww")]
+[node name="Moving Platform" parent="platforms" instance=ExtResource("6_daoww")]
 position = Vector2(975, 472)
-collision_layer = 4
-speed = 100
-idle_points_list = [NodePath("../../startends/Start2"), NodePath("../../startends/End2")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="platforms/Moving Platform"]
 shape = SubResource("RectangleShape2D_m42td")
@@ -258,13 +255,9 @@ position = Vector2(24, -11)
 scale = Vector2(3, 3)
 texture = SubResource("AtlasTexture_w2joa")
 
-[node name="Moving Platform3" parent="platforms" node_paths=PackedStringArray("idle_points_list") instance=ExtResource("6_daoww")]
+[node name="Moving Platform3" parent="platforms" instance=ExtResource("6_daoww")]
 position = Vector2(1120, 392)
-collision_layer = 4
 speed = 130
-idle_points_list = [NodePath("../../startends/Start1"), NodePath("../../startends/End1")]
-idle_movement = SubResource("Resource_0wiw1")
-agro_movement = SubResource("Resource_xrqja")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="platforms/Moving Platform3"]
 shape = SubResource("RectangleShape2D_m42td")
@@ -292,12 +285,8 @@ position = Vector2(24, -11)
 scale = Vector2(3, 3)
 texture = SubResource("AtlasTexture_w2joa")
 
-[node name="Moving Platform2" parent="platforms" node_paths=PackedStringArray("idle_points_list") instance=ExtResource("6_daoww")]
+[node name="Moving Platform2" parent="platforms" instance=ExtResource("6_daoww")]
 position = Vector2(824, 552)
-collision_layer = 4
-speed = 100
-idle_points_list = [NodePath("../../startends/Start3"), NodePath("../../startends/End3")]
-idle_movement = SubResource("Resource_0ha4c")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="platforms/Moving Platform2"]
 shape = SubResource("RectangleShape2D_m42td")
@@ -325,12 +314,8 @@ position = Vector2(24, -11)
 scale = Vector2(3, 3)
 texture = SubResource("AtlasTexture_w2joa")
 
-[node name="Moving Platform4" parent="platforms" node_paths=PackedStringArray("idle_points_list") instance=ExtResource("6_daoww")]
+[node name="Moving Platform4" parent="platforms" instance=ExtResource("6_daoww")]
 position = Vector2(768, 632)
-collision_layer = 4
-speed = 100
-idle_points_list = [NodePath("../../startends/Start4"), NodePath("../../startends/End4")]
-idle_movement = SubResource("Resource_5pd6r")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="platforms/Moving Platform4"]
 shape = SubResource("RectangleShape2D_m42td")
@@ -358,12 +343,9 @@ position = Vector2(24, -11)
 scale = Vector2(3, 3)
 texture = SubResource("AtlasTexture_w2joa")
 
-[node name="Moving Platform5" parent="platforms" node_paths=PackedStringArray("idle_points_list") instance=ExtResource("6_daoww")]
+[node name="Moving Platform5" parent="platforms" instance=ExtResource("6_daoww")]
 position = Vector2(1176, 184)
-collision_layer = 4
 speed = 40
-idle_points_list = [NodePath("../../startends/Start5"), NodePath("../../startends/End5")]
-idle_movement = SubResource("Resource_j4v7y")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="platforms/Moving Platform5"]
 shape = SubResource("RectangleShape2D_m42td")
@@ -391,12 +373,8 @@ position = Vector2(24, -11)
 scale = Vector2(3, 3)
 texture = SubResource("AtlasTexture_w2joa")
 
-[node name="Moving Platform6" parent="platforms" node_paths=PackedStringArray("idle_points_list") instance=ExtResource("6_daoww")]
+[node name="Moving Platform6" parent="platforms" instance=ExtResource("6_daoww")]
 position = Vector2(2352, 360)
-collision_layer = 4
-speed = 100
-idle_points_list = [NodePath("../../startends/Start6"), NodePath("../../startends/End6")]
-idle_movement = SubResource("Resource_4r5e7")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="platforms/Moving Platform6"]
 shape = SubResource("RectangleShape2D_m42td")

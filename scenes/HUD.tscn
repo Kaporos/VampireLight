@@ -84,6 +84,16 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_lfxs1")
 theme_override_styles/hover = SubResource("StyleBoxFlat_42ibj")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_60pu0")
 theme_override_styles/focus = SubResource("StyleBoxFlat_3xxv6")
-text = "Just    try    again    :D"
+text = "Try    again    :D"
+
+[node name="Button" type="Button" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 12.0
+offset_top = 78.0
+offset_right = 76.0
+offset_bottom = 109.0
+text = "Hit me "
 
 [connection signal="pressed" from="GameOver/Restart" to="." method="_on_restart_pressed"]
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

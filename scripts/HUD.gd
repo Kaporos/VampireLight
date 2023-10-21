@@ -3,7 +3,8 @@ extends Control
 
 @export var player: Vampire;
 
-var menu = preload("res://scenes/menu.tscn");
+@onready var menu = load("res://scenes/menu.tscn");
+
 
 func _ready():
 	$Stats.visible = true
@@ -23,4 +24,7 @@ func _on_button_pressed():
 
 
 func _on_restart_pressed():
+	call_deferred("go_menu")
+	queue_free()
+func go_menu():
 	get_tree().change_scene_to_packed(menu);

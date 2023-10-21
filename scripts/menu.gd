@@ -1,6 +1,6 @@
 extends Control
 
-@export var start_scene: PackedScene;
+@export var start_scene: PackedScene = preload("res://levels/Level1.tscn");
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
