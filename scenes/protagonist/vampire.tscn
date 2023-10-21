@@ -2,7 +2,7 @@
 
 [ext_resource type="Shader" uid="uid://c6cmbwjnedpro" path="res://resources/blinking.tres" id="1_ld1ri"]
 [ext_resource type="Script" path="res://scenes/protagonist/vampire.gd" id="1_vq3cx"]
-[ext_resource type="Texture2D" uid="uid://cfafokeg0gcmb" path="res://assets/vampire.png" id="2_0xlqs"]
+[ext_resource type="Texture2D" uid="uid://caciyihgsgatx" path="res://assets/vampire.png" id="2_0xlqs"]
 [ext_resource type="Texture2D" uid="uid://cjmdbxfewfpf8" path="res://assets/bat_inverted.png" id="3_3vyk1"]
 [ext_resource type="Script" path="res://resources/HealthStats.gd" id="3_e563g"]
 [ext_resource type="Texture2D" uid="uid://g7bjinswylx" path="res://assets/bat.png" id="4_qhuc1"]
@@ -979,9 +979,6 @@ _data = {
 "RESET": SubResource("Animation_6jmsy"),
 "hit": SubResource("Animation_72vcf")
 }
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_utfl0"]
-size = Vector2(40, 60)
 
 [node name="Vampire" type="CharacterBody2D"]
 material = SubResource("ShaderMaterial_yn63p")
