@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://ce3bfu2fifown"]
+[gd_scene load_steps=20 format=3 uid="uid://ce3bfu2fifown"]
 
 [ext_resource type="Script" path="res://scripts/menu.gd" id="1_0puyd"]
 [ext_resource type="TileSet" uid="uid://dqiohjw4a40w2" path="res://resources/level_tileset.tres" id="3_4jo1r"]
@@ -23,18 +23,6 @@ expand_margin_top = 2.0
 expand_margin_right = 20.0
 expand_margin_bottom = 2.0
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oa5w6"]
-bg_color = Color(0.176471, 0.176471, 0.176471, 0)
-border_color = Color(0, 0, 0, 1)
-corner_radius_top_left = 5
-corner_radius_top_right = 5
-corner_radius_bottom_right = 5
-corner_radius_bottom_left = 5
-expand_margin_left = 20.0
-expand_margin_top = 2.0
-expand_margin_right = 20.0
-expand_margin_bottom = 2.0
-
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y5y33"]
 content_margin_top = 15.0
 content_margin_bottom = 10.0
@@ -50,7 +38,6 @@ expand_margin_bottom = 2.0
 
 [sub_resource type="Theme" id="Theme_fb3pe"]
 Button/styles/focus = SubResource("StyleBoxFlat_prhx3")
-Button/styles/hover = SubResource("StyleBoxFlat_oa5w6")
 Button/styles/normal = SubResource("StyleBoxFlat_y5y33")
 Button/styles/pressed = SubResource("StyleBoxFlat_y5y33")
 

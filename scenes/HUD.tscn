@@ -92,7 +92,6 @@ text = "Game Over"
 horizontal_alignment = 1
 
 [node name="Restart" type="Button" parent="GameOver"]
-unique_name_in_owner = true
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 0.494118, 0.427451, 1)
 theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
