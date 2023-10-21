@@ -5,8 +5,9 @@ offsets = PackedFloat32Array(0, 0.389785, 1)
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0.207843)
 
 [node name="WaterParticles" type="CPUParticles2D"]
+z_index = 3
 position = Vector2(1177, 867)
-amount = 30
+amount = 20
 speed_scale = 2.0
 emission_shape = 3
 emission_rect_extents = Vector2(25, 15)

@@ -1,0 +1,37 @@
+[gd_resource type="AnimatedTexture" load_steps=7 format=3 uid="uid://5ib4dbog34sv"]
+
+[ext_resource type="Texture2D" uid="uid://ctpniknd1owsh" path="res://assets/cavesofgallet_tiles.png" id="1_6so4g"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gtflp"]
+atlas = ExtResource("1_6so4g")
+region = Rect2(32, 128, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mc41d"]
+atlas = ExtResource("1_6so4g")
+region = Rect2(40, 128, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8bayi"]
+atlas = ExtResource("1_6so4g")
+region = Rect2(48, 128, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4h1ul"]
+atlas = ExtResource("1_6so4g")
+region = Rect2(56, 128, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_il4ci"]
+atlas = ExtResource("1_6so4g")
+region = Rect2(64, 128, 8, 8)
+
+[resource]
+resource_local_to_scene = true
+frames = 5
+speed_scale = 2.0
+frame_0/texture = SubResource("AtlasTexture_gtflp")
+frame_1/texture = SubResource("AtlasTexture_mc41d")
+frame_1/duration = 1.0
+frame_2/texture = SubResource("AtlasTexture_8bayi")
+frame_2/duration = 1.0
+frame_3/texture = SubResource("AtlasTexture_4h1ul")
+frame_3/duration = 1.0
+frame_4/texture = SubResource("AtlasTexture_il4ci")
+frame_4/duration = 5.0
