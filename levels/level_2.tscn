@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=3 uid="uid://cy5r404jbs526"]
+[gd_scene load_steps=41 format=3 uid="uid://cy5r404jbs526"]
 
 [ext_resource type="TileSet" uid="uid://dqiohjw4a40w2" path="res://resources/level_tileset.tres" id="1_6m82o"]
 [ext_resource type="Script" path="res://levels/level_2.gd" id="1_bgfho"]
@@ -11,7 +11,6 @@
 [ext_resource type="Texture2D" uid="uid://ctpniknd1owsh" path="res://assets/cavesofgallet_tiles.png" id="7_n33ou"]
 [ext_resource type="Script" path="res://resources/IdleMovement.gd" id="9_22crq"]
 [ext_resource type="Texture2D" uid="uid://dk8v0pci6bekp" path="res://assets/ray.png" id="9_hvv6q"]
-[ext_resource type="Script" path="res://resources/ArgoMovement.gd" id="10_08x6v"]
 [ext_resource type="PackedScene" uid="uid://nts0a2yks63o" path="res://scenes/HUD.tscn" id="12_56muy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m42td"]
