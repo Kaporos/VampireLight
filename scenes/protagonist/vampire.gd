@@ -27,8 +27,6 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 
-
-
 	if elevate_bat:
 		transform[2][1] -= BAT_SPEED*delta/8
 	if is_tranforming:

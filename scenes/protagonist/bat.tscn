@@ -216,9 +216,8 @@ script = ExtResource("1_ibwjm")
 position = Vector2(0, 16)
 scale = Vector2(4, 4)
 sprite_frames = SubResource("SpriteFrames_36rlb")
-animation = &"bat_transform_left"
+animation = &"move_right"
 autoplay = "idle_right"
-frame_progress = 0.958001
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -2)

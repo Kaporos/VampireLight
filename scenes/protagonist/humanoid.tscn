@@ -478,7 +478,7 @@ script = ExtResource("1_chka5")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(1.25, -5)
 sprite_frames = SubResource("SpriteFrames_0aq3r")
-animation = &"walking_right"
+animation = &"bat_transform_left"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_6yriw")

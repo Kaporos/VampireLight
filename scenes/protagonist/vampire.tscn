@@ -821,9 +821,8 @@ visible = false
 position = Vector2(54, 88)
 scale = Vector2(4, 4)
 sprite_frames = SubResource("SpriteFrames_s1o5a")
-animation = &"idle_left"
+animation = &"idle_right"
 autoplay = "idle_right"
-frame_progress = 0.756185
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(0.9, 0.9)

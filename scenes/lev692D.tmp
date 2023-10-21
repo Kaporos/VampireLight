@@ -15,8 +15,9 @@ script = ExtResource("4_s0ysw")
 health = 100
 maxHealth = 115
 
-[sub_resource type="Resource" id="Resource_ccshw"]
+[sub_resource type="Resource" id="Resource_hkbkd"]
 script = ExtResource("8_yitkl")
+points_list = Array[Node2D]([null, null])
 started = true
 retour = true
 
@@ -57,12 +58,9 @@ player = NodePath("../../Vampire")
 color = Color(0.392157, 0.392157, 0.392157, 1)
 script = ExtResource("3_12k5j")
 
-[node name="Moving Platform" parent="." node_paths=PackedStringArray("idle_points_list") instance=ExtResource("1_m21ca")]
+[node name="Moving Platform" parent="." instance=ExtResource("1_m21ca")]
 position = Vector2(264, 227)
-collision_layer = 4
-gravity_affected = true
-idle_points_list = [NodePath("../Start"), NodePath("../End")]
-idle_movement = SubResource("Resource_ccshw")
+idle_movement = SubResource("Resource_hkbkd")
 
 [node name="Sprite2D" type="Sprite2D" parent="Moving Platform"]
 texture = SubResource("PlaceholderTexture2D_12p8r")
