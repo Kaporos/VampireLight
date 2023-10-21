@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://pimvyn750prq"]
+[gd_scene load_steps=34 format=3 uid="uid://pimvyn750prq"]
 
 [ext_resource type="Texture2D" uid="uid://umnt1y4vh5bo" path="res://assets/dungeon_tileset.png" id="1_i0u8l"]
 [ext_resource type="Texture2D" uid="uid://63cs6b0pq4gl" path="res://assets/cavesofgallet_tiles_blood.png" id="3_bv1op"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://bfg0pl4n5f661" path="res://scenes/protagonist/vampire.tscn" id="6_x60wa"]
 [ext_resource type="PackedScene" uid="uid://dnui1b27ihfua" path="res://components/coffin.tscn" id="7_a8r2b"]
 [ext_resource type="Texture2D" uid="uid://caciyihgsgatx" path="res://assets/vampire.png" id="8_w33i1"]
+[ext_resource type="Script" path="res://scripts/Wife.gd" id="9_meb5g"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_rfkua"]
 tile_data = PackedInt32Array(0, 3, 0, 65536, 3, 0, 131072, 3, 0, 196608, 3, 0, 262144, 196611, 65544, 327680, 196611, 65544, 393216, 3, 0, 1, 3, 0, 65537, 3, 0, 131073, 3, 0, 196609, 3, 9, 262145, 262147, 10, 327681, 262147, 8, 393217, 262147, 11, 2, 262147, 7, 65538, 262147, 8, 131074, 262147, 8, 196610, 262147, 9, 262146, 262147, 10, 327682, 262147, 8, 393218, 262147, 11, 3, 262147, 7, 65539, 262147, 8, 131075, 262147, 8, 196611, 262147, 9, 262147, 262147, 10, 327683, 262147, 8, 393219, 262147, 11, 4, 3, 0, 65540, 3, 0, 131076, 3, 0, 196612, 131075, 9, 262148, 262147, 10, 327684, 262147, 8, 393220, 262147, 11, 5, 3, 0, 65541, 3, 0, 131077, 3, 0, 196613, 3, 0, 262149, 196611, 8, 327685, 196611, 8, 393221, 3, 0)
@@ -531,43 +532,6 @@ sources/0 = SubResource("TileSetAtlasSource_ju2r1")
 sources/3 = SubResource("TileSetAtlasSource_ovdfl")
 pattern_0 = SubResource("TileMapPattern_rfkua")
 
-[sub_resource type="Animation" id="Animation_e8hm2"]
-resource_name = "cinematic"
-length = 25.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Control/MarginContainer/Label:text")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 3.7, 7.6, 11.8, 17, 22.7),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": ["Honey..i'm feeling bad.", "It's been a long time since we are here.", "I miss the time when we used to see the sunlight.", "I wish someone would bring me a flower from the surface.", "I have to go, i really need to poo.", "*remote kiss*"]
-}
-
-[sub_resource type="Animation" id="Animation_gq4wj"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Control/MarginContainer/Label:text")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": ["Honey..i'm feeling bad."]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_t08lv"]
-_data = {
-"RESET": SubResource("Animation_gq4wj"),
-"cinematic": SubResource("Animation_e8hm2")
-}
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_1a46b"]
 atlas = ExtResource("8_w33i1")
 region = Rect2(0, 384, 32, 32)
@@ -620,6 +584,10 @@ region = Rect2(352, 384, 32, 32)
 atlas = ExtResource("8_w33i1")
 region = Rect2(352, 416, 32, 32)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_jlvw5"]
+atlas = ExtResource("8_w33i1")
+region = Rect2(0, 384, 32, 32)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_ymbr4"]
 animations = [{
 "frames": [{
@@ -665,11 +633,73 @@ animations = [{
 "loop": false,
 "name": &"default",
 "speed": 15.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jlvw5")
+}],
+"loop": false,
+"name": &"idle",
+"speed": 5.0
 }]
 
 [sub_resource type="Curve" id="Curve_gusby"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.896266, 0.115789), 0.0, 0.0, 0, 0]
 point_count = 2
+
+[sub_resource type="Animation" id="Animation_gq4wj"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Control/MarginContainer/Label:text")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [""]
+}
+
+[sub_resource type="Animation" id="Animation_e8hm2"]
+resource_name = "cinematic"
+length = 25.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Control/MarginContainer/Label:text")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3.7, 7.6, 11.8, 17, 22.7, 24.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": ["Honey..i'm feeling bad.", "It's been a long time since we are here.", "I miss the time when we used to see the sunlight.", "I wish someone would bring me a flower from the surface.", "I have to go, i really need to poo.", "*remote kiss*", ""]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Wife")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(24.9),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"set_playing"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_t08lv"]
+_data = {
+"RESET": SubResource("Animation_gq4wj"),
+"cinematic": SubResource("Animation_e8hm2")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_11qrv"]
+size = Vector2(50, 187)
 
 [node name="Node2D" type="Node2D"]
 
@@ -700,16 +730,13 @@ autoplay = true
 [node name="coffin" parent="." instance=ExtResource("7_a8r2b")]
 position = Vector2(1432, 430)
 
-[node name="CinematicPlayer" type="AnimationPlayer" parent="."]
-autoplay = "cinematic"
-libraries = {
-"": SubResource("AnimationLibrary_t08lv")
-}
-
 [node name="Wife" type="AnimatedSprite2D" parent="."]
 position = Vector2(1000, 422)
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_ymbr4")
+animation = &"idle"
+autoplay = "idle"
+script = ExtResource("9_meb5g")
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="Wife"]
 lifetime = 0.5
@@ -720,6 +747,13 @@ scale_amount_min = 2.0
 scale_amount_max = 2.0
 scale_amount_curve = SubResource("Curve_gusby")
 color = Color(1, 0.584314, 1, 1)
+
+[node name="CinematicPlayer" type="AnimationPlayer" parent="Wife"]
+root_node = NodePath("../..")
+autoplay = "RESET"
+libraries = {
+"": SubResource("AnimationLibrary_t08lv")
+}
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
@@ -743,5 +777,13 @@ theme_override_constants/margin_bottom = 50
 
 [node name="Label" type="Label" parent="Control/MarginContainer"]
 layout_mode = 2
-text = "Honey..i'm feeling bad."
 horizontal_alignment = 1
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(734, 455)
+shape = SubResource("RectangleShape2D_11qrv")
+
+[connection signal="body_entered" from="Area2D" to="Wife" method="_on_area_2d_body_entered"]

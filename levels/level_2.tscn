@@ -441,7 +441,6 @@ scale = Vector2(3, 3)
 texture = SubResource("AtlasTexture_w2joa")
 
 [node name="Moving Platform7" parent="platforms" node_paths=PackedStringArray("idle_points_list") instance=ExtResource("6_daoww")]
-visible = false
 position = Vector2(3167, 122)
 collision_layer = 4
 speed = 100
