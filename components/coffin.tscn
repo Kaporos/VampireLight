@@ -1,0 +1,56 @@
+[gd_scene load_steps=9 format=3 uid="uid://dnui1b27ihfua"]
+
+[ext_resource type="Texture2D" uid="uid://ctpniknd1owsh" path="res://assets/cavesofgallet_tiles.png" id="1_815gv"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wvn1i"]
+atlas = ExtResource("1_815gv")
+region = Rect2(0, 96, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yxyui"]
+atlas = ExtResource("1_815gv")
+region = Rect2(16, 96, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qia0c"]
+atlas = ExtResource("1_815gv")
+region = Rect2(0, 112, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4dlsv"]
+atlas = ExtResource("1_815gv")
+region = Rect2(16, 112, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f2e7r"]
+atlas = ExtResource("1_815gv")
+region = Rect2(32, 112, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fdm6y"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wvn1i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yxyui")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qia0c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4dlsv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f2e7r")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_noogh"]
+
+[node name="coffin" type="Area2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_fdm6y")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_noogh")
