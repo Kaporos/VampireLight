@@ -295,7 +295,7 @@ func _on_tiles_detector_body_exited(body: Node2D):
 
 func _on_light_detector_exposed():
 	print("here bro")
-	stats.hit(2.5)
+	stats.hit(8)
 
 
 func _on_ladder_detector_body_exited(body:Node2D):
