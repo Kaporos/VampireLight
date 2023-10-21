@@ -1,0 +1,59 @@
+[gd_resource type="VisualShader" load_steps=5 format=3 uid="uid://c6cmbwjnedpro"]
+
+[sub_resource type="VisualShaderNodeColorConstant" id="VisualShaderNodeColorConstant_poc23"]
+
+[sub_resource type="VisualShaderNodeBooleanParameter" id="VisualShaderNodeBooleanParameter_u6lcm"]
+parameter_name = "white"
+default_value_enabled = true
+
+[sub_resource type="VisualShaderNodeSwitch" id="VisualShaderNodeSwitch_p74ki"]
+default_input_values = [0, false, 1, Vector3(1, 1, 1), 2, Vector3(0, 0, 0)]
+op_type = 4
+
+[sub_resource type="VisualShaderNodeInput" id="VisualShaderNodeInput_w56wa"]
+input_name = "color"
+
+[resource]
+code = "shader_type canvas_item;
+render_mode blend_mix;
+
+uniform bool white = false;
+
+
+
+void fragment() {
+// BooleanParameter:3
+	bool n_out3p0 = white;
+
+
+// ColorConstant:2
+	vec4 n_out2p0 = vec4(1.000000, 1.000000, 1.000000, 1.000000);
+
+
+// Input:5
+	vec4 n_out5p0 = COLOR;
+
+
+	vec3 n_out4p0;
+// Switch:4
+	n_out4p0 = mix(vec3(n_out5p0.xyz), vec3(n_out2p0.xyz), float(n_out3p0));
+
+
+// Output:0
+	COLOR.rgb = n_out4p0;
+
+
+}
+"
+graph_offset = Vector2(-242.375, 74.2643)
+mode = 1
+flags/light_only = false
+nodes/fragment/2/node = SubResource("VisualShaderNodeColorConstant_poc23")
+nodes/fragment/2/position = Vector2(-240, 440)
+nodes/fragment/3/node = SubResource("VisualShaderNodeBooleanParameter_u6lcm")
+nodes/fragment/3/position = Vector2(-180, 260)
+nodes/fragment/4/node = SubResource("VisualShaderNodeSwitch_p74ki")
+nodes/fragment/4/position = Vector2(120, 300)
+nodes/fragment/5/node = SubResource("VisualShaderNodeInput_w56wa")
+nodes/fragment/5/position = Vector2(-300, 520)
+nodes/fragment/connections = PackedInt32Array(3, 0, 4, 0, 2, 0, 4, 1, 5, 0, 4, 2, 4, 0, 0, 0)
