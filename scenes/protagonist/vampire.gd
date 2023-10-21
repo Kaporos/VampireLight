@@ -48,7 +48,7 @@ func check_collisions_physic_layer_and_light():
 		collision2dbatlight.disabled = true
 		collision2dhoomanlight.disabled = false
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _physics_process(delta):
 	if body_in_lava:
 		stats.hit(200)
 	if elevate_bat:
@@ -72,7 +72,11 @@ func _process(delta):
 			animate_humanoid(input_vector)
 
 	check_for_transform()
-		
+
+func stop_physics():
+	set_physics_process(false);
+	$HumanoidAnimation.play("idle_right")
+
 func move_bat(input_vector):
 	$HumanoidCollision.disabled = true
 	$BatCollision.disabled = false
@@ -291,7 +295,7 @@ func _on_tiles_detector_body_exited(body: Node2D):
 	body_in_lava = false
 
 func _on_light_detector_exposed():
-	stats.hit(2.5)
+	stats.hit(8)
 
 
 func _on_ladder_detector_body_exited(body:Node2D):
