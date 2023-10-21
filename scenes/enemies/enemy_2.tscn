@@ -1,4 +1,4 @@
-[gd_scene load_steps=58 format=3 uid="uid://1s4y5trxxv4t"]
+[gd_scene load_steps=59 format=3 uid="uid://1s4y5trxxv4t"]
 
 [ext_resource type="Texture2D" uid="uid://bduvum64j3k8c" path="res://assets/enemies/enemy2_left.png" id="1_foelk"]
 [ext_resource type="Script" path="res://scenes/enemies/enemy_2.gd" id="1_hx0xe"]
@@ -408,39 +408,57 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_v16qk"]
-size = Vector2(100, 100)
+size = Vector2(100, 76)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jifdv"]
 size = Vector2(1000, 1000)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6mllw"]
-size = Vector2(5, 6)
+size = Vector2(5, 17)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3lf3l"]
+size = Vector2(111, 86)
 
 [node name="enemy2" type="CharacterBody2D"]
-collision_layer = 4
-collision_mask = 5
+collision_layer = 0
+collision_mask = 4
 script = ExtResource("1_hx0xe")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0.499997, 0.500003)
 scale = Vector2(3.15625, 3.09375)
 sprite_frames = SubResource("SpriteFrames_e7pd8")
-animation = &"sprint_right"
+animation = &"attack_right"
+frame_progress = 0.799423
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 12)
 shape = SubResource("RectangleShape2D_v16qk")
 
 [node name="agro_zone" type="Area2D" parent="."]
+collision_layer = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="agro_zone"]
 shape = SubResource("RectangleShape2D_jifdv")
 
 [node name="f_hitbox" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="f_hitbox"]
-position = Vector2(0, 50)
+position = Vector2(0, 55.5)
 shape = SubResource("RectangleShape2D_6mllw")
+
+[node name="hitbox" type="Area2D" parent="."]
+modulate = Color(0.635294, 0.247059, 0.203922, 1)
+collision_layer = 0
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox"]
+position = Vector2(0.5, 12)
+shape = SubResource("RectangleShape2D_3lf3l")
 
 [connection signal="animation_looped" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_looped"]
 [connection signal="body_entered" from="agro_zone" to="." method="_on_agro_zone_body_entered"]
 [connection signal="body_exited" from="agro_zone" to="." method="_on_agro_zone_body_exited"]
+[connection signal="area_entered" from="hitbox" to="." method="_on_hitbox_area_entered"]

@@ -88,6 +88,9 @@ func _on_animated_sprite_2d_animation_looped():
 		queue_free()
 
 
-func _on_hitbox_body_entered(body):
-	if body is  :
-		print("bobo")
+
+
+
+func _on_hitbox_area_entered(area):
+	print("bobo")
+	hp.hit(69)

@@ -62,6 +62,7 @@ d_pressed={
 2d_physics/layer_1="Player"
 2d_physics/layer_2="Lights"
 2d_physics/layer_3="Obstacles"
+2d_physics/layer_4="EnnemyHits"
 
 [physics]
 

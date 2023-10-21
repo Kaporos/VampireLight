@@ -310,22 +310,19 @@ size = Vector2(70, 77)
 size = Vector2(1000, 1000)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_o1wun"]
-size = Vector2(64, 72)
+size = Vector2(70, 77)
 
 [node name="enemy_3" type="CharacterBody2D"]
 collision_layer = 4
 collision_mask = 5
 script = ExtResource("1_c0aon")
-direction = null
-cooldown = null
-att_mode = null
-power = null
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(3, -12)
 scale = Vector2(3.07812, 3.07812)
 sprite_frames = SubResource("SpriteFrames_conia")
-animation = &"shooting_right"
+animation = &"death_left"
+frame_progress = 0.664197
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_7lhd7")
@@ -337,11 +334,14 @@ collision_layer = 0
 shape = SubResource("RectangleShape2D_rvf88")
 
 [node name="hitbox" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox"]
+position = Vector2(0, -0.5)
 shape = SubResource("RectangleShape2D_o1wun")
 
 [connection signal="animation_looped" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_looped"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
-[connection signal="body_entered" from="hitbox" to="." method="_on_hitbox_body_entered"]
+[connection signal="area_entered" from="hitbox" to="." method="_on_hitbox_area_entered"]
