@@ -682,7 +682,7 @@ shape = SubResource("RectangleShape2D_cyrja")
 [node name="HumanoidAnimation" type="AnimatedSprite2D" parent="."]
 visible = false
 position = Vector2(64, 64)
-scale = Vector2(2.8, 2.8)
+scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_qtv1s")
 animation = &"bat_transform_right"
 frame_progress = 0.145651
@@ -696,6 +696,7 @@ autoplay = "idle_right"
 frame_progress = 0.816147
 
 [node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(0.9, 0.9)
 limit_left = 0
 limit_top = 0
 limit_bottom = 1000
