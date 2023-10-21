@@ -20,8 +20,10 @@ func _get_configuration_warnings():
 	return errors
 
 func next_level():
+	print("Index was ", index," going to", index+1)
 	index += 1
 	if index == len(levels):
+		print("overflow -> returning menu :D")
 		index = -1
 		return menu
 	return levels[index]

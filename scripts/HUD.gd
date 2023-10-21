@@ -26,7 +26,6 @@ func _on_button_pressed():
 
 
 func _on_restart_pressed():
-	call_deferred("go_menu")
-	queue_free()
-func go_menu():
-	get_tree().change_scene_to_packed(menu);
+	#Restarting current level
+	Game.index -= 1;
+	get_tree().change_scene_to_packed(Game.next_level())
