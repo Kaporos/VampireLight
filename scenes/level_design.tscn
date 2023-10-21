@@ -47,7 +47,6 @@ stats = SubResource("Resource_pq4g1")
 player = NodePath("../../Vampire")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
-color = Color(0.392157, 0.392157, 0.392157, 1)
 script = ExtResource("3_12k5j")
 
 [node name="Moving Platform" parent="." node_paths=PackedStringArray("point_list") instance=ExtResource("1_m21ca")]
