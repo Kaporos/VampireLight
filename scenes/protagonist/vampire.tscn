@@ -1,9 +1,14 @@
-[gd_scene load_steps=110 format=3 uid="uid://bfg0pl4n5f661"]
+[gd_scene load_steps=112 format=3 uid="uid://bfg0pl4n5f661"]
 
+[ext_resource type="Shader" uid="uid://c6cmbwjnedpro" path="res://resources/blinking.tres" id="1_ld1ri"]
 [ext_resource type="Script" path="res://scenes/protagonist/vampire.gd" id="1_vq3cx"]
 [ext_resource type="Texture2D" uid="uid://caciyihgsgatx" path="res://assets/vampire.png" id="2_0xlqs"]
 [ext_resource type="Texture2D" uid="uid://cjmdbxfewfpf8" path="res://assets/bat_inverted.png" id="3_3vyk1"]
 [ext_resource type="Texture2D" uid="uid://g7bjinswylx" path="res://assets/bat.png" id="4_qhuc1"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_yn63p"]
+shader = ExtResource("1_ld1ri")
+shader_parameter/white = false
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_wpcga"]
 height = 54.0
@@ -791,6 +796,7 @@ animations = [{
 }]
 
 [node name="Vampire" type="CharacterBody2D"]
+material = SubResource("ShaderMaterial_yn63p")
 collision_mask = 4
 script = ExtResource("1_vq3cx")
 BAT_SPEED = 500
@@ -810,6 +816,7 @@ shape = SubResource("RectangleShape2D_nptbc")
 disabled = true
 
 [node name="HumanoidAnimation" type="AnimatedSprite2D" parent="."]
+use_parent_material = true
 position = Vector2(64, 64)
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_qtv1s")
@@ -818,6 +825,7 @@ frame_progress = 0.766643
 
 [node name="BatAnimation" type="AnimatedSprite2D" parent="."]
 visible = false
+use_parent_material = true
 position = Vector2(54, 88)
 scale = Vector2(4, 4)
 sprite_frames = SubResource("SpriteFrames_s1o5a")

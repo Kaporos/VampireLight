@@ -1,0 +1,18 @@
+[gd_scene load_steps=2 format=3 uid="uid://cd61xutrsbusv"]
+
+[sub_resource type="Gradient" id="Gradient_a4l5h"]
+offsets = PackedFloat32Array(0, 0.389785, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0.207843)
+
+[node name="WaterParticles" type="CPUParticles2D"]
+position = Vector2(1177, 867)
+amount = 30
+speed_scale = 2.0
+emission_shape = 3
+emission_rect_extents = Vector2(25, 15)
+gravity = Vector2(0, -20)
+angular_velocity_min = 1.0
+angular_velocity_max = 5.0
+scale_amount_min = 7.0
+scale_amount_max = 7.0
+color_ramp = SubResource("Gradient_a4l5h")
