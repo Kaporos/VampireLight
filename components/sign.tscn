@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://bcfjfkr6853j1"]
+
+[ext_resource type="Texture2D" uid="uid://ctpniknd1owsh" path="res://assets/cavesofgallet_tiles.png" id="1_80tyg"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i7jen"]
+atlas = ExtResource("1_80tyg")
+region = Rect2(16, 128, 16, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d887n"]
+size = Vector2(20, 18)
+
+[node name="sign" type="Area2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("AtlasTexture_i7jen")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -1)
+shape = SubResource("RectangleShape2D_d887n")
