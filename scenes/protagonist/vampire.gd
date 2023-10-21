@@ -27,14 +27,15 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 
-
-
 	if elevate_bat:
 		transform[2][1] -= BAT_SPEED*delta/8
 	if is_tranforming:
 		return
 	var input_vector = get_input()
 	if is_bat:
+		if !$BatFlap.is_playing:
+			$BatFlap.play()
+			$BatFlap.is_playing = true
 		move_bat(input_vector)
 		if not is_attacking:
 			animate_bat(input_vector)
@@ -113,6 +114,9 @@ func animate_humanoid(input_vector):
 	$BatAnimation.visible = false
 
 	if Input.is_action_just_pressed("ui_accept"):
+		if $WalkingSound.is_playing:
+			$WalkingSound.stop()
+			$WalkingSound.is_playing = false
 		if orientation_was_right:
 			is_attacking = true
 			$HumanoidAnimation.play("attack_right")
@@ -126,7 +130,16 @@ func animate_humanoid(input_vector):
 			is_attacking = false
 			return
 
-	if (input_vector[0] == 0 and input_vector[1] == 0):
+	if !is_on_floor():
+		if $WalkingSound.is_playing:
+			$WalkingSound.stop()
+			$WalkingSound.is_playing = false
+
+	# if (input_vector[0] == 0 and input_vector[1] == 0):
+	if (input_vector[0] == 0):
+		if $WalkingSound.is_playing:
+			$WalkingSound.stop()
+			$WalkingSound.is_playing = false
 		if orientation_was_right:
 			if collision_offset:
 				$HumanoidAnimation.position.x += 20
@@ -138,6 +151,11 @@ func animate_humanoid(input_vector):
 			collision_offset = true
 		$HumanoidAnimation.play("idle_left")
 		return
+
+	if !$WalkingSound.is_playing and is_on_floor():
+		$WalkingSound.play()
+		$WalkingSound.is_playing = true
+
 	if input_vector[0] > 0:
 		$HumanoidAnimation.play("walking_right")
 		if collision_offset:
@@ -159,6 +177,10 @@ func check_for_transform():
 
 	var transform_command = Input.is_action_pressed("bat_transform")
 	if transform_command:
+		
+		if $WalkingSound.is_playing:
+			$WalkingSound.stop()
+			$WalkingSound.is_playing = false
 
 		if is_bat:
 			is_tranforming = true

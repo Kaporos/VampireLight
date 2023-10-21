@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://bfg0pl4n5f661" path="res://scenes/protagonist/vampire.tscn" id="1_52hp8"]
 [ext_resource type="TileSet" uid="uid://dqiohjw4a40w2" path="res://resources/level_tileset.tres" id="1_cm01s"]
-[ext_resource type="PackedScene" uid="uid://nts0a2yks63o" path="res://scenes/HUD.tscn" id="1_dp0kw"]
+[ext_resource type="PackedScene" path="res://scenes/HUD.tscn" id="1_dp0kw"]
 [ext_resource type="Script" path="res://scenes/nodes/LightedTilemap.gd" id="1_f2y1v"]
 [ext_resource type="PackedScene" uid="uid://cyfw5khdfsw5j" path="res://components/platforms/moving_platform.tscn" id="1_m21ca"]
 [ext_resource type="Script" path="res://scripts/Darkness.gd" id="3_12k5j"]

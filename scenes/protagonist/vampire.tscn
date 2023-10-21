@@ -1,9 +1,13 @@
-[gd_scene load_steps=110 format=3 uid="uid://bfg0pl4n5f661"]
+[gd_scene load_steps=114 format=3 uid="uid://bfg0pl4n5f661"]
 
 [ext_resource type="Script" path="res://scenes/protagonist/vampire.gd" id="1_vq3cx"]
 [ext_resource type="Texture2D" uid="uid://cfafokeg0gcmb" path="res://assets/vampire.png" id="2_0xlqs"]
 [ext_resource type="Texture2D" uid="uid://cjmdbxfewfpf8" path="res://assets/bat_inverted.png" id="3_3vyk1"]
 [ext_resource type="Texture2D" uid="uid://g7bjinswylx" path="res://assets/bat.png" id="4_qhuc1"]
+[ext_resource type="AudioStream" uid="uid://c805jsuo67isa" path="res://assets/vlad_flap.mp3" id="5_enta2"]
+[ext_resource type="Script" path="res://scenes/protagonist/BatFlap.gd" id="6_ocopq"]
+[ext_resource type="AudioStream" uid="uid://btrvbykyjpft" path="res://assets/run.mp3" id="7_mxjoy"]
+[ext_resource type="Script" path="res://scenes/protagonist/WalkingSound.gd" id="8_um580"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_wpcga"]
 height = 54.0
@@ -12,7 +16,7 @@ height = 54.0
 size = Vector2(38, 59)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nptbc"]
-size = Vector2(49, 44)
+size = Vector2(36, 59)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_nkrvl"]
 atlas = ExtResource("2_0xlqs")
@@ -493,7 +497,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"idle_left",
-"speed": 10.0
+"speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -528,7 +532,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"idle_right",
-"speed": 10.0
+"speed": 5.0
 }, {
 "frames": [],
 "loop": true,
@@ -805,7 +809,7 @@ position = Vector2(57, 81.5)
 shape = SubResource("RectangleShape2D_cyrja")
 
 [node name="HitArea" type="CollisionShape2D" parent="."]
-position = Vector2(104.5, 106)
+position = Vector2(94, 81.5)
 shape = SubResource("RectangleShape2D_nptbc")
 disabled = true
 
@@ -813,17 +817,16 @@ disabled = true
 position = Vector2(64, 64)
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_qtv1s")
-animation = &"attack_left"
-frame_progress = 0.766643
+animation = &"attack_right"
+frame_progress = 0.170121
 
 [node name="BatAnimation" type="AnimatedSprite2D" parent="."]
 visible = false
 position = Vector2(54, 88)
 scale = Vector2(4, 4)
 sprite_frames = SubResource("SpriteFrames_s1o5a")
-animation = &"idle_left"
+animation = &"idle_right"
 autoplay = "idle_right"
-frame_progress = 0.756185
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(0.9, 0.9)
@@ -833,3 +836,15 @@ limit_bottom = 1000
 position_smoothing_enabled = true
 drag_vertical_enabled = true
 drag_top_margin = 0.4
+
+[node name="BatFlap" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_enta2")
+volume_db = -10.0
+script = ExtResource("6_ocopq")
+
+[node name="WalkingSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_mxjoy")
+volume_db = -10.0
+script = ExtResource("8_um580")
+
+[connection signal="finished" from="BatFlap" to="BatFlap" method="_on_finished"]
