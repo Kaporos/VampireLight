@@ -679,4 +679,6 @@ terrain_set_0/terrain_1/name = "wood"
 terrain_set_0/terrain_1/color = Color(0.501961, 0.439216, 0.25098, 1)
 terrain_set_0/terrain_2/name = "beam"
 terrain_set_0/terrain_2/color = Color(0.866667, 0.109804, 0.262745, 1)
+custom_data_layer_0/name = "light"
+custom_data_layer_0/type = 2
 sources/0 = SubResource("TileSetAtlasSource_cd27o")

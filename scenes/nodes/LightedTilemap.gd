@@ -11,6 +11,8 @@ func _ready():
 		var used_tiles: Array[Vector2i] = get_used_cells(layer);
 		for tile in used_tiles:
 			var properties = get_cell_tile_data(layer, tile);
+			if !properties:
+				continue
 			var light_intensity = properties.get_custom_data("light");
 			var is_water_particles = properties.get_custom_data("water_particles");
 			if light_intensity > 0 && lightsEnabled:
