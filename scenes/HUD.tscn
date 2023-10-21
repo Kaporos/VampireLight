@@ -42,6 +42,7 @@ tint_under = Color(0.658824, 0.658824, 0.658824, 1)
 tint_progress = Color(1, 0, 0, 1)
 
 [node name="GameOver" type="VBoxContainer" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5

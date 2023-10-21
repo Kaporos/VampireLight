@@ -17,9 +17,9 @@ var orientation_was_right = true
 var is_tranforming = false
 var elevate_bat = false
 var is_attacking = false
-
+var body_in_lava = false
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
-
+var old_vampire_life;
 
 var dead=false;
 # Called when the node enters the scene tree for the first time.
@@ -30,17 +30,33 @@ func _show_hit_anim(_v, isHitted):
 	if !isHitted:
 		return
 	$HitAnimationPlayer.play("hit")
-
+func check_collisions_physic_layer_and_light():
+	var collision2dbat = $TilesDetector.get_node("BatCollision")
+	var collision2dhooman = $TilesDetector.get_node("HumanoidCollision")
+	var collision2dbatlight = $LightDetector.get_node("BatCollision")
+	var collision2dhoomanlight = $LightDetector.get_node("HumanoidCollision")
+	if is_bat:
+		collision2dbat.disabled = false
+		collision2dhooman.disabled = true
+		collision2dbatlight.disabled = false
+		collision2dhoomanlight.disabled = true
+	else:
+		collision2dbat.disabled = true
+		collision2dhooman.disabled = false
+		collision2dbatlight.disabled = true
+		collision2dhoomanlight.disabled = false
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 
 	if dead:
 		return;
-
+	if body_in_lava:
+		stats.hit(200)
 	if elevate_bat:
 		transform[2][1] -= BAT_SPEED*delta/8
 	if is_tranforming:
 		return
+	check_collisions_physic_layer_and_light()
 	var input_vector = get_input()
 	if is_bat:
 		if !$BatFlap.is_playing:
@@ -49,6 +65,8 @@ func _process(delta):
 		move_bat(input_vector)
 		if not is_attacking:
 			animate_bat(input_vector)
+
+		
 	else:
 		move_humanoid(delta, input_vector)
 		if not is_attacking:
@@ -193,6 +211,7 @@ func check_for_transform():
 			$WalkingSound.is_playing = false
 
 		if is_bat:
+			stats.health = old_vampire_life if old_vampire_life else stats.maxHealth
 			is_tranforming = true
 			elevate_bat = true
 			if orientation_was_right:
@@ -212,6 +231,9 @@ func check_for_transform():
 				is_bat = false
 			return
 		elif is_on_floor():
+			old_vampire_life = stats.health
+			stats.health = 2
+
 			is_tranforming = true
 			if orientation_was_right:
 				$HumanoidAnimation.play("bat_transform_right")
@@ -240,3 +262,13 @@ func get_usefull_vector():
 	var x_comp = input_vector[1] - input_vector[0]
 	var y_comp = input_vector[3] - input_vector[2]
 	return Vector2(x_comp, y_comp)
+
+func _on_tiles_detector_body_entered(body: Node2D):
+	if not body_in_lava:
+		body_in_lava = true
+
+func _on_tiles_detector_body_exited(body: Node2D):
+	body_in_lava = false
+
+func _on_light_detector_exposed():
+	stats.hit(2.5)

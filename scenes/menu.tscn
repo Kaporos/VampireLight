@@ -1,11 +1,12 @@
-[gd_scene load_steps=12 format=3 uid="uid://ce3bfu2fifown"]
+[gd_scene load_steps=19 format=3 uid="uid://ce3bfu2fifown"]
 
 [ext_resource type="Script" path="res://scripts/menu.gd" id="1_0puyd"]
 [ext_resource type="TileSet" uid="uid://dqiohjw4a40w2" path="res://resources/level_tileset.tres" id="3_4jo1r"]
-[ext_resource type="PackedScene" uid="uid://cnsk1261ow1cr" path="res://levels/Level1.tscn" id="3_dfa5h"]
+[ext_resource type="PackedScene" uid="uid://cy5r404jbs526" path="res://levels/level_2.tscn" id="3_dwj1v"]
 [ext_resource type="Script" path="res://scenes/nodes/LightedTilemap.gd" id="4_knlel"]
 [ext_resource type="FontFile" uid="uid://c2jjiune36dx4" path="res://assets/DEATHBLOOD.ttf" id="4_s4gep"]
 [ext_resource type="Script" path="res://scripts/Darkness.gd" id="5_ii4b0"]
+[ext_resource type="Texture2D" uid="uid://ctpniknd1owsh" path="res://assets/cavesofgallet_tiles.png" id="7_0u67w"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_prhx3"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -54,6 +55,49 @@ expand_margin_bottom = 75.0
 content_margin_bottom = 20.0
 bg_color = Color(0.6, 0.6, 0.6, 0)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_ljaj5"]
+atlas = ExtResource("7_0u67w")
+region = Rect2(32, 128, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_py48i"]
+atlas = ExtResource("7_0u67w")
+region = Rect2(40, 128, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pcxly"]
+atlas = ExtResource("7_0u67w")
+region = Rect2(48, 128, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_81ppy"]
+atlas = ExtResource("7_0u67w")
+region = Rect2(56, 128, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j2uih"]
+atlas = ExtResource("7_0u67w")
+region = Rect2(64, 128, 8, 8)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bf5ai"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ljaj5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_py48i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pcxly")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_81ppy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j2uih")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
 [node name="Node2D" type="Node2D"]
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
@@ -71,7 +115,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = SubResource("Theme_fb3pe")
 script = ExtResource("1_0puyd")
-start_scene = ExtResource("3_dfa5h")
+start_scene = ExtResource("3_dwj1v")
 
 [node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/Menu"]
 layout_mode = 2
@@ -125,6 +169,12 @@ layer_1/z_index = -1
 layer_1/tile_data = PackedInt32Array(1179672, 196608, 1, 1179670, 196608, 1, 1179671, 196608, 1, 1179673, 196608, 1, 1179674, 196608, 1)
 script = ExtResource("4_knlel")
 waterEnabled = false
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(882, 628)
+scale = Vector2(4.5, 4.5)
+sprite_frames = SubResource("SpriteFrames_bf5ai")
+autoplay = "default"
 
 [connection signal="pressed" from="CanvasLayer/Menu/PanelContainer/VBoxContainer/VBoxContainer/Start" to="CanvasLayer/Menu" method="_on_start_pressed"]
 [connection signal="pressed" from="CanvasLayer/Menu/PanelContainer/VBoxContainer/VBoxContainer/Leave" to="CanvasLayer/Menu" method="_on_leave_pressed"]

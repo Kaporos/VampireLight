@@ -1,4 +1,4 @@
-[gd_scene load_steps=139 format=3 uid="uid://bfg0pl4n5f661"]
+[gd_scene load_steps=140 format=3 uid="uid://bfg0pl4n5f661"]
 
 [ext_resource type="Shader" uid="uid://c6cmbwjnedpro" path="res://resources/blinking.tres" id="1_ld1ri"]
 [ext_resource type="Script" path="res://scenes/protagonist/vampire.gd" id="1_vq3cx"]
@@ -10,6 +10,7 @@
 [ext_resource type="Script" path="res://scenes/protagonist/BatFlap.gd" id="6_ocopq"]
 [ext_resource type="AudioStream" uid="uid://knturaau7xdc" path="res://assets/sfx/run.mp3" id="7_mxjoy"]
 [ext_resource type="Script" path="res://scenes/protagonist/WalkingSound.gd" id="8_um580"]
+[ext_resource type="PackedScene" uid="uid://b6v524cujs6xg" path="res://components/lights/LightDetector.tscn" id="11_wuvcr"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_yn63p"]
 shader = ExtResource("1_ld1ri")
@@ -18,7 +19,7 @@ shader_parameter/white = false
 [sub_resource type="Resource" id="Resource_7wot2"]
 script = ExtResource("3_e563g")
 health = 100
-maxHealth = 115
+maxHealth = 100
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_wpcga"]
 height = 54.0
@@ -1051,4 +1052,31 @@ volume_db = -10.0
 pitch_scale = 0.75
 script = ExtResource("8_um580")
 
+[node name="TilesDetector" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 16
+
+[node name="BatCollision" type="CollisionShape2D" parent="TilesDetector"]
+position = Vector2(54, 78)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_wpcga")
+
+[node name="HumanoidCollision" type="CollisionShape2D" parent="TilesDetector"]
+position = Vector2(57, 82)
+shape = SubResource("RectangleShape2D_cyrja")
+
+[node name="LightDetector" parent="." instance=ExtResource("11_wuvcr")]
+position = Vector2(65, 79)
+
+[node name="BatCollision" type="CollisionShape2D" parent="LightDetector"]
+position = Vector2(-11, -1)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_wpcga")
+
+[node name="HumanoidCollision" type="CollisionShape2D" parent="LightDetector"]
+position = Vector2(-8, 3)
+shape = SubResource("RectangleShape2D_cyrja")
+
 [connection signal="finished" from="BatFlap" to="BatFlap" method="_on_finished"]
+[connection signal="body_entered" from="TilesDetector" to="." method="_on_tiles_detector_body_entered"]
+[connection signal="exposed" from="LightDetector" to="." method="_on_light_detector_exposed"]
