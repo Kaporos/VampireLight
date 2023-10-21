@@ -2,7 +2,7 @@
 
 [ext_resource type="Shader" uid="uid://c6cmbwjnedpro" path="res://resources/blinking.tres" id="1_ld1ri"]
 [ext_resource type="Script" path="res://scenes/protagonist/vampire.gd" id="1_vq3cx"]
-[ext_resource type="Texture2D" uid="uid://caciyihgsgatx" path="res://assets/vampire.png" id="2_0xlqs"]
+[ext_resource type="Texture2D" uid="uid://cfafokeg0gcmb" path="res://assets/vampire.png" id="2_0xlqs"]
 [ext_resource type="Texture2D" uid="uid://cjmdbxfewfpf8" path="res://assets/bat_inverted.png" id="3_3vyk1"]
 [ext_resource type="Script" path="res://resources/HealthStats.gd" id="3_e563g"]
 [ext_resource type="Texture2D" uid="uid://g7bjinswylx" path="res://assets/bat.png" id="4_qhuc1"]
@@ -21,6 +21,7 @@ health = 100
 maxHealth = 115
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_wpcga"]
+radius = 18.0
 height = 54.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cyrja"]
@@ -986,7 +987,7 @@ stats = SubResource("Resource_7wot2")
 BAT_SPEED = 500
 
 [node name="BatCollision" type="CollisionShape2D" parent="."]
-position = Vector2(54, 78)
+position = Vector2(54, 70)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_wpcga")
 
@@ -1011,6 +1012,7 @@ shape = SubResource("RectangleShape2D_nptbc")
 disabled = true
 
 [node name="HumanoidAnimation" type="AnimatedSprite2D" parent="."]
+visible = false
 use_parent_material = true
 position = Vector2(64, 64)
 scale = Vector2(3, 3)
@@ -1018,13 +1020,13 @@ sprite_frames = SubResource("SpriteFrames_qtv1s")
 animation = &"bat_transform_left"
 
 [node name="BatAnimation" type="AnimatedSprite2D" parent="."]
-visible = false
 use_parent_material = true
 position = Vector2(54, 88)
 scale = Vector2(4, 4)
 sprite_frames = SubResource("SpriteFrames_s1o5a")
 animation = &"idle_right"
 autoplay = "idle_right"
+frame_progress = 0.103067
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(0.9, 0.9)
