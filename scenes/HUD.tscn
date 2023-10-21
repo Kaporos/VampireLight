@@ -1,7 +1,20 @@
-[gd_scene load_steps=3 format=3 uid="uid://nts0a2yks63o"]
+[gd_scene load_steps=8 format=3 uid="uid://nts0a2yks63o"]
 
 [ext_resource type="Script" path="res://scripts/HUD.gd" id="1_1xvwp"]
 [ext_resource type="Texture2D" uid="uid://bdcq414d7l8g5" path="res://assets/icons/heart.png" id="3_jnykx"]
+[ext_resource type="FontFile" uid="uid://c2jjiune36dx4" path="res://assets/DEATHBLOOD.ttf" id="3_xifl6"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lfxs1"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_42ibj"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_60pu0"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3xxv6"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
 
 [node name="HUD" type="Control"]
 layout_mode = 3
@@ -12,23 +25,15 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_1xvwp")
 
-[node name="Button" type="Button" parent="."]
+[node name="Stats" type="VBoxContainer" parent="."]
 layout_mode = 0
-offset_right = 8.0
-offset_bottom = 8.0
-text = "Decrease health"
-
-[node name="Health" type="TextureProgressBar" parent="."]
-layout_mode = 1
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -51.0
-offset_top = 7.0
-offset_right = 460.0
-offset_bottom = 518.0
-grow_horizontal = 0
+offset_right = 511.0
+offset_bottom = 546.0
 scale = Vector2(0.08, 0.08)
+
+[node name="Health" type="TextureProgressBar" parent="Stats"]
+unique_name_in_owner = true
+layout_mode = 2
 value = 100.0
 fill_mode = 3
 texture_under = ExtResource("3_jnykx")
@@ -36,4 +41,48 @@ texture_progress = ExtResource("3_jnykx")
 tint_under = Color(0.658824, 0.658824, 0.658824, 1)
 tint_progress = Color(1, 0, 0, 1)
 
-[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[node name="GameOver" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="GameOver"]
+layout_mode = 2
+
+[node name="Label2" type="Label" parent="GameOver/MarginContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("3_xifl6")
+theme_override_font_sizes/font_size = 105
+text = "Game Over"
+horizontal_alignment = 1
+
+[node name="Label" type="Label" parent="GameOver/MarginContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.172549, 0.12549, 1)
+theme_override_fonts/font = ExtResource("3_xifl6")
+theme_override_font_sizes/font_size = 100
+text = "Game Over"
+horizontal_alignment = 1
+
+[node name="Restart" type="Button" parent="GameOver"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.494118, 0.427451, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("3_xifl6")
+theme_override_styles/normal = SubResource("StyleBoxFlat_lfxs1")
+theme_override_styles/hover = SubResource("StyleBoxFlat_42ibj")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_60pu0")
+theme_override_styles/focus = SubResource("StyleBoxFlat_3xxv6")
+text = "Just    try    again    :D"
+
+[connection signal="pressed" from="GameOver/Restart" to="." method="_on_restart_pressed"]

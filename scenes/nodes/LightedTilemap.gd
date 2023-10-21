@@ -32,6 +32,6 @@ func _ready():
 
 
 func add(item):
-	get_tree().root.add_child(item)
+	get_parent().add_child(item)
 
 

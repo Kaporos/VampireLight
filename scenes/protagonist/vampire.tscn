@@ -1,4 +1,4 @@
-[gd_scene load_steps=112 format=3 uid="uid://bfg0pl4n5f661"]
+[gd_scene load_steps=115 format=3 uid="uid://bfg0pl4n5f661"]
 
 [ext_resource type="Shader" uid="uid://c6cmbwjnedpro" path="res://resources/blinking.tres" id="1_ld1ri"]
 [ext_resource type="Script" path="res://scenes/protagonist/vampire.gd" id="1_vq3cx"]
@@ -420,9 +420,9 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_aquus")
 }],
-"loop": true,
+"loop": false,
 "name": &"bat_transform_left",
-"speed": 10.0
+"speed": 20.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -461,9 +461,9 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_gnc6t")
 }],
-"loop": true,
+"loop": false,
 "name": &"bat_transform_right",
-"speed": 10.0
+"speed": 20.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -724,9 +724,9 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_njio6")
 }],
-"loop": true,
+"loop": false,
 "name": &"bat_transform_left",
-"speed": 10.0
+"speed": 15.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -750,9 +750,9 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_l2jrj")
 }],
-"loop": true,
+"loop": false,
 "name": &"bat_transform_right",
-"speed": 10.0
+"speed": 15.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -795,6 +795,43 @@ animations = [{
 "speed": 10.0
 }]
 
+[sub_resource type="Animation" id="Animation_72vcf"]
+resource_name = "hit"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:material:shader_parameter/white")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0001, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [true, true, false, false]
+}
+
+[sub_resource type="Animation" id="Animation_6jmsy"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:material:shader_parameter/white")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_arspb"]
+_data = {
+"RESET": SubResource("Animation_6jmsy"),
+"hit": SubResource("Animation_72vcf")
+}
+
 [node name="Vampire" type="CharacterBody2D"]
 material = SubResource("ShaderMaterial_yn63p")
 collision_mask = 4
@@ -820,8 +857,7 @@ use_parent_material = true
 position = Vector2(64, 64)
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_qtv1s")
-animation = &"attack_left"
-frame_progress = 0.766643
+animation = &"bat_transform_left"
 
 [node name="BatAnimation" type="AnimatedSprite2D" parent="."]
 visible = false
@@ -840,3 +876,8 @@ limit_bottom = 1000
 position_smoothing_enabled = true
 drag_vertical_enabled = true
 drag_top_margin = 0.4
+
+[node name="HitAnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_arspb")
+}
