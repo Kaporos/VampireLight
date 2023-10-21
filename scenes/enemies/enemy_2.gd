@@ -91,4 +91,4 @@ func _on_hurt_hitox_body_entered(body):
 
 
 func _on_hitbox_area_entered(area):
-	hp.hit(69)
+	hp.hit(30)

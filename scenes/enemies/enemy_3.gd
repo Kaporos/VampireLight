@@ -91,5 +91,4 @@ func _on_animated_sprite_2d_animation_looped():
 
 
 func _on_hitbox_area_entered(area):
-	print("bobo")
-	hp.hit(69)
+	hp.hit(10)

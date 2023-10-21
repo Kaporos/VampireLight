@@ -33,7 +33,6 @@ func _show_hit_anim(_v, isHitted):
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	#print(position)
 	if dead:
 		return;
 
