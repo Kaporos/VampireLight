@@ -20,7 +20,6 @@ var is_attacking = false
 
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
-
 var dead=false;
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -189,6 +188,7 @@ func animate_humanoid(input_vector):
 func check_for_transform():
 
 	var transform_command = Input.is_action_pressed("bat_transform")
+	$Transform.play()
 	if transform_command:
 		
 		if $WalkingSound.is_playing:
