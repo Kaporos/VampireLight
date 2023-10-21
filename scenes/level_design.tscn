@@ -4,6 +4,7 @@
 [ext_resource type="TileSet" uid="uid://dqiohjw4a40w2" path="res://resources/level_tileset.tres" id="1_cm01s"]
 [ext_resource type="PackedScene" uid="uid://nts0a2yks63o" path="res://scenes/HUD.tscn" id="1_dp0kw"]
 [ext_resource type="Script" path="res://scenes/nodes/LightedTilemap.gd" id="1_f2y1v"]
+[ext_resource type="Script" path="res://scenes/level_design.gd" id="1_m32yr"]
 [ext_resource type="Script" path="res://scripts/Darkness.gd" id="3_12k5j"]
 [ext_resource type="Script" path="res://resources/HealthStats.gd" id="4_s0ysw"]
 [ext_resource type="PackedScene" uid="uid://cyfw5khdfsw5j" path="res://components/platforms/moving_platform.tscn" id="7_6ycxd"]
@@ -27,6 +28,7 @@ fill_to = Vector2(0.487179, 0.884615)
 polygon = PackedVector2Array(320, 48, -8, 48, -8, -8, 320, -8)
 
 [node name="level_design" type="Node2D"]
+script = ExtResource("1_m32yr")
 
 [node name="level1_bg" type="TileMap" parent="."]
 scale = Vector2(6, 6)

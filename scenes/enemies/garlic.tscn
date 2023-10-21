@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://bjmpvh28u8vb1"]
+
+[ext_resource type="Script" path="res://scenes/enemies/garlic.gd" id="1_2ge14"]
+[ext_resource type="Texture2D" uid="uid://ciooxknunx4sc" path="res://assets/enemies/garlic.png" id="1_qy5po"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qyftx"]
+
+[node name="garlic" type="RigidBody2D"]
+collision_layer = 0
+collision_mask = 5
+max_contacts_reported = 5
+contact_monitor = true
+script = ExtResource("1_2ge14")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_qyftx")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_qy5po")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 10.0
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

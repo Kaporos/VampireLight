@@ -5,6 +5,10 @@ class_name LightedTilemap
 @onready var light_prefab = preload("res://components/lights/SimplePointLight.tscn");
 @onready var water_particles = preload("res://scenes/nodes/WaterParticles.tscn");
 
+var enemies1 = preload("res://scenes/enemies/enemy_1.tscn")
+var enemies2 = preload("res://scenes/enemies/enemy_2.tscn")
+var enemies3 = preload("res://scenes/enemies/enemy_3.tscn")
+
 func _ready():
 	print("doing some stuff")
 	for layer in range(get_layers_count()):
