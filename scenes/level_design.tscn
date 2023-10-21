@@ -58,6 +58,10 @@ stats = SubResource("Resource_pq4g1")
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="HUD" parent="CanvasLayer" node_paths=PackedStringArray("player") instance=ExtResource("1_dp0kw")]
+offset_left = 8.0
+offset_top = -8.0
+offset_right = 8.0
+offset_bottom = -8.0
 player = NodePath("../../Vampire")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
