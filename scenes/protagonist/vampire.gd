@@ -21,10 +21,12 @@ var body_in_lava = false
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var old_vampire_life;	
 var allow_up = false;
+var death_played = false
 
 var dead=false;
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	death_played = false
 	stats.health_changed.connect(_show_hit_anim)
 
 func _show_hit_anim(_v, isHitted):
@@ -50,9 +52,16 @@ func check_collisions_physic_layer_and_light():
 func _process(delta):
 	#print(position)
 	if dead:
+		if !death_played:
+			$DeathSound.play()
+			death_played = true
+		$DeathSound.is_playing = true
 		return;
+
 	if body_in_lava:
 		stats.hit(200)
+
+		
 	if elevate_bat:
 		transform[2][1] -= BAT_SPEED*delta/8
 	if is_tranforming:
@@ -118,6 +127,7 @@ func animate_bat(input_vector):
 
 	if is_attacking:
 		if orientation_was_right:
+			
 			$BatAnimation.play("attack_right")
 			$HitAreaRight2/HitAreaRight.disabled = false
 			await get_tree().create_timer(0.8).timeout
@@ -154,6 +164,8 @@ func animate_humanoid(input_vector):
 	$BatAnimation.visible = false
 
 	if Input.is_action_just_pressed("ui_accept"):
+		$SwordSlash.play()
+
 		if $WalkingSound.is_playing:
 			$WalkingSound.stop()
 			$WalkingSound.is_playing = false
@@ -220,6 +232,7 @@ func animate_humanoid(input_vector):
 func check_for_transform():
 
 	var transform_command = Input.is_action_pressed("bat_transform")
+	$Transform.play()
 	if transform_command:
 		
 		if $WalkingSound.is_playing:

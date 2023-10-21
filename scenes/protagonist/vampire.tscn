@@ -1,4 +1,4 @@
-[gd_scene load_steps=141 format=3 uid="uid://bfg0pl4n5f661"]
+[gd_scene load_steps=143 format=3 uid="uid://bfg0pl4n5f661"]
 
 [ext_resource type="Shader" uid="uid://c6cmbwjnedpro" path="res://resources/blinking.tres" id="1_ld1ri"]
 [ext_resource type="Script" path="res://scenes/protagonist/vampire.gd" id="1_vq3cx"]
@@ -11,6 +11,10 @@
 [ext_resource type="AudioStream" uid="uid://knturaau7xdc" path="res://assets/sfx/run.mp3" id="7_mxjoy"]
 [ext_resource type="Script" path="res://scenes/protagonist/WalkingSound.gd" id="8_um580"]
 [ext_resource type="PackedScene" uid="uid://b6v524cujs6xg" path="res://components/lights/LightDetector.tscn" id="11_wuvcr"]
+[ext_resource type="AudioStream" uid="uid://cq65hn6uhenl8" path="res://assets/sfx/sword_sound.mp3" id="11_x3ya4"]
+[ext_resource type="AudioStream" uid="uid://dxpila3ft0ogd" path="res://assets/sfx/transform.mp3" id="12_jybpw"]
+[ext_resource type="AudioStream" uid="uid://tvb1m7fl4e7h" path="res://assets/sfx/death_sound.mp3" id="13_6uqia"]
+[ext_resource type="Script" path="res://scenes/protagonist/DeathSound.gd" id="14_l0ye0"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_yn63p"]
 shader = ExtResource("1_ld1ri")
@@ -1035,7 +1039,7 @@ scale = Vector2(4, 4)
 sprite_frames = SubResource("SpriteFrames_s1o5a")
 animation = &"idle_right"
 autoplay = "idle_right"
-frame_progress = 0.103067
+frame_progress = 0.472042
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(0.9, 0.9)
@@ -1058,7 +1062,7 @@ script = ExtResource("6_ocopq")
 
 [node name="WalkingSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("7_mxjoy")
-volume_db = -10.0
+volume_db = -15.0
 pitch_scale = 0.75
 script = ExtResource("8_um580")
 
@@ -1103,3 +1107,19 @@ shape = SubResource("RectangleShape2D_cyrja")
 [connection signal="exposed" from="LightDetector" to="." method="_on_light_detector_exposed"]
 [connection signal="body_entered" from="LadderDetector" to="." method="_on_ladder_detector_body_entered"]
 [connection signal="body_exited" from="LadderDetector" to="." method="_on_ladder_detector_body_exited"]
+[node name="SwordSlash" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_x3ya4")
+volume_db = -10.0
+
+[node name="Transform" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("12_jybpw")
+volume_db = -20.0
+
+[node name="DeathSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("13_6uqia")
+volume_db = -20.0
+script = ExtResource("14_l0ye0")
+
+[connection signal="finished" from="BatFlap" to="BatFlap" method="_on_finished"]
+[connection signal="finished" from="WalkingSound" to="WalkingSound" method="_on_finished"]
+[connection signal="finished" from="SwordSlash" to="SwordSlash" method="_on_finished"]
