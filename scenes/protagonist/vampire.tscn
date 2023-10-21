@@ -1,18 +1,24 @@
-[gd_scene load_steps=132 format=3 uid="uid://bfg0pl4n5f661"]
+[gd_scene load_steps=139 format=3 uid="uid://bfg0pl4n5f661"]
 
 [ext_resource type="Shader" uid="uid://c6cmbwjnedpro" path="res://resources/blinking.tres" id="1_ld1ri"]
 [ext_resource type="Script" path="res://scenes/protagonist/vampire.gd" id="1_vq3cx"]
-[ext_resource type="Texture2D" uid="uid://cfafokeg0gcmb" path="res://assets/vampire.png" id="2_0xlqs"]
+[ext_resource type="Texture2D" uid="uid://caciyihgsgatx" path="res://assets/vampire.png" id="2_0xlqs"]
 [ext_resource type="Texture2D" uid="uid://cjmdbxfewfpf8" path="res://assets/bat_inverted.png" id="3_3vyk1"]
+[ext_resource type="Script" path="res://resources/HealthStats.gd" id="3_e563g"]
 [ext_resource type="Texture2D" uid="uid://g7bjinswylx" path="res://assets/bat.png" id="4_qhuc1"]
-[ext_resource type="AudioStream" uid="uid://c805jsuo67isa" path="res://assets/vlad_flap.mp3" id="5_enta2"]
+[ext_resource type="AudioStream" uid="uid://bsxnp4bnkansi" path="res://assets/sfx/vlad_flap.mp3" id="5_enta2"]
 [ext_resource type="Script" path="res://scenes/protagonist/BatFlap.gd" id="6_ocopq"]
-[ext_resource type="AudioStream" uid="uid://btrvbykyjpft" path="res://assets/run.mp3" id="7_mxjoy"]
+[ext_resource type="AudioStream" uid="uid://knturaau7xdc" path="res://assets/sfx/run.mp3" id="7_mxjoy"]
 [ext_resource type="Script" path="res://scenes/protagonist/WalkingSound.gd" id="8_um580"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_yn63p"]
 shader = ExtResource("1_ld1ri")
 shader_parameter/white = false
+
+[sub_resource type="Resource" id="Resource_7wot2"]
+script = ExtResource("3_e563g")
+health = 100
+maxHealth = 115
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_wpcga"]
 height = 54.0
@@ -935,6 +941,21 @@ animations = [{
 "speed": 10.0
 }]
 
+[sub_resource type="Animation" id="Animation_6jmsy"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:material:shader_parameter/white")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
 [sub_resource type="Animation" id="Animation_72vcf"]
 resource_name = "hit"
 length = 0.2
@@ -951,21 +972,6 @@ tracks/0/keys = {
 "values": [true, true, false, false]
 }
 
-[sub_resource type="Animation" id="Animation_6jmsy"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:material:shader_parameter/white")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_arspb"]
 _data = {
 "RESET": SubResource("Animation_6jmsy"),
@@ -976,6 +982,7 @@ _data = {
 material = SubResource("ShaderMaterial_yn63p")
 collision_mask = 4
 script = ExtResource("1_vq3cx")
+stats = SubResource("Resource_7wot2")
 BAT_SPEED = 500
 
 [node name="BatCollision" type="CollisionShape2D" parent="."]
@@ -1026,6 +1033,7 @@ drag_top_margin = 0.4
 libraries = {
 "": SubResource("AnimationLibrary_arspb")
 }
+
 [node name="BatFlap" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_enta2")
 volume_db = -10.0
