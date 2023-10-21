@@ -16,6 +16,7 @@ size = Vector2(50, 10)
 amount = 1
 lifetime = 2.0
 randomness = 0.2
+lifetime_randomness = 0.5
 emission_shape = 3
 emission_rect_extents = Vector2(25, 10)
 gravity = Vector2(0, 200)

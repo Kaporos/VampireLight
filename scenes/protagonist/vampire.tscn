@@ -3,12 +3,11 @@
 [ext_resource type="Shader" uid="uid://c6cmbwjnedpro" path="res://resources/blinking.tres" id="1_ld1ri"]
 [ext_resource type="Script" path="res://scenes/protagonist/vampire.gd" id="1_vq3cx"]
 [ext_resource type="Texture2D" uid="uid://caciyihgsgatx" path="res://assets/vampire.png" id="2_0xlqs"]
+[ext_resource type="PackedScene" uid="uid://b6v524cujs6xg" path="res://components/lights/LightDetector.tscn" id="2_b8njf"]
 [ext_resource type="Texture2D" uid="uid://cjmdbxfewfpf8" path="res://assets/bat_inverted.png" id="3_3vyk1"]
 [ext_resource type="Texture2D" uid="uid://g7bjinswylx" path="res://assets/bat.png" id="4_qhuc1"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_yn63p"]
-shader = ExtResource("1_ld1ri")
-shader_parameter/white = false
+[sub_resource type="CircleShape2D" id="CircleShape2D_3sa8d"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_wpcga"]
 height = 54.0
@@ -801,6 +800,13 @@ collision_mask = 4
 script = ExtResource("1_vq3cx")
 BAT_SPEED = 500
 
+[node name="LightDetector" parent="." instance=ExtResource("2_b8njf")]
+debug = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LightDetector"]
+position = Vector2(56, 80)
+shape = SubResource("CircleShape2D_3sa8d")
+
 [node name="BatCollision" type="CollisionShape2D" parent="."]
 position = Vector2(54, 78)
 rotation = 1.5708
@@ -816,17 +822,14 @@ shape = SubResource("RectangleShape2D_nptbc")
 disabled = true
 
 [node name="HumanoidAnimation" type="AnimatedSprite2D" parent="."]
-use_parent_material = true
-position = Vector2(64, 64)
+position = Vector2(48, 64)
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_qtv1s")
 animation = &"attack_left"
 frame_progress = 0.766643
 
 [node name="BatAnimation" type="AnimatedSprite2D" parent="."]
-visible = false
-use_parent_material = true
-position = Vector2(54, 88)
+position = Vector2(56, 96)
 scale = Vector2(4, 4)
 sprite_frames = SubResource("SpriteFrames_s1o5a")
 animation = &"idle_left"
