@@ -118,11 +118,18 @@ script = ExtResource("1_0puyd")
 start_scene = ExtResource("3_484iq")
 
 [node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/Menu"]
-layout_mode = 2
-offset_left = 468.0
-offset_top = 287.0
-offset_right = 812.0
-offset_bottom = 287.0
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -205.5
+offset_top = -92.0
+offset_right = 205.5
+offset_bottom = 92.0
+grow_horizontal = 2
+grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_0lwol")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Menu/PanelContainer"]
@@ -144,12 +151,14 @@ size_flags_horizontal = 4
 [node name="Start" type="Button" parent="CanvasLayer/Menu/PanelContainer/VBoxContainer/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
+focus_neighbor_top = NodePath("../Leave")
 focus_neighbor_bottom = NodePath("../Leave")
 text = "Start the game"
 
 [node name="Leave" type="Button" parent="CanvasLayer/Menu/PanelContainer/VBoxContainer/VBoxContainer"]
 layout_mode = 2
 focus_neighbor_top = NodePath("../Start")
+focus_neighbor_bottom = NodePath("../Start")
 text = "Leave the game
 "
 
