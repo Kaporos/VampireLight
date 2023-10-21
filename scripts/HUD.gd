@@ -15,6 +15,7 @@ func _ready():
 func dying():
 	$GameOver.visible = true
 	$Stats.visible = false
+	%Restart.grab_focus();
 	player.die()
 
 func health_changed(value, _isHit):

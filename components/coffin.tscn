@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://dnui1b27ihfua"]
+[gd_scene load_steps=10 format=3 uid="uid://dnui1b27ihfua"]
 
 [ext_resource type="Texture2D" uid="uid://ctpniknd1owsh" path="res://assets/cavesofgallet_tiles.png" id="1_815gv"]
 [ext_resource type="Script" path="res://components/coffin.gd" id="1_olyje"]
@@ -49,11 +49,8 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_noogh"]
 size = Vector2(26, 18)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_613mp"]
-size = Vector2(41, 8)
-
 [node name="coffin" type="Area2D"]
-scale = Vector2(6, 6)
+scale = Vector2(4, 4)
 collision_layer = 0
 script = ExtResource("1_olyje")
 
@@ -64,13 +61,5 @@ frame = 4
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-3, -1)
 shape = SubResource("RectangleShape2D_noogh")
-
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
-collision_layer = 4
-collision_mask = 0
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(-2, 12)
-shape = SubResource("RectangleShape2D_613mp")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
