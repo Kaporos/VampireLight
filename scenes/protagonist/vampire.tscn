@@ -25,8 +25,9 @@ maxHealth = 100
 radius = 18.0
 height = 54.0
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_cyrja"]
-size = Vector2(38, 60)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_kom6k"]
+radius = 15.0
+height = 60.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nptbc"]
 size = Vector2(36, 60)
@@ -993,8 +994,8 @@ rotation = 1.5708
 shape = SubResource("CapsuleShape2D_wpcga")
 
 [node name="HumanoidCollision" type="CollisionShape2D" parent="."]
-position = Vector2(57, 82)
-shape = SubResource("RectangleShape2D_cyrja")
+position = Vector2(65, 82)
+shape = SubResource("CapsuleShape2D_kom6k")
 
 [node name="HitAreaRight2" type="Area2D" parent="."]
 modulate = Color(0.447059, 0, 0, 1)

@@ -1,11 +1,10 @@
 extends Area2D
 
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
+func _on_body_entered(body:Node2D):
+	if body is Vampire:
+		body.set_physics_process(false)
+		body.visible = false
+		$AnimatedSprite2D.play_backwards("default")
+		await $AnimatedSprite2D.animation_finished
+		get_tree().change_scene_to_packed(Game.next_level())
