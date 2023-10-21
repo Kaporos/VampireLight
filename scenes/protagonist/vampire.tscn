@@ -990,7 +990,7 @@ size = Vector2(38, 60)
 
 [node name="Vampire" type="CharacterBody2D"]
 material = SubResource("ShaderMaterial_yn63p")
-collision_mask = 4
+collision_mask = 68
 script = ExtResource("1_vq3cx")
 stats = SubResource("Resource_7wot2")
 BAT_SPEED = 500
@@ -1094,7 +1094,6 @@ position = Vector2(-8, 3)
 shape = SubResource("RectangleShape2D_cyrja")
 
 [node name="LadderDetector" type="Area2D" parent="."]
-visible = false
 collision_layer = 32
 collision_mask = 32
 

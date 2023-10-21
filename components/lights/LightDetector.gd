@@ -23,7 +23,7 @@ func _physics_process(_delta):
 
 	#Raycasting for each light
 	for light in lights:
-		var result = RayCaster.can_raycast(global_position, light.global_position)
+		var result = RayCaster.can_raycast(global_position, light.global_position, 0b100)
 		if result && damaged:
 			damaged = false
 			exposed.emit()
