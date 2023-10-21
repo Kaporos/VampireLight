@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://nts0a2yks63o"]
+[gd_scene load_steps=9 format=3 uid="uid://nts0a2yks63o"]
 
 [ext_resource type="Script" path="res://scripts/HUD.gd" id="1_1xvwp"]
 [ext_resource type="Texture2D" uid="uid://bdcq414d7l8g5" path="res://assets/icons/heart.png" id="3_jnykx"]
 [ext_resource type="FontFile" uid="uid://c2jjiune36dx4" path="res://assets/DEATHBLOOD.ttf" id="3_xifl6"]
+[ext_resource type="Texture2D" uid="uid://s0w84mbt0do4" path="res://assets/bat_icon.png" id="3_xsdd1"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lfxs1"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -25,13 +26,18 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_1xvwp")
 
-[node name="Stats" type="VBoxContainer" parent="."]
+[node name="Stats" type="MarginContainer" parent="."]
 layout_mode = 0
-offset_right = 511.0
-offset_bottom = 546.0
-scale = Vector2(0.08, 0.08)
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(0.1, 0.1)
+theme_override_constants/margin_left = 150
+theme_override_constants/margin_top = 150
 
-[node name="Health" type="TextureProgressBar" parent="Stats"]
+[node name="Icons" type="HBoxContainer" parent="Stats"]
+layout_mode = 2
+
+[node name="Health" type="TextureProgressBar" parent="Stats/Icons"]
 unique_name_in_owner = true
 layout_mode = 2
 value = 100.0
@@ -40,6 +46,16 @@ texture_under = ExtResource("3_jnykx")
 texture_progress = ExtResource("3_jnykx")
 tint_under = Color(0.658824, 0.658824, 0.658824, 1)
 tint_progress = Color(1, 0, 0, 1)
+
+[node name="Bat" type="TextureProgressBar" parent="Stats/Icons"]
+unique_name_in_owner = true
+layout_mode = 2
+value = 100.0
+fill_mode = 3
+texture_under = ExtResource("3_xsdd1")
+texture_progress = ExtResource("3_xsdd1")
+tint_under = Color(0.658824, 0.658824, 0.658824, 1)
+tint_progress = Color(0.752941, 0.4, 0.196078, 1)
 
 [node name="GameOver" type="VBoxContainer" parent="."]
 visible = false
