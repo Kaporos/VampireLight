@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://cnsk1261ow1cr"]
+[gd_scene load_steps=13 format=3 uid="uid://cnsk1261ow1cr"]
 
 [ext_resource type="TileSet" uid="uid://dqiohjw4a40w2" path="res://resources/level_tileset.tres" id="1_tly2o"]
 [ext_resource type="Script" path="res://scenes/nodes/LightedTilemap.gd" id="2_2scdj"]

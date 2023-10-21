@@ -304,6 +304,7 @@ func _on_ladder_detector_body_exited(body:Node2D):
 
 func _on_ladder_detector_body_entered(body:Node2D):
 	allow_up = true
+	print("setted allow-up")
 
 
 func _on_hit_area_right_2_body_entered(body):
