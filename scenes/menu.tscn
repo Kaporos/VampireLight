@@ -41,6 +41,10 @@ Button/styles/focus = SubResource("StyleBoxFlat_prhx3")
 Button/styles/normal = SubResource("StyleBoxFlat_y5y33")
 Button/styles/pressed = SubResource("StyleBoxFlat_y5y33")
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_itghe"]
+content_margin_bottom = 150.0
+draw_center = false
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0lwol"]
 bg_color = Color(0.309804, 0.309804, 0.309804, 0.764706)
 corner_radius_top_left = 5
@@ -117,6 +121,24 @@ theme = SubResource("Theme_fb3pe")
 script = ExtResource("1_0puyd")
 start_scene = ExtResource("3_484iq")
 
+[node name="Label" type="Label" parent="CanvasLayer/Menu"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -183.5
+offset_top = -41.0
+offset_right = 183.5
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("4_6gnm7")
+theme_override_font_sizes/font_size = 25
+theme_override_styles/normal = SubResource("StyleBoxFlat_itghe")
+text = "A game by BarakiLand"
+horizontal_alignment = 1
+
 [node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/Menu"]
 layout_mode = 1
 anchors_preset = 8
@@ -153,14 +175,13 @@ unique_name_in_owner = true
 layout_mode = 2
 focus_neighbor_top = NodePath("../Leave")
 focus_neighbor_bottom = NodePath("../Leave")
-text = "Start the game"
+text = "Start the game :D"
 
 [node name="Leave" type="Button" parent="CanvasLayer/Menu/PanelContainer/VBoxContainer/VBoxContainer"]
 layout_mode = 2
 focus_neighbor_top = NodePath("../Start")
 focus_neighbor_bottom = NodePath("../Start")
-text = "Leave the game
-"
+text = "Leave"
 
 [node name="level1_bg" type="TileMap" parent="."]
 scale = Vector2(4.5, 4.5)
