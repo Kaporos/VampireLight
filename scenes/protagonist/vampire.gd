@@ -24,8 +24,8 @@ var allow_up = false;
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	death_played = false
 	stats.health_changed.connect(_show_hit_anim)
+	stats.health = stats.maxHealth
 
 func _show_hit_anim(_v, isHitted):
 	if !isHitted:

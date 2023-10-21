@@ -10,6 +10,7 @@ func _ready():
 	$Stats.visible = true
 	$GameOver.visible = false
 	player.stats.dead.connect(dying)
+	player.stats.health_changed.connect(health_changed)
 
 func dying():
 	print("done")
@@ -17,6 +18,8 @@ func dying():
 	$Stats.visible = false
 	player.die()
 
+func health_changed(value, _isHit):
+	%Health.value = value
 
 func _on_button_pressed():
 	player.stats.hit(10)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=143 format=3 uid="uid://bfg0pl4n5f661"]
+[gd_scene load_steps=145 format=3 uid="uid://bfg0pl4n5f661"]
 
 [ext_resource type="Shader" uid="uid://c6cmbwjnedpro" path="res://resources/blinking.tres" id="1_ld1ri"]
 [ext_resource type="Script" path="res://scenes/protagonist/vampire.gd" id="1_vq3cx"]
@@ -1102,11 +1102,6 @@ collision_mask = 32
 position = Vector2(57, 82)
 shape = SubResource("RectangleShape2D_cyrja")
 
-[connection signal="finished" from="BatFlap" to="BatFlap" method="_on_finished"]
-[connection signal="body_entered" from="TilesDetector" to="." method="_on_tiles_detector_body_entered"]
-[connection signal="exposed" from="LightDetector" to="." method="_on_light_detector_exposed"]
-[connection signal="body_entered" from="LadderDetector" to="." method="_on_ladder_detector_body_entered"]
-[connection signal="body_exited" from="LadderDetector" to="." method="_on_ladder_detector_body_exited"]
 [node name="SwordSlash" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("11_x3ya4")
 volume_db = -10.0
@@ -1122,4 +1117,8 @@ script = ExtResource("14_l0ye0")
 
 [connection signal="finished" from="BatFlap" to="BatFlap" method="_on_finished"]
 [connection signal="finished" from="WalkingSound" to="WalkingSound" method="_on_finished"]
+[connection signal="body_entered" from="TilesDetector" to="." method="_on_tiles_detector_body_entered"]
+[connection signal="exposed" from="LightDetector" to="." method="_on_light_detector_exposed"]
+[connection signal="body_entered" from="LadderDetector" to="." method="_on_ladder_detector_body_entered"]
+[connection signal="body_exited" from="LadderDetector" to="." method="_on_ladder_detector_body_exited"]
 [connection signal="finished" from="SwordSlash" to="SwordSlash" method="_on_finished"]
