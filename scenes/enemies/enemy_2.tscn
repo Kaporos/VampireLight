@@ -271,7 +271,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_pj3ng")
 }],
-"loop": true,
+"loop": false,
 "name": &"death_left",
 "speed": 5.0
 }, {
@@ -294,7 +294,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_fihot")
 }],
-"loop": true,
+"loop": false,
 "name": &"death_right",
 "speed": 5.0
 }, {
@@ -420,7 +420,7 @@ size = Vector2(5, 17)
 size = Vector2(111, 86)
 
 [node name="enemy2" type="CharacterBody2D"]
-collision_layer = 0
+collision_layer = 8
 collision_mask = 4
 script = ExtResource("1_hx0xe")
 
@@ -428,8 +428,7 @@ script = ExtResource("1_hx0xe")
 position = Vector2(0.499997, 0.500003)
 scale = Vector2(3.15625, 3.09375)
 sprite_frames = SubResource("SpriteFrames_e7pd8")
-animation = &"attack_right"
-frame_progress = 0.799423
+animation = &"death_right"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 12)
@@ -452,7 +451,6 @@ shape = SubResource("RectangleShape2D_6mllw")
 [node name="hitbox" type="Area2D" parent="."]
 modulate = Color(0.635294, 0.247059, 0.203922, 1)
 collision_layer = 0
-collision_mask = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox"]
 position = Vector2(0.5, 12)
@@ -461,4 +459,4 @@ shape = SubResource("RectangleShape2D_3lf3l")
 [connection signal="animation_looped" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_looped"]
 [connection signal="body_entered" from="agro_zone" to="." method="_on_agro_zone_body_entered"]
 [connection signal="body_exited" from="agro_zone" to="." method="_on_agro_zone_body_exited"]
-[connection signal="area_entered" from="hitbox" to="." method="_on_hitbox_area_entered"]
+[connection signal="body_entered" from="hitbox" to="." method="_on_hitbox_body_entered"]

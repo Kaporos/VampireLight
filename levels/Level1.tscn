@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://cnsk1261ow1cr"]
+[gd_scene load_steps=14 format=3 uid="uid://cnsk1261ow1cr"]
 
 [ext_resource type="TileSet" uid="uid://dqiohjw4a40w2" path="res://resources/level_tileset.tres" id="1_tly2o"]
 [ext_resource type="Script" path="res://scenes/nodes/LightedTilemap.gd" id="2_2scdj"]
@@ -6,24 +6,26 @@
 [ext_resource type="PackedScene" uid="uid://bcfjfkr6853j1" path="res://components/sign.tscn" id="3_ggtwb"]
 [ext_resource type="PackedScene" uid="uid://bfg0pl4n5f661" path="res://scenes/protagonist/vampire.tscn" id="4_h4bwy"]
 [ext_resource type="Script" path="res://scripts/Darkness.gd" id="5_nq133"]
-[ext_resource type="PackedScene" uid="uid://nts0a2yks63o" path="res://scenes/HUD.tscn" id="11_c8yvh"]
-[ext_resource type="PackedScene" uid="uid://q7ffgqou1sfe" path="res://scenes/enemies/enemy_1.tscn" id="9_3jpax"]
 [ext_resource type="Script" path="res://resources/HealthStats.gd" id="9_d42lu"]
 [ext_resource type="Script" path="res://resources/IdleMovement.gd" id="9_eqa3c"]
+[ext_resource type="PackedScene" uid="uid://1s4y5trxxv4t" path="res://scenes/enemies/enemy_2.tscn" id="9_wgmaj"]
+[ext_resource type="PackedScene" uid="uid://nts0a2yks63o" path="res://scenes/HUD.tscn" id="11_c8yvh"]
+
 [sub_resource type="Resource" id="Resource_ean88"]
 script = ExtResource("9_d42lu")
 health = 100
 maxHealth = 115
 
-[sub_resource type="Resource" id="Resource_udwra"]
+[sub_resource type="Resource" id="Resource_siyw8"]
 script = ExtResource("9_d42lu")
 health = 100
 maxHealth = 115
 
-[sub_resource type="Resource" id="Resource_5p3cy"]
+[sub_resource type="Resource" id="Resource_qntsn"]
 script = ExtResource("9_eqa3c")
 started = true
 retour = true
+tp_distance = 40
 
 [node name="Level1" type="Node2D"]
 
@@ -51,17 +53,19 @@ color = Color(0.47451, 0.47451, 0.47451, 1)
 script = ExtResource("5_nq133")
 
 [node name="StartEnemy" type="Node2D" parent="."]
-position = Vector2(1054, 604)
-
-[node name="enemy1" parent="." node_paths=PackedStringArray("idle_points_list") instance=ExtResource("9_3jpax")]
-position = Vector2(-1383, -421)
-stats = SubResource("Resource_udwra")
-idle_points_list = [NodePath("../StartEnemy")]
-idle_movement = SubResource("Resource_5p3cy")
+position = Vector2(766, 527)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="HUD" parent="CanvasLayer" node_paths=PackedStringArray("player") instance=ExtResource("11_c8yvh")]
 player = NodePath("../../Vampire")
+
+[node name="enemy2" parent="." node_paths=PackedStringArray("idle_points_list") instance=ExtResource("9_wgmaj")]
+stats = SubResource("Resource_siyw8")
+idle_points_list = [NodePath("../StartEnemy"), NodePath("../EndEnemy")]
+idle_movement = SubResource("Resource_qntsn")
+
+[node name="EndEnemy" type="Node2D" parent="."]
+position = Vector2(872, 528)
 
 [connection signal="body_shape_entered" from="coffin" to="Vampire" method="_on_coffin_body_shape_entered"]

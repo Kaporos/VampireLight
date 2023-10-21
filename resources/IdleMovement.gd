@@ -7,6 +7,7 @@ var points_list: Array[Node2D];
 @export var started : bool = true;
 #Fait une boucle
 @export var retour : bool = true;
+@export var tp_distance : int = 5;
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 var index = 0
@@ -23,7 +24,7 @@ func move(delta, global_position, gravity_affected, speed):
 			velocity.y += gravity * delta;
 		else :
 			velocity = direction.normalized() * speed;
-		if(direction.length() < 5):
+		if(direction.length() < tp_distance):
 			index = index + 1
 			if(index == points_list.size() && retour):
 				index = 0
