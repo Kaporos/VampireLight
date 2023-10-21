@@ -994,12 +994,18 @@ shape = SubResource("CapsuleShape2D_wpcga")
 position = Vector2(57, 82)
 shape = SubResource("RectangleShape2D_cyrja")
 
-[node name="HitAreaRight" type="CollisionShape2D" parent="."]
+[node name="HitAreaRight2" type="Area2D" parent="."]
+collision_mask = 0
+
+[node name="HitAreaRight" type="CollisionShape2D" parent="HitAreaRight2"]
 position = Vector2(94, 82)
 shape = SubResource("RectangleShape2D_nptbc")
 disabled = true
 
-[node name="HitAreaLeft" type="CollisionShape2D" parent="."]
+[node name="HitAreaLeftt2" type="Area2D" parent="."]
+collision_mask = 0
+
+[node name="HitAreaLeft" type="CollisionShape2D" parent="HitAreaLeftt2"]
 position = Vector2(20, 82)
 shape = SubResource("RectangleShape2D_nptbc")
 disabled = true

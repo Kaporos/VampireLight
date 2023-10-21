@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scripts/menu.gd" id="1_0puyd"]
 [ext_resource type="TileSet" uid="uid://dqiohjw4a40w2" path="res://resources/level_tileset.tres" id="3_4jo1r"]
-[ext_resource type="PackedScene" uid="uid://b3duyvop2nftn" path="res://levels/Level1.tscn" id="3_dfa5h"]
+[ext_resource type="PackedScene" uid="uid://cnsk1261ow1cr" path="res://levels/Level1.tscn" id="3_dfa5h"]
 [ext_resource type="Script" path="res://scenes/nodes/LightedTilemap.gd" id="4_knlel"]
 [ext_resource type="FontFile" uid="uid://c2jjiune36dx4" path="res://assets/DEATHBLOOD.ttf" id="4_s4gep"]
 [ext_resource type="Script" path="res://scripts/Darkness.gd" id="5_ii4b0"]
