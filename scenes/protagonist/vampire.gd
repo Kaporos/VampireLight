@@ -7,6 +7,7 @@ class_name Vampire
 var is_bat = false;
 
 @export var BAT_SPEED = 1000
+@export var DAMAGE : int = 1000
 @export var HUMANOID_SPEED = 100
 
 const SPEED = 300.0
@@ -290,7 +291,6 @@ func _on_tiles_detector_body_exited(body: Node2D):
 	body_in_lava = false
 
 func _on_light_detector_exposed():
-	print("here bro")
 	stats.hit(2.5)
 
 
@@ -300,3 +300,12 @@ func _on_ladder_detector_body_exited(body:Node2D):
 
 func _on_ladder_detector_body_entered(body:Node2D):
 	allow_up = true
+
+
+func _on_hit_area_right_2_body_entered(body):
+	print("hit enemy right")
+	body.stats.hit(DAMAGE)
+
+func _on_hit_area_leftt_2_body_entered(body):
+	print("hit enemy left")
+	body.stats.hit(DAMAGE)

@@ -10,8 +10,10 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var target = null
 var jumping = false
 
-#func _ready():
-#	stats.dead.connect(_on_death)
+func _ready():
+	idle_movement.points_list = idle_points_list;
+	global_position = idle_movement.points_list[0].global_position
+	stats.dead.connect(_on_death)
 	
 
 func agro_move(delta):
@@ -26,6 +28,9 @@ func agro_move(delta):
 		velocity.x = direction * speed
 	else :
 		velocity.x = move_toward(velocity.x, 0, speed)
+	return velocity
+
+func _process(delta):
 	if(jumping):
 		if(direction == 1):
 			$AnimatedSprite2D.play("jump_right")
@@ -41,17 +46,19 @@ func agro_move(delta):
 			$AnimatedSprite2D.play("idle_right")
 		else:
 			$AnimatedSprite2D.play("idle_left")
-	return velocity
+	
 
 func _on_agro_zone_body_entered(body):
 	target = body
 	agro = true
 	
 func _on_death():
-	if(direction == 1):
+	set_process(false)
+	if direction == 1:
 		$AnimatedSprite2D.play("death_right")
 	else:
 		$AnimatedSprite2D.play("death_left")
+	await $AnimatedSprite2D.animation_finished
 	queue_free()
 	
 

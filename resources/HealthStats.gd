@@ -21,6 +21,5 @@ func hit(value):
 func _changed(value):
 	health_changed.emit(value, justHit)
 	health = value
-	print("new health", health)
 	if health <= 0:
 		dead.emit()

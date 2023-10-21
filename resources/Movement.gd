@@ -1,7 +1,7 @@
 extends CharacterBody2D
 class_name Movement
 
-@export var speed: int = 300;
+@export var speed: int = 10;
 @export var gravity_affected : bool = true;
 @export var agro : bool = false;
 @export var idle_points_list: Array[Node2D] = [];
@@ -18,7 +18,6 @@ func _ready():
 	global_position = idle_movement.points_list[0].global_position
 
 func agro_move(delta):
-	print("called")
 	push_warning("Not Impemented Yet Called")
 	
 func _physics_process(delta):

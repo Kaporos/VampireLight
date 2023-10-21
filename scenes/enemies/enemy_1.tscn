@@ -9,6 +9,7 @@
 script = ExtResource("2_whc3k")
 started = true
 retour = true
+tp_distance = 5
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_l3b6a"]
 atlas = ExtResource("1_0cuda")
@@ -203,7 +204,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_366hf")
 }],
-"loop": true,
+"loop": false,
 "name": &"death_left",
 "speed": 5.0
 }, {
@@ -226,7 +227,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_x88ok")
 }],
-"loop": true,
+"loop": false,
 "name": &"death_right",
 "speed": 5.0
 }, {
@@ -370,7 +371,7 @@ size = Vector2(77, 66)
 size = Vector2(85, 73)
 
 [node name="enemy1" type="CharacterBody2D"]
-collision_layer = 0
+collision_layer = 8
 collision_mask = 4
 script = ExtResource("1_ett7i")
 idle_movement = SubResource("Resource_1cbf7")
@@ -379,7 +380,7 @@ idle_movement = SubResource("Resource_1cbf7")
 position = Vector2(-1, -37)
 scale = Vector2(3.875, 4.375)
 sprite_frames = SubResource("SpriteFrames_c082r")
-animation = &"sprint_left"
+animation = &"death_left"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-0.5, 0)
@@ -406,15 +407,6 @@ collision_layer = 0
 position = Vector2(-0.5, 0)
 shape = SubResource("RectangleShape2D_63ywk")
 
-[node name="Area2D" type="Area2D" parent="."]
-collision_layer = 0
-collision_mask = 16
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(-0.5, -0.5)
-shape = SubResource("RectangleShape2D_p7vf3")
-
-[connection signal="animation_looped" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_looped"]
 [connection signal="body_entered" from="agro_zone" to="." method="_on_agro_zone_body_entered"]
 [connection signal="body_exited" from="agro_zone" to="." method="_on_agro_zone_body_exited"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
