@@ -6,7 +6,6 @@ class_name Movement
 @export var agro : bool = false;
 @export var idle_points_list: Array[Node2D] = [];
 @export var idle_movement : IdleMovement;
-@export var agro_movement : AgroMovement;
 
 
 
@@ -18,11 +17,13 @@ func _ready():
 	idle_movement.points_list = idle_points_list;
 	global_position = idle_movement.points_list[0].global_position
 
+func agro_move(delta):
+	print("called")
+	push_warning("Not Impemented Yet Called")
 	
 func _physics_process(delta):
-
 	if (agro):
-		velocity = agro_movement.move()
+		velocity = agro_move(delta)
 	else : 
 		velocity = idle_movement.move(delta, global_position, gravity_affected, speed)
 	move_and_slide()

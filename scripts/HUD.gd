@@ -8,14 +8,13 @@ var menu = preload("res://scenes/menu.tscn");
 func _ready():
 	$Stats.visible = true
 	$GameOver.visible = false
-	player.stats.health_changed.connect(health_changed)
+	player.stats.dead.connect(dying)
 
-func health_changed(value, _hit):
-	%Health.value = value
-	if value <= 0:
-		$GameOver.visible = true
-		$Stats.visible = false
-		player.die()
+func dying():
+	print("done")
+	$GameOver.visible = true
+	$Stats.visible = false
+	player.die()
 
 
 func _on_button_pressed():

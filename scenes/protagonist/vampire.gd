@@ -21,7 +21,6 @@ var is_attacking = false
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 
-var dead=false;
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	stats.health_changed.connect(_show_hit_anim)
@@ -33,10 +32,6 @@ func _show_hit_anim(_v, isHitted):
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	#print(position)
-	if dead:
-		return;
-
 	if elevate_bat:
 		transform[2][1] -= BAT_SPEED*delta/8
 	if is_tranforming:
@@ -238,7 +233,7 @@ func get_input():
 
 
 func die():
-	dead = true
+	print("ded")
 	visible = false
 
 
