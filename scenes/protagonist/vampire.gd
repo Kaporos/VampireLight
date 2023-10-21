@@ -287,6 +287,7 @@ func _on_tiles_detector_body_exited(body: Node2D):
 	body_in_lava = false
 
 func _on_light_detector_exposed():
+	print("here bro")
 	stats.hit(2.5)
 
 

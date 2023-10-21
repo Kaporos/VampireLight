@@ -1063,6 +1063,7 @@ pitch_scale = 0.75
 script = ExtResource("8_um580")
 
 [node name="TilesDetector" type="Area2D" parent="."]
+visible = false
 collision_layer = 0
 collision_mask = 16
 
@@ -1077,6 +1078,7 @@ shape = SubResource("RectangleShape2D_cyrja")
 
 [node name="LightDetector" parent="." instance=ExtResource("11_wuvcr")]
 position = Vector2(65, 79)
+debug = true
 
 [node name="BatCollision" type="CollisionShape2D" parent="LightDetector"]
 position = Vector2(-11, -1)
@@ -1088,6 +1090,7 @@ position = Vector2(-8, 3)
 shape = SubResource("RectangleShape2D_cyrja")
 
 [node name="LadderDetector" type="Area2D" parent="."]
+visible = false
 collision_layer = 32
 collision_mask = 32
 
