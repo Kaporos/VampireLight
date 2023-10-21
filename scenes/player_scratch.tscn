@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://cy34jqwb3xs8s"]
+[gd_scene load_steps=7 format=3 uid="uid://cy34jqwb3xs8s"]
 
 [ext_resource type="Texture2D" uid="uid://ctpniknd1owsh" path="res://assets/cavesofgallet_tiles.png" id="1_ahgva"]
 [ext_resource type="PackedScene" uid="uid://bfg0pl4n5f661" path="res://scenes/protagonist/vampire.tscn" id="2_x47wx"]
+[ext_resource type="PackedScene" uid="uid://uvlivy5mfegv" path="res://scenes/final_boss.tscn" id="3_3yb0b"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_riai6"]
 texture = ExtResource("1_ahgva")
@@ -107,7 +108,7 @@ tile_size = Vector2i(8, 8)
 sources/0 = SubResource("TileSetAtlasSource_riai6")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_eccjr"]
-size = Vector2(96, 8)
+size = Vector2(304, 8)
 
 [node name="player_scratch" type="Node2D"]
 
@@ -116,15 +117,19 @@ scale = Vector2(4, 4)
 tile_set = SubResource("TileSet_xcyw1")
 cell_quadrant_size = 8
 format = 2
-layer_0/tile_data = PackedInt32Array(1376267, 131072, 4, 1376266, 262144, 1, 1376265, 262144, 1, 1376264, 262144, 1, 1376263, 262144, 1, 1376262, 262144, 1, 1376261, 262144, 1, 1376260, 262144, 1, 1376259, 262144, 1, 1376258, 262144, 1, 1376257, 262144, 1, 1376256, 196608, 1)
+layer_0/tile_data = PackedInt32Array(1376267, 262144, 1, 1376266, 262144, 1, 1376265, 262144, 1, 1376264, 262144, 1, 1376263, 262144, 1, 1376262, 262144, 1, 1376261, 262144, 1, 1376260, 262144, 1, 1376259, 262144, 1, 1376258, 262144, 1, 1376257, 262144, 1, 1376256, 196608, 1, 1376268, 262144, 1, 1376269, 262144, 1, 1376270, 262144, 1, 1376271, 262144, 1, 1376272, 262144, 1, 1376273, 262144, 1, 1376274, 262144, 1, 1376275, 262144, 1, 1376276, 262144, 1, 1376277, 262144, 1, 1376278, 262144, 1, 1376279, 262144, 1, 1376280, 262144, 1, 1376281, 262144, 1, 1376282, 262144, 1, 1376283, 262144, 1, 1376284, 262144, 1, 1376285, 262144, 1, 1376286, 262144, 1, 1376287, 262144, 1, 1376288, 262144, 1, 1376289, 262144, 1, 1376290, 262144, 1, 1376291, 262144, 1, 1376292, 262144, 1, 1376293, 327680, 1)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="TileMap"]
 scale = Vector2(0.25, 0.25)
 collision_layer = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TileMap/StaticBody2D"]
-position = Vector2(192, 688)
+position = Vector2(608, 688)
 scale = Vector2(4, 4)
 shape = SubResource("RectangleShape2D_eccjr")
 
 [node name="Vampire" parent="." instance=ExtResource("2_x47wx")]
+
+[node name="FinalBoss" parent="." instance=ExtResource("3_3yb0b")]
+position = Vector2(1023, 138)
+scale = Vector2(4, 4)

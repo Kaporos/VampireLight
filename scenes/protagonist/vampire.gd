@@ -17,12 +17,14 @@ var orientation_was_right = true
 var is_tranforming = false
 var elevate_bat = false
 var is_attacking = false
+var death_played = false
 
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 var dead=false;
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	death_played = false
 	stats.health_changed.connect(_show_hit_anim)
 
 func _show_hit_anim(_v, isHitted):
@@ -34,7 +36,11 @@ func _show_hit_anim(_v, isHitted):
 func _process(delta):
 
 	if dead:
-		return;
+		if !death_played:
+			$DeathSound.play()
+			death_played = true
+		$DeathSound.is_playing = true
+		return
 
 	if elevate_bat:
 		transform[2][1] -= BAT_SPEED*delta/8

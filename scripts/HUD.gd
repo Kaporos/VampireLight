@@ -9,6 +9,10 @@ func _ready():
 	$Stats.visible = true
 	$GameOver.visible = false
 	player.stats.health_changed.connect(health_changed)
+	
+	$GameOver.visible = true
+	$Stats.visible = false
+	player.die()
 
 func health_changed(value, _hit):
 	%Health.value = value
