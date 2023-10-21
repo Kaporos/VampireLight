@@ -1,8 +1,14 @@
-[gd_scene load_steps=52 format=3 uid="uid://q7ffgqou1sfe"]
+[gd_scene load_steps=54 format=3 uid="uid://q7ffgqou1sfe"]
 
 [ext_resource type="Texture2D" uid="uid://cpxs4tibh06kn" path="res://assets/enemies/enemy1_left.png" id="1_0cuda"]
 [ext_resource type="Script" path="res://scenes/enemies/enemy_1.gd" id="1_ett7i"]
 [ext_resource type="Texture2D" uid="uid://ei3clxucmu3t" path="res://assets/enemies/enemy1_right.png" id="2_qa3cw"]
+[ext_resource type="Script" path="res://resources/IdleMovement.gd" id="2_whc3k"]
+
+[sub_resource type="Resource" id="Resource_1cbf7"]
+script = ExtResource("2_whc3k")
+started = true
+retour = true
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_l3b6a"]
 atlas = ExtResource("1_0cuda")
@@ -364,6 +370,7 @@ size = Vector2(77, 66)
 collision_layer = 0
 collision_mask = 4
 script = ExtResource("1_ett7i")
+idle_movement = SubResource("Resource_1cbf7")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(-1, -37)
@@ -391,7 +398,6 @@ shape = SubResource("RectangleShape2D_h5ya5")
 
 [node name="hitbox" type="Area2D" parent="."]
 collision_layer = 0
-collision_mask = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox"]
 position = Vector2(-0.5, 0)

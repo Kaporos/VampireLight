@@ -1,4 +1,5 @@
-extends CharacterBody2D
+extends Movement
+class_name Enemy2
 
 
 @export var SPEED = 150.0

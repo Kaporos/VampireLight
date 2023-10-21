@@ -21,9 +21,7 @@ var body_in_lava = false
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var old_vampire_life;	
 var allow_up = false;
-var death_played = false
 
-var dead=false;
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	death_played = false
@@ -50,18 +48,8 @@ func check_collisions_physic_layer_and_light():
 		collision2dhoomanlight.disabled = false
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	#print(position)
-	if dead:
-		if !death_played:
-			$DeathSound.play()
-			death_played = true
-		$DeathSound.is_playing = true
-		return;
-
 	if body_in_lava:
 		stats.hit(200)
-
-		
 	if elevate_bat:
 		transform[2][1] -= BAT_SPEED*delta/8
 	if is_tranforming:
@@ -281,8 +269,10 @@ func get_input():
 
 
 func die():
-	dead = true
+	print("ded")
 	visible = false
+	$DeathSound.play()
+	$DeathSound.is_playing = true
 
 
 
