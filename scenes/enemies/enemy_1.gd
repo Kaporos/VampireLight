@@ -4,6 +4,7 @@ extends CharacterBody2D
 @export var SPEED = 300.0
 @export var JUMP_VELOCITY = -400.0
 @export var direction = -1
+@export var dmg = 20
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -13,8 +14,12 @@ var target = null
 var jumping = false
 var dead = false
 
+var hp = HealthStats.new()
+
 
 func _physics_process(delta):
+	if(not dead):
+		dead = hp.health <= 0
 	jumping = not is_on_floor()
 	if not is_on_floor():
 		velocity.y += gravity * delta
@@ -23,7 +28,7 @@ func _physics_process(delta):
 	if(target != null):
 		if(abs(target.position.x - position.x) >= 200):
 			direction = (int(target.position.x - position.x > 0) * 2) - 1
-		print(target.position.x)
+		print(abs(target.position - position))
 		velocity.x = direction * SPEED
 	else :
 		velocity.x = move_toward(velocity.x, 0, SPEED)
@@ -63,3 +68,9 @@ func _on_agro_zone_body_exited(body):
 func _on_animated_sprite_2d_animation_looped():
 	if(dead):
 		queue_free()
+
+
+
+
+func _on_hitbox_body_entered(body):
+	body.stats.hit(dmg)

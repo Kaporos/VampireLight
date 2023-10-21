@@ -6,7 +6,8 @@ var enemies3 = preload("res://scenes/enemies/enemy_3.tscn")
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	var enemy3 = enemies3.instantiate()
-	enemy3.position = Vector2(610,170)
+	enemy3.position = Vector2(800,300)
+	print(enemy3)
 	add_child(enemy3)
 
 

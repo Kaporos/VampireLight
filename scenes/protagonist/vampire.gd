@@ -33,7 +33,7 @@ func _show_hit_anim(_v, isHitted):
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-
+	#print(position)
 	if dead:
 		return;
 
@@ -93,12 +93,16 @@ func animate_bat(input_vector):
 	if is_attacking:
 		if orientation_was_right:
 			$BatAnimation.play("attack_right")
+			$HitAreaRight2/HitAreaRight.disabled = false
 			await get_tree().create_timer(0.8).timeout
+			$HitAreaRight2/HitAreaRight.disabled = true			
 			is_attacking = false
 			return
 		else:
 			$BatAnimation.play("attack_left")
+			$HitAreaLeftt2/HitAreaLeft.disabled = false
 			await get_tree().create_timer(0.8).timeout
+			$HitAreaLeftt2/HitAreaLeft.disabled = true
 			is_attacking = false
 			return
 
@@ -130,13 +134,17 @@ func animate_humanoid(input_vector):
 		if orientation_was_right:
 			is_attacking = true
 			$HumanoidAnimation.play("attack_right")
+			$HitAreaRight2/HitAreaRight.disabled = false
 			await get_tree().create_timer(0.5).timeout
+			$HitAreaRight2/HitAreaRight.disabled = true
 			is_attacking = false
 			return
 		else:
 			is_attacking = true
 			$HumanoidAnimation.play("attack_left")
+			$HitAreaLeftt2/HitAreaLeft.disabled = false
 			await get_tree().create_timer(0.5).timeout
+			$HitAreaLeftt2/HitAreaLeft.disabled = true
 			is_attacking = false
 			return
 

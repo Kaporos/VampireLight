@@ -1,4 +1,4 @@
-[gd_scene load_steps=139 format=3 uid="uid://bfg0pl4n5f661"]
+[gd_scene load_steps=140 format=3 uid="uid://bfg0pl4n5f661"]
 
 [ext_resource type="Shader" uid="uid://c6cmbwjnedpro" path="res://resources/blinking.tres" id="1_ld1ri"]
 [ext_resource type="Script" path="res://scenes/protagonist/vampire.gd" id="1_vq3cx"]
@@ -979,6 +979,9 @@ _data = {
 "hit": SubResource("Animation_72vcf")
 }
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_utfl0"]
+size = Vector2(40, 60)
+
 [node name="Vampire" type="CharacterBody2D"]
 material = SubResource("ShaderMaterial_yn63p")
 collision_mask = 4
@@ -996,6 +999,8 @@ position = Vector2(57, 82)
 shape = SubResource("RectangleShape2D_cyrja")
 
 [node name="HitAreaRight2" type="Area2D" parent="."]
+modulate = Color(0.447059, 0, 0, 1)
+collision_layer = 8
 collision_mask = 0
 
 [node name="HitAreaRight" type="CollisionShape2D" parent="HitAreaRight2"]
@@ -1004,6 +1009,8 @@ shape = SubResource("RectangleShape2D_nptbc")
 disabled = true
 
 [node name="HitAreaLeftt2" type="Area2D" parent="."]
+modulate = Color(1, 0.0352941, 0.0352941, 1)
+collision_layer = 8
 collision_mask = 0
 
 [node name="HitAreaLeft" type="CollisionShape2D" parent="HitAreaLeftt2"]
@@ -1052,5 +1059,9 @@ stream = ExtResource("7_mxjoy")
 volume_db = -10.0
 pitch_scale = 0.75
 script = ExtResource("8_um580")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(58, 82)
+shape = SubResource("RectangleShape2D_utfl0")
 
 [connection signal="finished" from="BatFlap" to="BatFlap" method="_on_finished"]
