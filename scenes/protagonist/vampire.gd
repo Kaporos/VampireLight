@@ -19,7 +19,8 @@ var elevate_bat = false
 var is_attacking = false
 var body_in_lava = false
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
-var old_vampire_life;
+var old_vampire_life;	
+var allow_up = false;
 
 var dead=false;
 # Called when the node enters the scene tree for the first time.
@@ -88,15 +89,22 @@ func move_humanoid(delta, input_vector):
 	$HumanoidCollision.disabled = false
 	$BatCollision.disabled = true
 	# Add the gravity.
-	if not is_on_floor():
-		velocity.y += gravity * delta
+	if allow_up:
+		var directiony = input_vector.y
+		if directiony:
+			velocity.y = directiony*SPEED
+		else:
+			velocity.y = move_toward(velocity.y, 0, SPEED)
+	else :
+		if not is_on_floor():
+			velocity.y += gravity * delta
 
-	# Handle Jump.
-	if Input.is_action_just_pressed("w_pressed") and is_on_floor():
-		velocity.y = JUMP_VELOCITY
+		# Handle Jump.
+		if Input.is_action_just_pressed("w_pressed") and is_on_floor():
+			velocity.y = JUMP_VELOCITY
 
-	# Get the input direction and handle the movement/deceleration.
-	# As good practice, you should replace UI actions with custom gameplay actions.
+		# Get the input direction and handle the movement/deceleration.
+		# As good practice, you should replace UI actions with custom gameplay actions.
 	var direction = input_vector.x
 	if direction:
 		velocity.x = direction * SPEED
@@ -272,3 +280,11 @@ func _on_tiles_detector_body_exited(body: Node2D):
 
 func _on_light_detector_exposed():
 	stats.hit(2.5)
+
+
+func _on_ladder_detector_body_exited(body:Node2D):
+	allow_up = false
+
+
+func _on_ladder_detector_body_entered(body:Node2D):
+	allow_up = true

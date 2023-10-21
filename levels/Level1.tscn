@@ -39,4 +39,5 @@ script = ExtResource("5_nq133")
 [node name="HUD" parent="CanvasLayer" node_paths=PackedStringArray("player") instance=ExtResource("8_hoj2y")]
 player = NodePath("../../Vampire")
 
+[connection signal="body_entered" from="coffin" to="Vampire" method="_on_coffin_body_entered"]
 [connection signal="body_shape_entered" from="coffin" to="Vampire" method="_on_coffin_body_shape_entered"]

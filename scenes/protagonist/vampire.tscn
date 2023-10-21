@@ -1077,6 +1077,16 @@ shape = SubResource("CapsuleShape2D_wpcga")
 position = Vector2(-8, 3)
 shape = SubResource("RectangleShape2D_cyrja")
 
+[node name="LadderDetector" type="Area2D" parent="."]
+collision_layer = 32
+collision_mask = 32
+
+[node name="HumanoidCollision" type="CollisionShape2D" parent="LadderDetector"]
+position = Vector2(57, 82)
+shape = SubResource("RectangleShape2D_cyrja")
+
 [connection signal="finished" from="BatFlap" to="BatFlap" method="_on_finished"]
 [connection signal="body_entered" from="TilesDetector" to="." method="_on_tiles_detector_body_entered"]
 [connection signal="exposed" from="LightDetector" to="." method="_on_light_detector_exposed"]
+[connection signal="body_entered" from="LadderDetector" to="." method="_on_ladder_detector_body_entered"]
+[connection signal="body_exited" from="LadderDetector" to="." method="_on_ladder_detector_body_exited"]

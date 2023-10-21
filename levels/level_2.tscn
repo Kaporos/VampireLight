@@ -453,7 +453,6 @@ collision_mask = 0
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="lights/PointLight2D3/Area2D"]
 position = Vector2(3.89709, 1.03958)
-scale = Vector2(1, 1)
 polygon = PackedVector2Array(-41.2654, 5.6337, 12.3547, -7.79861, 30.5413, -2.94724, 30.3323, 163.412, 11.4962, 158.387, -37.1418, 165.868, -37.5004, 95.7393, -21.483, 49.3942, -37.7209, 45.0626)
 
 [node name="PointLight2D2" type="PointLight2D" parent="lights"]
