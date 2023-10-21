@@ -33,7 +33,7 @@ func _physics_process(delta):
 		if is_on_floor() and sqrt((target.position.y - position.y)*(target.position.y - position.y) + (target.position.x - position.x)*(target.position.x - position.x)) < att_distance :
 			attack = true
 			att_time = Time.get_ticks_msec()
-		if(abs(target.position.x - position.x) >= 200):	
+		if(abs(target.position.x - position.x) >= 200):
 			direction = (int(target.position.x - position.x > 0) * 2) - 1
 		velocity.x = direction * SPEED
 	else :
@@ -88,3 +88,7 @@ func _on_animated_sprite_2d_animation_looped():
 func _on_hurt_hitox_body_entered(body):
 	if(attack):
 		body.stats.hit(dmg)
+
+
+func _on_hitbox_area_entered(area):
+	hp.hit(69)
