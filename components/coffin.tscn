@@ -2,43 +2,43 @@
 
 [ext_resource type="Texture2D" uid="uid://ctpniknd1owsh" path="res://assets/cavesofgallet_tiles.png" id="1_815gv"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_wvn1i"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_nbq1r"]
 atlas = ExtResource("1_815gv")
 region = Rect2(0, 96, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_yxyui"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_31e31"]
 atlas = ExtResource("1_815gv")
 region = Rect2(16, 96, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_qia0c"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_b7nl7"]
 atlas = ExtResource("1_815gv")
 region = Rect2(0, 112, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_4dlsv"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_ss6mj"]
 atlas = ExtResource("1_815gv")
 region = Rect2(16, 112, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_f2e7r"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_xg3tx"]
 atlas = ExtResource("1_815gv")
-region = Rect2(32, 112, 16, 16)
+region = Rect2(0, 128, 16, 16)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_fdm6y"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_wvn1i")
+"texture": SubResource("AtlasTexture_nbq1r")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_yxyui")
+"texture": SubResource("AtlasTexture_31e31")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_qia0c")
+"texture": SubResource("AtlasTexture_b7nl7")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_4dlsv")
+"texture": SubResource("AtlasTexture_ss6mj")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_f2e7r")
+"texture": SubResource("AtlasTexture_xg3tx")
 }],
 "loop": true,
 "name": &"default",
@@ -46,6 +46,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_noogh"]
+size = Vector2(26, 18)
 
 [node name="coffin" type="Area2D"]
 
@@ -53,4 +54,5 @@ animations = [{
 sprite_frames = SubResource("SpriteFrames_fdm6y")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-3, -1)
 shape = SubResource("RectangleShape2D_noogh")

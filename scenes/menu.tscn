@@ -1,7 +1,7 @@
 [gd_scene load_steps=12 format=3 uid="uid://ce3bfu2fifown"]
 
 [ext_resource type="Script" path="res://scripts/menu.gd" id="1_0puyd"]
-[ext_resource type="PackedScene" uid="uid://b3duyvop2nftn" path="res://levels/Level1.tscn" id="2_ud6vy"]
+[ext_resource type="PackedScene" uid="uid://cy5r404jbs526" path="res://levels/level_2.tscn" id="2_qi04v"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_prhx3"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -67,7 +67,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = SubResource("Theme_fb3pe")
 script = ExtResource("1_0puyd")
-start_scene = ExtResource("2_ud6vy")
+start_scene = ExtResource("2_qi04v")
 
 [node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/Menu"]
 layout_mode = 2

@@ -1,0 +1,30 @@
+[gd_scene load_steps=4 format=3 uid="uid://djftrolj3duj4"]
+
+[sub_resource type="Curve" id="Curve_ydvlt"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.498258, 0.505263), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="Curve" id="Curve_typnx"]
+min_value = -1.0
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.8223, -0.642105), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_cf35h"]
+size = Vector2(50, 10)
+
+[node name="CPUParticles2D" type="CPUParticles2D"]
+amount = 1
+lifetime = 2.0
+randomness = 0.2
+emission_shape = 3
+emission_rect_extents = Vector2(25, 10)
+gravity = Vector2(0, 200)
+scale_amount_min = 5.0
+scale_amount_max = 5.0
+scale_amount_curve = SubResource("Curve_ydvlt")
+color = Color(0.156863, 0.380392, 0.886275, 1)
+hue_variation_curve = SubResource("Curve_typnx")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
+texture = SubResource("PlaceholderTexture2D_cf35h")
