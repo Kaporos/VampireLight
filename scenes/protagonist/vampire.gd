@@ -28,7 +28,6 @@ func _ready():
 func _process(delta):
 
 
-
 	if elevate_bat:
 		transform[2][1] -= BAT_SPEED*delta/8
 	if is_tranforming:
