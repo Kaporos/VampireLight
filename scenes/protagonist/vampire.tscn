@@ -1,4 +1,4 @@
-[gd_scene load_steps=139 format=3 uid="uid://bfg0pl4n5f661"]
+[gd_scene load_steps=140 format=3 uid="uid://bfg0pl4n5f661"]
 
 [ext_resource type="Shader" uid="uid://c6cmbwjnedpro" path="res://resources/blinking.tres" id="1_ld1ri"]
 [ext_resource type="Script" path="res://scenes/protagonist/vampire.gd" id="1_vq3cx"]
@@ -10,6 +10,7 @@
 [ext_resource type="Script" path="res://scenes/protagonist/BatFlap.gd" id="6_ocopq"]
 [ext_resource type="AudioStream" uid="uid://knturaau7xdc" path="res://assets/sfx/run.mp3" id="7_mxjoy"]
 [ext_resource type="Script" path="res://scenes/protagonist/WalkingSound.gd" id="8_um580"]
+[ext_resource type="AudioStream" uid="uid://cq65hn6uhenl8" path="res://assets/sfx/sword_sound.mp3" id="11_x3ya4"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_yn63p"]
 shader = ExtResource("1_ld1ri")
@@ -1026,7 +1027,7 @@ scale = Vector2(4, 4)
 sprite_frames = SubResource("SpriteFrames_s1o5a")
 animation = &"idle_right"
 autoplay = "idle_right"
-frame_progress = 0.103067
+frame_progress = 0.00594152
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(0.9, 0.9)
@@ -1049,8 +1050,14 @@ script = ExtResource("6_ocopq")
 
 [node name="WalkingSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("7_mxjoy")
-volume_db = -10.0
+volume_db = -15.0
 pitch_scale = 0.75
 script = ExtResource("8_um580")
 
+[node name="SwordSlash" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_x3ya4")
+volume_db = -10.0
+
 [connection signal="finished" from="BatFlap" to="BatFlap" method="_on_finished"]
+[connection signal="finished" from="WalkingSound" to="WalkingSound" method="_on_finished"]
+[connection signal="finished" from="SwordSlash" to="SwordSlash" method="_on_finished"]

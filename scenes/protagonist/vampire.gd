@@ -92,6 +92,7 @@ func animate_bat(input_vector):
 
 	if is_attacking:
 		if orientation_was_right:
+			
 			$BatAnimation.play("attack_right")
 			await get_tree().create_timer(0.8).timeout
 			is_attacking = false
@@ -124,6 +125,8 @@ func animate_humanoid(input_vector):
 	$BatAnimation.visible = false
 
 	if Input.is_action_just_pressed("ui_accept"):
+		$SwordSlash.play()
+
 		if $WalkingSound.is_playing:
 			$WalkingSound.stop()
 			$WalkingSound.is_playing = false
