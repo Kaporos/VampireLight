@@ -280,7 +280,6 @@ script = ExtResource("2_u7d6t")
 
 [node name="coffin" parent="." instance=ExtResource("2_6ok3d")]
 position = Vector2(6232, 288)
-scale = Vector2(6, 6)
 
 [node name="particles" type="Node2D" parent="."]
 position = Vector2(152, 48)

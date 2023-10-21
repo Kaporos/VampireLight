@@ -37,7 +37,6 @@ script = ExtResource("2_2scdj")
 
 [node name="coffin" parent="." instance=ExtResource("2_kmdkt")]
 position = Vector2(2552, 208)
-scale = Vector2(6, 6)
 
 [node name="Vampire" parent="." instance=ExtResource("4_h4bwy")]
 position = Vector2(104, 160)

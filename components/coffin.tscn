@@ -50,7 +50,7 @@ animations = [{
 size = Vector2(26, 18)
 
 [node name="coffin" type="Area2D"]
-scale = Vector2(4, 4)
+scale = Vector2(6, 6)
 collision_layer = 0
 script = ExtResource("1_olyje")
 
