@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://c7uma5pfs22tx"]
+[gd_scene load_steps=13 format=3 uid="uid://c7uma5pfs22tx"]
 
 [ext_resource type="PackedScene" uid="uid://bfg0pl4n5f661" path="res://scenes/protagonist/vampire.tscn" id="1_52hp8"]
 [ext_resource type="TileSet" uid="uid://dqiohjw4a40w2" path="res://resources/level_tileset.tres" id="1_cm01s"]
@@ -6,13 +6,25 @@
 [ext_resource type="Script" path="res://scenes/nodes/LightedTilemap.gd" id="1_f2y1v"]
 [ext_resource type="Script" path="res://scripts/Darkness.gd" id="3_12k5j"]
 [ext_resource type="Script" path="res://resources/HealthStats.gd" id="4_s0ysw"]
-[ext_resource type="Script" path="res://resources/IdleMovement.gd" id="8_yitkl"]
-[ext_resource type="Script" path="res://scenes/Start.gd" id="9_4xf3v"]
+[ext_resource type="PackedScene" uid="uid://cyfw5khdfsw5j" path="res://components/platforms/moving_platform.tscn" id="7_6ycxd"]
 
 [sub_resource type="Resource" id="Resource_pq4g1"]
 script = ExtResource("4_s0ysw")
 health = 100
 maxHealth = 115
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1g1v0"]
+size = Vector2(328, 56)
+
+[sub_resource type="Gradient" id="Gradient_0kxpp"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_hnxb4"]
+gradient = SubResource("Gradient_0kxpp")
+fill_from = Vector2(0.470085, 1)
+fill_to = Vector2(0.487179, 0.884615)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_hhjna"]
+polygon = PackedVector2Array(320, 48, -8, 48, -8, -8, 320, -8)
 
 [node name="level_design" type="Node2D"]
 
@@ -30,6 +42,13 @@ layer_1/y_sort_enabled = false
 layer_1/y_sort_origin = 0
 layer_1/z_index = -1
 layer_1/tile_data = PackedInt32Array(1179672, 196608, 1, 1179670, 196608, 1, 1179671, 196608, 1, 1179673, 196608, 1, 1179674, 196608, 1)
+layer_2/name = "over"
+layer_2/enabled = true
+layer_2/modulate = Color(1, 1, 1, 1)
+layer_2/y_sort_enabled = false
+layer_2/y_sort_origin = 0
+layer_2/z_index = 4
+layer_2/tile_data = PackedInt32Array(720904, 196608, 1, 720905, 262144, 1)
 script = ExtResource("1_f2y1v")
 
 [node name="Vampire" parent="." instance=ExtResource("1_52hp8")]
@@ -46,7 +65,23 @@ color = Color(0.803922, 0.803922, 0.803922, 1)
 script = ExtResource("3_12k5j")
 
 [node name="Start" type="Node2D" parent="."]
-position = Vector2(19, 539)
+position = Vector2(37, 558)
 
 [node name="End" type="Node2D" parent="."]
 position = Vector2(320, 552)
+
+[node name="Moving Platform" parent="." node_paths=PackedStringArray("idle_points_list") instance=ExtResource("7_6ycxd")]
+collision_layer = 4
+idle_points_list = [NodePath("../Start"), NodePath("../End")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Moving Platform"]
+position = Vector2(156, 20)
+shape = SubResource("RectangleShape2D_1g1v0")
+
+[node name="Sprite2D" type="Sprite2D" parent="Moving Platform"]
+position = Vector2(156, 20)
+scale = Vector2(5.125, 0.875)
+texture = SubResource("GradientTexture2D_hnxb4")
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="Moving Platform"]
+occluder = SubResource("OccluderPolygon2D_hhjna")
