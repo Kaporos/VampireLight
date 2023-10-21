@@ -9,14 +9,13 @@
 [ext_resource type="Texture2D" uid="uid://ctpniknd1owsh" path="res://assets/cavesofgallet_tiles.png" id="7_n33ou"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jx3l3"]
-size = Vector2(50, 20)
+size = Vector2(144, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gi4y3"]
 atlas = ExtResource("7_n33ou")
 region = Rect2(0, 8, 16, 8)
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_0um0q"]
-closed = false
 polygon = PackedVector2Array(96, -24, -48, -24, -48, 24, 96, 24)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1qekn"]
@@ -73,12 +72,14 @@ position = Vector2(224, 376)
 [node name="Moving Platform" parent="." node_paths=PackedStringArray("point_list") instance=ExtResource("6_daoww")]
 position = Vector2(1072, 360)
 point_list = [NodePath("../Node2D/Start1"), NodePath("../Node2D/End1")]
+retour = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Moving Platform"]
-position = Vector2(-15, 0)
+position = Vector2(24, 0)
 shape = SubResource("RectangleShape2D_jx3l3")
 
 [node name="Sprite2D" type="Sprite2D" parent="Moving Platform"]
+visible = false
 scale = Vector2(6, 6)
 texture = SubResource("AtlasTexture_gi4y3")
 
@@ -86,6 +87,7 @@ texture = SubResource("AtlasTexture_gi4y3")
 occluder = SubResource("OccluderPolygon2D_0um0q")
 
 [node name="Sprite2D2" type="Sprite2D" parent="Moving Platform"]
+visible = false
 position = Vector2(72, 0)
 scale = Vector2(6, 6)
 texture = SubResource("AtlasTexture_1qekn")

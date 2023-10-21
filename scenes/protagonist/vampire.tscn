@@ -807,7 +807,7 @@ rotation = 1.5708
 shape = SubResource("CapsuleShape2D_wpcga")
 
 [node name="HumanoidCollision" type="CollisionShape2D" parent="."]
-position = Vector2(57, 81.5)
+position = Vector2(56, 80)
 shape = SubResource("RectangleShape2D_cyrja")
 
 [node name="HitArea" type="CollisionShape2D" parent="."]
