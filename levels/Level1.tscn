@@ -25,7 +25,6 @@ maxHealth = 115
 script = ExtResource("9_eqa3c")
 started = true
 retour = true
-tp_distance = 40
 
 [node name="Level1" type="Node2D"]
 
