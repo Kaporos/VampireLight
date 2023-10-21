@@ -31,7 +31,6 @@ func _physics_process(delta):
 			if(firing):
 				var some_garlic = garlic.instantiate();
 				some_garlic.position = Vector2(direction * 35,0)
-				print(some_garlic.position)
 				if(i):
 					if(direction == 1):
 						some_garlic.apply_force(Vector2i(power,0))
@@ -92,5 +91,4 @@ func _on_animated_sprite_2d_animation_looped():
 
 
 func _on_hitbox_area_entered(area):
-	print("bobo")
-	hp.hit(69)
+	hp.hit(10)

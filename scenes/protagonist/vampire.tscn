@@ -990,6 +990,7 @@ size = Vector2(38, 60)
 
 [node name="Vampire" type="CharacterBody2D"]
 material = SubResource("ShaderMaterial_yn63p")
+collision_layer = 17
 collision_mask = 4
 script = ExtResource("1_vq3cx")
 stats = SubResource("Resource_7wot2")

@@ -366,6 +366,9 @@ size = Vector2(13, 4.625)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_63ywk"]
 size = Vector2(77, 66)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p7vf3"]
+size = Vector2(85, 73)
+
 [node name="enemy1" type="CharacterBody2D"]
 collision_layer = 0
 collision_mask = 4
@@ -403,7 +406,15 @@ collision_layer = 0
 position = Vector2(-0.5, 0)
 shape = SubResource("RectangleShape2D_63ywk")
 
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-0.5, -0.5)
+shape = SubResource("RectangleShape2D_p7vf3")
+
 [connection signal="animation_looped" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_looped"]
 [connection signal="body_entered" from="agro_zone" to="." method="_on_agro_zone_body_entered"]
 [connection signal="body_exited" from="agro_zone" to="." method="_on_agro_zone_body_exited"]
-[connection signal="body_entered" from="hitbox" to="." method="_on_hitbox_body_entered"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

@@ -307,7 +307,7 @@ animations = [{
 size = Vector2(70, 77)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rvf88"]
-size = Vector2(1000, 1000)
+size = Vector2(2000, 2000)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_o1wun"]
 size = Vector2(70, 77)
@@ -322,7 +322,7 @@ position = Vector2(3, -12)
 scale = Vector2(3.07812, 3.07812)
 sprite_frames = SubResource("SpriteFrames_conia")
 animation = &"death_left"
-frame_progress = 0.664197
+frame_progress = 0.694869
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_7lhd7")
