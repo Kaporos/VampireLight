@@ -15,19 +15,22 @@ var jumping = false
 var dead = false
 var attack = false
 var att_time = 0
+var hp = HealthStats.new()
 
 
 func _physics_process(delta):
 	jumping = not is_on_floor()
 	if not is_on_floor():
 		velocity.y += gravity * delta
+	if(not dead):
+		dead = hp.health <= 0
 	if ((not $f_hitbox.has_overlapping_bodies()) or is_on_wall()) and is_on_floor(): 
 		velocity.y = JUMP_VELOCITY
 	#print(target)
 	if(target != null):
 		if is_on_floor() and sqrt((target.position.y - position.y)*(target.position.y - position.y) + (target.position.x - position.x)*(target.position.x - position.x)) < att_distance :
 			attack = true
-			att_time = Time.get_unix_time_from_system()
+			att_time = Time.get_ticks_msec()
 		if(abs(target.position.x - position.x) >= 200):	
 			direction = (int(target.position.x - position.x > 0) * 2) - 1
 		velocity.x = direction * SPEED
@@ -37,9 +40,9 @@ func _physics_process(delta):
 		move_and_slide()
 	else :
 		#do attack stuff
-		if(Time.get_unix_time_from_system() - att_time > 0.3):
+		if(Time.get_ticks_msec() - att_time > 300):
 			attack = false
-	if(jumping):
+	if(jumping and not dead):
 		if(direction == 1):
 			$AnimatedSprite2D.play("jump_right")
 		else:
@@ -73,3 +76,8 @@ func _on_agro_zone_body_entered(body):
 
 func _on_agro_zone_body_exited(body):
 	target = null
+
+
+func _on_animated_sprite_2d_animation_looped():
+	if(dead):
+		queue_free()

@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=3 uid="uid://miv1v3nhco1u"]
+[gd_scene load_steps=46 format=3 uid="uid://miv1v3nhco1u"]
 
 [ext_resource type="Texture2D" uid="uid://cx0lfy1p8dhd6" path="res://assets/enemies/enemy3_left.png" id="1_2t53l"]
 [ext_resource type="Script" path="res://scenes/enemies/enemy_3.gd" id="1_c0aon"]
@@ -309,10 +309,17 @@ size = Vector2(70, 77)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rvf88"]
 size = Vector2(1000, 1000)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o1wun"]
+size = Vector2(64, 72)
+
 [node name="enemy_3" type="CharacterBody2D"]
 collision_layer = 4
 collision_mask = 5
 script = ExtResource("1_c0aon")
+direction = null
+cooldown = null
+att_mode = null
+power = null
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(3, -12)
@@ -329,6 +336,12 @@ collision_layer = 0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("RectangleShape2D_rvf88")
 
+[node name="hitbox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox"]
+shape = SubResource("RectangleShape2D_o1wun")
+
 [connection signal="animation_looped" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_looped"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
+[connection signal="body_entered" from="hitbox" to="." method="_on_hitbox_body_entered"]

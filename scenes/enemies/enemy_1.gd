@@ -28,7 +28,7 @@ func _physics_process(delta):
 	else :
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 	move_and_slide()
-	if(jumping):
+	if(jumping and not dead):
 		if(direction == 1):
 			$AnimatedSprite2D.play("jump_right")
 		else:
@@ -58,3 +58,8 @@ func _on_agro_zone_body_exited(body):
 	target = null
 	
 
+
+
+func _on_animated_sprite_2d_animation_looped():
+	if(dead):
+		queue_free()

@@ -22,7 +22,7 @@ func _physics_process(delta):
 	if not is_on_floor() :
 		velocity.y += gravity * delta
 		move_and_slide()
-	if(dead == 0):
+	if(not dead):
 		dead = hp.health <= 0
 	if target and not dead:
 		direction = (int(target.position.x - position.x > 0) * 2) - 1
@@ -86,3 +86,8 @@ func _on_animated_sprite_2d_animation_looped():
 		$AnimatedSprite2D.stop()
 	if(dead):
 		queue_free()
+
+
+func _on_hitbox_body_entered(body):
+	if body is  :
+		print("bobo")

@@ -441,5 +441,6 @@ shape = SubResource("RectangleShape2D_jifdv")
 position = Vector2(0, 50)
 shape = SubResource("RectangleShape2D_6mllw")
 
+[connection signal="animation_looped" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_looped"]
 [connection signal="body_entered" from="agro_zone" to="." method="_on_agro_zone_body_entered"]
 [connection signal="body_exited" from="agro_zone" to="." method="_on_agro_zone_body_exited"]

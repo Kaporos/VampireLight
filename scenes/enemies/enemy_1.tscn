@@ -384,5 +384,6 @@ position = Vector2(27, 61)
 position = Vector2(-27, -29)
 shape = SubResource("RectangleShape2D_h5ya5")
 
+[connection signal="animation_looped" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_looped"]
 [connection signal="body_entered" from="agro_zone" to="." method="_on_agro_zone_body_entered"]
 [connection signal="body_exited" from="agro_zone" to="." method="_on_agro_zone_body_exited"]
