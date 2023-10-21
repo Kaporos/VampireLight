@@ -13,7 +13,6 @@ func _ready():
 	player.stats.health_changed.connect(health_changed)
 
 func dying():
-	print("done")
 	$GameOver.visible = true
 	$Stats.visible = false
 	player.die()
