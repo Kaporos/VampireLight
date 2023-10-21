@@ -25,11 +25,12 @@ func _ready():
 				var coords = to_global(map_to_local(tile));
 				var particles = water_particles.instantiate();
 				particles.global_position = coords
+				particles.position.y += 20
 				call_deferred("add", particles)
 
 
 
 func add(item):
-	get_tree().root.add_child(item)
+	get_parent().add_child(item)
 
 
