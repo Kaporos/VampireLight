@@ -39,31 +39,37 @@ region = Rect2(112, 8, 16, 8)
 script = ExtResource("9_22crq")
 started = true
 retour = true
+tp_distance = 5
 
 [sub_resource type="Resource" id="Resource_0ha4c"]
 script = ExtResource("9_22crq")
 started = true
 retour = true
+tp_distance = 5
 
 [sub_resource type="Resource" id="Resource_5pd6r"]
 script = ExtResource("9_22crq")
 started = true
 retour = true
+tp_distance = 5
 
 [sub_resource type="Resource" id="Resource_j4v7y"]
 script = ExtResource("9_22crq")
 started = true
 retour = true
+tp_distance = 5
 
 [sub_resource type="Resource" id="Resource_4r5e7"]
 script = ExtResource("9_22crq")
 started = true
 retour = true
+tp_distance = 5
 
 [sub_resource type="Resource" id="Resource_ustjv"]
 script = ExtResource("9_22crq")
 started = true
 retour = true
+tp_distance = 5
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_fq5h1"]
 polygon = PackedVector2Array(696, 672, 772, 672, 771, 1077)

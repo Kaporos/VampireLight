@@ -6,9 +6,9 @@
 [ext_resource type="PackedScene" uid="uid://bcfjfkr6853j1" path="res://components/sign.tscn" id="3_ggtwb"]
 [ext_resource type="PackedScene" uid="uid://bfg0pl4n5f661" path="res://scenes/protagonist/vampire.tscn" id="4_h4bwy"]
 [ext_resource type="Script" path="res://scripts/Darkness.gd" id="5_nq133"]
-[ext_resource type="PackedScene" uid="uid://q7ffgqou1sfe" path="res://scenes/enemies/enemy_1.tscn" id="9_3jpax"]
 [ext_resource type="Script" path="res://resources/HealthStats.gd" id="9_d42lu"]
 [ext_resource type="Script" path="res://resources/IdleMovement.gd" id="9_eqa3c"]
+[ext_resource type="PackedScene" uid="uid://q7ffgqou1sfe" path="res://scenes/enemies/enemy_1.tscn" id="9_wgmaj"]
 [ext_resource type="PackedScene" uid="uid://nts0a2yks63o" path="res://scenes/HUD.tscn" id="11_c8yvh"]
 
 [sub_resource type="Resource" id="Resource_ean88"]
