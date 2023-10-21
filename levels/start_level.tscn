@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://63cs6b0pq4gl" path="res://assets/cavesofgallet_tiles_blood.png" id="3_bv1op"]
 [ext_resource type="Script" path="res://scenes/nodes/LightedTilemap.gd" id="4_o6rr1"]
 [ext_resource type="Texture2D" uid="uid://chg6rjbh2k7mh" path="res://assets/halloween-deco/1 Objects/Signboard2.png" id="5_2ece0"]
-[ext_resource type="AudioStream" uid="uid://be1epaxfvx8h3" path="res://assets/lord_of_the_land.mp3" id="6_iy0g1"]
+[ext_resource type="AudioStream" uid="uid://be1epaxfvx8h3" path="res://assets/sfx/lord_of_the_land.mp3" id="6_iy0g1"]
 [ext_resource type="PackedScene" uid="uid://bfg0pl4n5f661" path="res://scenes/protagonist/vampire.tscn" id="6_x60wa"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_rfkua"]
