@@ -1,13 +1,12 @@
-[gd_scene load_steps=8 format=3 uid="uid://c7uma5pfs22tx"]
+[gd_scene load_steps=3 format=3 uid="uid://c7uma5pfs22tx"]
 
-[ext_resource type="PackedScene" uid="uid://bfg0pl4n5f661" path="res://scenes/protagonist/vampire.tscn" id="1_52hp8"]
 [ext_resource type="TileSet" uid="uid://dqiohjw4a40w2" path="res://resources/level_tileset.tres" id="1_cm01s"]
 [ext_resource type="PackedScene" uid="uid://nts0a2yks63o" path="res://scenes/HUD.tscn" id="3_ds0ei"]
 
 [node name="level_design" type="Node2D"]
 
 [node name="level1_bg" type="TileMap" parent="."]
-scale = Vector2(6, 6)
+scale = Vector2(4, 4)
 tile_set = ExtResource("1_cm01s")
 cell_quadrant_size = 8
 format = 2
