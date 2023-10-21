@@ -1,4 +1,4 @@
-[gd_scene load_steps=59 format=3 uid="uid://1s4y5trxxv4t"]
+[gd_scene load_steps=60 format=3 uid="uid://1s4y5trxxv4t"]
 
 [ext_resource type="Texture2D" uid="uid://bduvum64j3k8c" path="res://assets/enemies/enemy2_left.png" id="1_foelk"]
 [ext_resource type="Script" path="res://scenes/enemies/enemy_2.gd" id="1_hx0xe"]
@@ -419,6 +419,9 @@ size = Vector2(5, 17)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3lf3l"]
 size = Vector2(111, 86)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k4fm3"]
+size = Vector2(127, 97)
+
 [node name="enemy2" type="CharacterBody2D"]
 collision_layer = 0
 collision_mask = 4
@@ -429,7 +432,7 @@ position = Vector2(0.499997, 0.500003)
 scale = Vector2(3.15625, 3.09375)
 sprite_frames = SubResource("SpriteFrames_e7pd8")
 animation = &"attack_right"
-frame_progress = 0.799423
+frame_progress = 0.00554788
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 12)
@@ -451,14 +454,22 @@ shape = SubResource("RectangleShape2D_6mllw")
 
 [node name="hitbox" type="Area2D" parent="."]
 modulate = Color(0.635294, 0.247059, 0.203922, 1)
-collision_layer = 0
+collision_layer = 16
 collision_mask = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox"]
 position = Vector2(0.5, 12)
 shape = SubResource("RectangleShape2D_3lf3l")
 
+[node name="hurt_hitox" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hurt_hitox"]
+position = Vector2(-0.5, 12.5)
+shape = SubResource("RectangleShape2D_k4fm3")
+
 [connection signal="animation_looped" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_looped"]
 [connection signal="body_entered" from="agro_zone" to="." method="_on_agro_zone_body_entered"]
 [connection signal="body_exited" from="agro_zone" to="." method="_on_agro_zone_body_exited"]
-[connection signal="area_entered" from="hitbox" to="." method="_on_hitbox_area_entered"]
+[connection signal="body_entered" from="hurt_hitox" to="." method="_on_hurt_hitox_body_entered"]

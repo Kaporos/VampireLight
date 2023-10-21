@@ -322,7 +322,7 @@ position = Vector2(3, -12)
 scale = Vector2(3.07812, 3.07812)
 sprite_frames = SubResource("SpriteFrames_conia")
 animation = &"death_left"
-frame_progress = 0.664197
+frame_progress = 0.211082
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_7lhd7")

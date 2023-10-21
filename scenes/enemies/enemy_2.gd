@@ -40,8 +40,6 @@ func _physics_process(delta):
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 	if(attack) :
 		velocity.x = 0
-		if(sqrt((target.position.y - position.y)*(target.position.y - position.y) + (target.position.x - position.x)*(target.position.x - position.x)) < 30):
-			target.stats.hit(dmg)
 		if(Time.get_ticks_msec() - att_time > 300):
 			attack = false
 	move_and_slide()
@@ -86,5 +84,7 @@ func _on_animated_sprite_2d_animation_looped():
 		queue_free()
 
 
-func _on_hitbox_area_entered(area):
-	hp.hit(69)
+
+func _on_hurt_hitox_body_entered(body):
+	if(attack):
+		body.stats.hit(dmg)

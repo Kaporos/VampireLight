@@ -31,7 +31,6 @@ func _physics_process(delta):
 			if(firing):
 				var some_garlic = garlic.instantiate();
 				some_garlic.position = Vector2(direction * 35,0)
-				print(some_garlic.position)
 				if(i):
 					if(direction == 1):
 						some_garlic.apply_force(Vector2i(power,0))

@@ -28,8 +28,8 @@ func _physics_process(delta):
 	if(target != null):
 		if(abs(target.position.x - position.x) >= 200):
 			direction = (int(target.position.x - position.x > 0) * 2) - 1
-		print(abs(target.position - position))
 		velocity.x = direction * SPEED
+		
 	else :
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 	move_and_slide()
@@ -70,7 +70,5 @@ func _on_animated_sprite_2d_animation_looped():
 		queue_free()
 
 
-
-
-func _on_hitbox_body_entered(body):
+func _on_area_2d_body_entered(body):
 	body.stats.hit(dmg)
