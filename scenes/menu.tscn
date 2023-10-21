@@ -136,7 +136,7 @@ grow_vertical = 0
 theme_override_fonts/font = ExtResource("4_6gnm7")
 theme_override_font_sizes/font_size = 25
 theme_override_styles/normal = SubResource("StyleBoxFlat_itghe")
-text = "A game by BarakiLand"
+text = "A game made by us"
 horizontal_alignment = 1
 
 [node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/Menu"]
@@ -182,6 +182,15 @@ layout_mode = 2
 focus_neighbor_top = NodePath("../Start")
 focus_neighbor_bottom = NodePath("../Start")
 text = "Leave"
+
+[node name="Label2" type="Label" parent="CanvasLayer/Menu"]
+layout_mode = 0
+offset_left = 764.0
+offset_top = 324.0
+offset_right = 895.0
+offset_bottom = 350.0
+rotation = -0.402504
+text = "Spooky Jam 2023"
 
 [node name="level1_bg" type="TileMap" parent="."]
 scale = Vector2(4.5, 4.5)
