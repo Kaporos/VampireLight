@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://cy34jqwb3xs8s"]
 
-[ext_resource type="Texture2D" uid="uid://ctpniknd1owsh" path="res://assets/cavesofgallet_tiles.png" id="1_ahgva"]
+[ext_resource type="Texture2D" uid="uid://yrwalbfg0j23" path="res://assets/cavesofgallet_tiles.png" id="1_ahgva"]
 [ext_resource type="PackedScene" uid="uid://bfg0pl4n5f661" path="res://scenes/protagonist/vampire.tscn" id="2_x47wx"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_riai6"]

@@ -71,7 +71,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = SubResource("Theme_fb3pe")
 script = ExtResource("1_0puyd")
-start_scene = ExtResource("2_bs7fc")
+start_scene = ExtResource("2_401v8")
 
 [node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/Menu"]
 layout_mode = 2
