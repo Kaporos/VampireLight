@@ -36,7 +36,6 @@ metadata/_edit_lock_ = true
 limit_bottom = 1500
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
-visible = false
 
 [node name="HUD" parent="CanvasLayer" node_paths=PackedStringArray("player") instance=ExtResource("5_7vcqe")]
 offset_left = -66.0

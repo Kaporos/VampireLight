@@ -1081,7 +1081,6 @@ shape = SubResource("RectangleShape2D_cyrja")
 
 [node name="LightDetector" parent="." instance=ExtResource("11_wuvcr")]
 position = Vector2(65, 79)
-debug = true
 
 [node name="BatCollision" type="CollisionShape2D" parent="LightDetector"]
 position = Vector2(-11, -1)
