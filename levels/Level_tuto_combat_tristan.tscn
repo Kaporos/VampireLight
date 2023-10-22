@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://lv56gm8dut8h"]
+[gd_scene load_steps=39 format=3 uid="uid://lv56gm8dut8h"]
 
 [ext_resource type="TileSet" uid="uid://dqiohjw4a40w2" path="res://resources/level_tileset.tres" id="1_1hy4h"]
 [ext_resource type="Script" path="res://scenes/nodes/LightedTilemap.gd" id="2_ns1t8"]
@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://nts0a2yks63o" path="res://scenes/HUD.tscn" id="12_rtqu4"]
 [ext_resource type="PackedScene" uid="uid://cyfw5khdfsw5j" path="res://components/platforms/moving_platform.tscn" id="13_s731i"]
 [ext_resource type="Texture2D" uid="uid://ctpniknd1owsh" path="res://assets/cavesofgallet_tiles.png" id="14_68ibi"]
+[ext_resource type="FontFile" uid="uid://bavm1lx3rpsgq" path="res://assets/BLOODY.TTF" id="15_fukoe"]
 
 [sub_resource type="Resource" id="Resource_7ban4"]
 script = ExtResource("7_2d28p")
@@ -110,6 +111,11 @@ region = Rect2(24, 16, 8, 8)
 [sub_resource type="AtlasTexture" id="AtlasTexture_80xh2"]
 atlas = ExtResource("14_68ibi")
 region = Rect2(24, 24, 8, 8)
+
+[sub_resource type="LabelSettings" id="LabelSettings_gxbek"]
+font = ExtResource("15_fukoe")
+font_size = 30
+font_color = Color(1, 1, 1, 0.607843)
 
 [node name="Level1" type="Node2D"]
 
@@ -410,6 +416,7 @@ offset_left = 1268.0
 offset_top = 444.0
 offset_right = 1554.0
 offset_bottom = 478.0
-text = "Press Space bar to stab the enemy"
+text = "Press Space bar to stab the enemies"
+label_settings = SubResource("LabelSettings_gxbek")
 
 [connection signal="body_shape_entered" from="coffin" to="Vampire" method="_on_coffin_body_shape_entered"]
