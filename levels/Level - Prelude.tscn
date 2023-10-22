@@ -1,11 +1,10 @@
-[gd_scene load_steps=40 format=3 uid="uid://pimvyn750prq"]
+[gd_scene load_steps=39 format=3 uid="uid://pimvyn750prq"]
 
 [ext_resource type="Texture2D" uid="uid://umnt1y4vh5bo" path="res://assets/dungeon_tileset.png" id="1_ieebl"]
 [ext_resource type="Texture2D" uid="uid://63cs6b0pq4gl" path="res://assets/cavesofgallet_tiles_blood.png" id="2_65ce4"]
 [ext_resource type="Script" path="res://scenes/nodes/LightedTilemap.gd" id="3_7vga2"]
 [ext_resource type="Texture2D" uid="uid://chg6rjbh2k7mh" path="res://assets/halloween-deco/1 Objects/Signboard2.png" id="4_lr726"]
 [ext_resource type="PackedScene" uid="uid://bfg0pl4n5f661" path="res://scenes/protagonist/vampire.tscn" id="5_nmtoa"]
-[ext_resource type="AudioStream" uid="uid://ocm2y7aasbri" path="res://assets/sfx/lord_of_the_land.mp3" id="6_03cu1"]
 [ext_resource type="PackedScene" uid="uid://dnui1b27ihfua" path="res://components/coffin.tscn" id="7_fe4il"]
 [ext_resource type="Texture2D" uid="uid://caciyihgsgatx" path="res://assets/vampire.png" id="8_mrlh3"]
 [ext_resource type="Script" path="res://scripts/Wife.gd" id="9_0qgmn"]
@@ -778,11 +777,6 @@ texture = ExtResource("4_lr726")
 modulate = Color(0.376471, 0.376471, 0.376471, 1)
 position = Vector2(14.75, 12.25)
 scale = Vector2(0.25, 0.25)
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="StartLevel"]
-stream = ExtResource("6_03cu1")
-volume_db = -10.0
-autoplay = true
 
 [node name="coffin" parent="." instance=ExtResource("7_fe4il")]
 position = Vector2(1432, 430)
