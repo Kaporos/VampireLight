@@ -1,7 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://dnui1b27ihfua"]
+[gd_scene load_steps=15 format=3 uid="uid://dnui1b27ihfua"]
 
 [ext_resource type="Texture2D" uid="uid://ctpniknd1owsh" path="res://assets/cavesofgallet_tiles.png" id="1_815gv"]
 [ext_resource type="Script" path="res://components/coffin.gd" id="1_olyje"]
+[ext_resource type="AudioStream" uid="uid://uyukd5758x8b" path="res://assets/sfx/grincement.wav" id="3_a82wa"]
+[ext_resource type="AudioStream" uid="uid://fl8ni6d0kprx" path="res://assets/sfx/claquement.wav" id="4_djt3r"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_nbq1r"]
 atlas = ExtResource("1_815gv")
@@ -49,6 +51,84 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_noogh"]
 size = Vector2(26, 18)
 
+[sub_resource type="Animation" id="Animation_2lsnf"]
+resource_name = "close"
+length = 1.25
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.2),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"coffin_anim"
+}, {
+"args": [],
+"method": &"tp_player"
+}]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AudioStreamPlayer grincement:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AudioStreamPlayer2 claquage:playing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.2),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_4qiik"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AudioStreamPlayer grincement:playing")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AudioStreamPlayer2 claquage:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_7uvfa"]
+_data = {
+"RESET": SubResource("Animation_4qiik"),
+"close": SubResource("Animation_2lsnf")
+}
+
 [node name="coffin" type="Area2D"]
 scale = Vector2(6, 6)
 collision_layer = 0
@@ -61,5 +141,18 @@ frame = 4
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-3, -1)
 shape = SubResource("RectangleShape2D_noogh")
+
+[node name="AudioStreamPlayer grincement" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_a82wa")
+volume_db = -10.0
+
+[node name="AudioStreamPlayer2 claquage" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_djt3r")
+volume_db = -10.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_7uvfa")
+}
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
