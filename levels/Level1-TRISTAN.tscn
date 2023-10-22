@@ -1,9 +1,8 @@
-[gd_scene load_steps=13 format=3 uid="uid://lv56gm8dut8h"]
+[gd_scene load_steps=12 format=3 uid="uid://lv56gm8dut8h"]
 
 [ext_resource type="TileSet" uid="uid://dqiohjw4a40w2" path="res://resources/level_tileset.tres" id="1_1hy4h"]
 [ext_resource type="Script" path="res://scenes/nodes/LightedTilemap.gd" id="2_ns1t8"]
 [ext_resource type="PackedScene" uid="uid://dnui1b27ihfua" path="res://components/coffin.tscn" id="3_7iti0"]
-[ext_resource type="Script" path="res://components/coffin.gd" id="4_ri3ux"]
 [ext_resource type="PackedScene" uid="uid://bcfjfkr6853j1" path="res://components/sign.tscn" id="5_a8uek"]
 [ext_resource type="PackedScene" uid="uid://bfg0pl4n5f661" path="res://scenes/protagonist/vampire.tscn" id="6_0yq8u"]
 [ext_resource type="Script" path="res://scripts/Darkness.gd" id="7_3d4h3"]
@@ -26,7 +25,6 @@ script = ExtResource("2_ns1t8")
 [node name="coffin" parent="." instance=ExtResource("3_7iti0")]
 position = Vector2(7450, 174)
 scale = Vector2(6, 6)
-script = ExtResource("4_ri3ux")
 
 [node name="sign" parent="." instance=ExtResource("5_a8uek")]
 position = Vector2(237, 266)
@@ -160,6 +158,5 @@ position = Vector2(5298, 74)
 
 [node name="Moving Platform" parent="." node_paths=PackedStringArray("idle_points_list") instance=ExtResource("12_ii08k")]
 idle_points_list = [NodePath("../start1"), NodePath("../end1")]
-agro_movement = null
 
 [connection signal="body_shape_entered" from="coffin" to="Vampire" method="_on_coffin_body_shape_entered"]
