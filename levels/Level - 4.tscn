@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=3 uid="uid://lv56gm8dut8h"]
+[gd_scene load_steps=40 format=3 uid="uid://lv56gm8dut8h"]
 
 [ext_resource type="TileSet" uid="uid://dqiohjw4a40w2" path="res://resources/level_tileset.tres" id="1_qw1m7"]
 [ext_resource type="Script" path="res://scenes/nodes/LightedTilemap.gd" id="2_hc4r1"]
@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://cyfw5khdfsw5j" path="res://components/platforms/moving_platform.tscn" id="11_v3wtt"]
 [ext_resource type="Texture2D" uid="uid://ctpniknd1owsh" path="res://assets/cavesofgallet_tiles.png" id="12_36vjs"]
 [ext_resource type="Texture2D" uid="uid://cklbmbpmblqsc" path="res://assets/light.png" id="13_0o5cu"]
+[ext_resource type="FontFile" uid="uid://bavm1lx3rpsgq" path="res://assets/BLOODY.TTF" id="15_f4yy3"]
 
 [sub_resource type="Resource" id="Resource_su2we"]
 script = ExtResource("7_tb48f")
@@ -409,7 +410,6 @@ offset_left = 1268.0
 offset_top = 444.0
 offset_right = 1554.0
 offset_bottom = 478.0
-text = "Press Space bar to stab the enemy"
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="."]
 occluder = SubResource("OccluderPolygon2D_fa1xw")
@@ -417,5 +417,16 @@ occluder = SubResource("OccluderPolygon2D_fa1xw")
 [node name="LightOccluder2D2" type="LightOccluder2D" parent="."]
 position = Vector2(1475, -138)
 occluder = SubResource("OccluderPolygon2D_4g4j8")
+
+[node name="Label2" type="Label" parent="."]
+offset_left = 1250.0
+offset_top = 448.0
+offset_right = 1666.0
+offset_bottom = 534.0
+theme_override_colors/font_color = Color(0.6, 0.6, 0.6, 1)
+theme_override_fonts/font = ExtResource("15_f4yy3")
+theme_override_font_sizes/font_size = 35
+text = "Press Space bar to stab
+the enemy"
 
 [connection signal="body_shape_entered" from="coffin" to="Vampire" method="_on_coffin_body_shape_entered"]
