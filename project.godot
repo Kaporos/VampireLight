@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 RayCaster="*res://scripts/Raycaster.gd"
 Game="*res://scenes/Game.tscn"
+Music="*res://music.tscn"
 
 [display]
 
