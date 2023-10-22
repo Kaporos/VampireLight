@@ -1,7 +1,7 @@
 extends CharacterBody2D
 class_name Movement
 
-@export var speed: int = 10;
+@export var speed: int = 100;
 @export var gravity_affected : bool = true;
 @export var agro : bool = false;
 @export var idle_points_list: Array[Node2D] = [];
