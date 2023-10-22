@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://lv56gm8dut8h"]
+[gd_scene load_steps=38 format=3 uid="uid://lv56gm8dut8h"]
 
 [ext_resource type="TileSet" uid="uid://dqiohjw4a40w2" path="res://resources/level_tileset.tres" id="1_1hy4h"]
 [ext_resource type="Script" path="res://scenes/nodes/LightedTilemap.gd" id="2_ns1t8"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://bfg0pl4n5f661" path="res://scenes/protagonist/vampire.tscn" id="6_0yq8u"]
 [ext_resource type="Script" path="res://scripts/Darkness.gd" id="7_3d4h3"]
 [ext_resource type="Script" path="res://resources/IdleMovement.gd" id="8_5bjkl"]
+[ext_resource type="Script" path="res://resources/HealthStats.gd" id="8_ddvqn"]
 [ext_resource type="PackedScene" uid="uid://1s4y5trxxv4t" path="res://scenes/enemies/enemy_2.tscn" id="8_q4o7g"]
 [ext_resource type="PackedScene" uid="uid://miv1v3nhco1u" path="res://scenes/enemies/enemy_3.tscn" id="9_g3o6a"]
 [ext_resource type="PackedScene" uid="uid://q7ffgqou1sfe" path="res://scenes/enemies/enemy_1.tscn" id="10_2y4ta"]
@@ -15,10 +16,26 @@
 [ext_resource type="PackedScene" uid="uid://cyfw5khdfsw5j" path="res://components/platforms/moving_platform.tscn" id="13_s731i"]
 [ext_resource type="Texture2D" uid="uid://ctpniknd1owsh" path="res://assets/cavesofgallet_tiles.png" id="14_68ibi"]
 
+[sub_resource type="Resource" id="Resource_kmeqp"]
+script = ExtResource("8_ddvqn")
+health = 100
+maxHealth = 115
+
 [sub_resource type="Resource" id="Resource_c2pj5"]
 script = ExtResource("8_5bjkl")
 started = true
 retour = true
+tp_distance = 5
+
+[sub_resource type="Resource" id="Resource_qamx2"]
+script = ExtResource("8_ddvqn")
+health = 100
+maxHealth = 115
+
+[sub_resource type="Resource" id="Resource_gqvir"]
+script = ExtResource("8_ddvqn")
+health = 100
+maxHealth = 115
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7soxr"]
 size = Vector2(143, 35)
@@ -46,6 +63,7 @@ region = Rect2(8, 8, 8, 8)
 script = ExtResource("8_5bjkl")
 started = true
 retour = true
+tp_distance = 5
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xr5u8"]
 size = Vector2(143, 35)
@@ -54,6 +72,7 @@ size = Vector2(143, 35)
 script = ExtResource("8_5bjkl")
 started = true
 retour = true
+tp_distance = 5
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_at3vx"]
 size = Vector2(139, 35)
@@ -62,6 +81,7 @@ size = Vector2(139, 35)
 script = ExtResource("8_5bjkl")
 started = true
 retour = true
+tp_distance = 5
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fggqa"]
 size = Vector2(139, 35)
@@ -70,6 +90,7 @@ size = Vector2(139, 35)
 script = ExtResource("8_5bjkl")
 started = true
 retour = true
+tp_distance = 5
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nlkkm"]
 size = Vector2(139, 35)
@@ -78,6 +99,7 @@ size = Vector2(139, 35)
 script = ExtResource("8_5bjkl")
 started = true
 retour = true
+tp_distance = 5
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tyw66"]
 size = Vector2(139, 35)
@@ -86,6 +108,7 @@ size = Vector2(139, 35)
 script = ExtResource("8_5bjkl")
 started = true
 retour = true
+tp_distance = 5
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_agwx5"]
 size = Vector2(139, 35)
@@ -103,7 +126,6 @@ metadata/_edit_group_ = true
 
 [node name="coffin" parent="." instance=ExtResource("3_7iti0")]
 position = Vector2(7450, 174)
-scale = Vector2(6, 6)
 
 [node name="sign" parent="." instance=ExtResource("5_a8uek")]
 position = Vector2(237, 266)
@@ -118,6 +140,7 @@ script = ExtResource("7_3d4h3")
 
 [node name="enemy2" parent="." node_paths=PackedStringArray("idle_points_list") instance=ExtResource("8_q4o7g")]
 position = Vector2(1510, 350)
+stats = SubResource("Resource_kmeqp")
 idle_points_list = [NodePath("../start2"), NodePath("../end2")]
 idle_movement = SubResource("Resource_c2pj5")
 
@@ -134,10 +157,12 @@ cooldown = 1000
 
 [node name="enemy1" parent="." node_paths=PackedStringArray("idle_points_list") instance=ExtResource("10_2y4ta")]
 position = Vector2(2600, 469)
+stats = SubResource("Resource_qamx2")
 idle_points_list = [NodePath("../start3"), NodePath("../end3")]
 
 [node name="enemy4" parent="." node_paths=PackedStringArray("idle_points_list") instance=ExtResource("10_2y4ta")]
 position = Vector2(2739, 442)
+stats = SubResource("Resource_gqvir")
 idle_points_list = [NodePath("../start4"), NodePath("../end4")]
 
 [node name="enemy_6" parent="." instance=ExtResource("9_g3o6a")]
@@ -171,9 +196,10 @@ polygon = PackedVector2Array(33, -2, 33, 328.546, 33, 511.67, -36, 511.67, -33, 
 [node name="L2" type="Node2D" parent="."]
 
 [node name="PointLight2D" type="PointLight2D" parent="L2"]
-position = Vector2(5178.07, 491.833)
+position = Vector2(5261, -311)
 rotation = 0.115192
-scale = Vector2(1.28571, 2.14685)
+scale = Vector2(1.28571, 5.32699)
+shadow_enabled = true
 texture = ExtResource("11_6d53s")
 
 [node name="Area2D" type="Area2D" parent="L2/PointLight2D"]
@@ -187,9 +213,10 @@ polygon = PackedVector2Array(13.135, -0.980194, 28.8552, -0.642395, 30.7979, 494
 [node name="L3" type="Node2D" parent="."]
 
 [node name="PointLight2D" type="PointLight2D" parent="L3"]
-position = Vector2(5272.23, 481.061)
+position = Vector2(5199, -22)
 rotation = -0.115192
-scale = Vector2(1, 2.18283)
+scale = Vector2(1, 4.21806)
+shadow_enabled = true
 texture = ExtResource("11_6d53s")
 
 [node name="Area2D" type="Area2D" parent="L3/PointLight2D"]
@@ -201,10 +228,12 @@ collision_mask = 0
 polygon = PackedVector2Array(14.7114, -2.63211, 15.958, 497.689, -51.5913, 493.84, -51.5405, -3.43274)
 
 [node name="L4" type="Node2D" parent="."]
+position = Vector2(8, -701)
 
 [node name="PointLight2D" type="PointLight2D" parent="L4"]
 position = Vector2(5818.5, 517)
-scale = Vector2(2.61429, 2.02)
+scale = Vector2(2.61429, 5.312)
+shadow_enabled = true
 texture = ExtResource("11_6d53s")
 
 [node name="Area2D" type="Area2D" parent="L4/PointLight2D"]
@@ -216,10 +245,12 @@ collision_mask = 0
 polygon = PackedVector2Array(34.0435, 0.995025, 34.426, 501.493, -34.8091, 501.493, -33.6616, -0.497512)
 
 [node name="L5" type="Node2D" parent="."]
+position = Vector2(8, -652)
 
 [node name="PointLight2D" type="PointLight2D" parent="L5"]
-position = Vector2(7040, 476.5)
-scale = Vector2(2.68571, 1.91)
+position = Vector2(7038, 476.5)
+scale = Vector2(2.68571, 5.494)
+shadow_enabled = true
 texture = ExtResource("11_6d53s")
 
 [node name="Area2D" type="Area2D" parent="L5/PointLight2D"]
@@ -254,9 +285,9 @@ position = Vector2(2809, 438)
 player = NodePath("../../Vampire")
 
 [node name="Moving Platform" parent="." node_paths=PackedStringArray("idle_points_list") instance=ExtResource("13_s731i")]
-position = Vector2(5103, 92)
+position = Vector2(5109, 94)
 collision_layer = 4
-speed = 10
+speed = 125
 idle_points_list = [NodePath("../start5"), NodePath("../end5")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Moving Platform"]
@@ -271,6 +302,7 @@ texture = SubResource("AtlasTexture_l016t")
 [node name="LightOccluder2D" type="LightOccluder2D" parent="Moving Platform"]
 position = Vector2(47, 49)
 occluder = SubResource("OccluderPolygon2D_3xahu")
+occluder_light_mask = 3
 
 [node name="Sprite2D2" type="Sprite2D" parent="Moving Platform"]
 position = Vector2(13.0002, -19)
