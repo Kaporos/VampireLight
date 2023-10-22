@@ -1,4 +1,4 @@
-[gd_scene load_steps=63 format=3 uid="uid://1s4y5trxxv4t"]
+[gd_scene load_steps=62 format=3 uid="uid://1s4y5trxxv4t"]
 
 [ext_resource type="Texture2D" uid="uid://bduvum64j3k8c" path="res://assets/enemies/enemy2_left.png" id="1_foelk"]
 [ext_resource type="Script" path="res://scenes/enemies/enemy_2.gd" id="1_hx0xe"]
@@ -473,7 +473,6 @@ collision_mask = 24
 [node name="CollisionShape2D" type="CollisionShape2D" parent="hurt_hitox"]
 position = Vector2(-0.5, 12.5)
 shape = SubResource("RectangleShape2D_k4fm3")
-
 
 [connection signal="animation_looped" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_looped"]
 [connection signal="body_entered" from="agro_zone" to="." method="_on_agro_zone_body_entered"]

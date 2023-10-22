@@ -1,4 +1,4 @@
-[gd_scene load_steps=57 format=3 uid="uid://q7ffgqou1sfe"]
+[gd_scene load_steps=56 format=3 uid="uid://q7ffgqou1sfe"]
 
 [ext_resource type="Texture2D" uid="uid://cpxs4tibh06kn" path="res://assets/enemies/enemy1_left.png" id="1_0cuda"]
 [ext_resource type="Script" path="res://scenes/enemies/enemy_1.gd" id="1_ett7i"]
@@ -411,7 +411,6 @@ collision_mask = 9
 [node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox"]
 position = Vector2(-0.5, 0)
 shape = SubResource("RectangleShape2D_63ywk")
-
 
 [connection signal="body_entered" from="agro_zone" to="." method="_on_agro_zone_body_entered"]
 [connection signal="body_exited" from="agro_zone" to="." method="_on_agro_zone_body_exited"]

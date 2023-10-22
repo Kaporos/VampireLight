@@ -322,6 +322,8 @@ func _on_ladder_detector_body_entered(_body:Node2D):
 
 func _on_hit_area_right_2_body_entered(body):
 	print("hit enemy right")
+	print(body.stats.health)
+	print(DAMAGE)
 	body.stats.hit(DAMAGE)
 
 func _on_hit_area_leftt_2_body_entered(body):

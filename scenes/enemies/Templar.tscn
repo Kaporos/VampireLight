@@ -1,12 +1,18 @@
-[gd_scene load_steps=63 format=3 uid="uid://p6h63gyyhgve"]
+[gd_scene load_steps=65 format=3 uid="uid://p6h63gyyhgve"]
 
 [ext_resource type="Texture2D" uid="uid://c6i6olxyysada" path="res://assets/Enemy/Boss/Templar/Knight 2 REMASTER/Attacks.png" id="1_buj8l"]
 [ext_resource type="Script" path="res://scenes/enemies/Templar.gd" id="1_dvyqy"]
 [ext_resource type="Texture2D" uid="uid://bsua3567wnvgt" path="res://assets/Enemy/Boss/Templar/Knight 2 REMASTER/Idle.png" id="1_ewetg"]
+[ext_resource type="Script" path="res://resources/HealthStats.gd" id="2_a2cjd"]
 [ext_resource type="Texture2D" uid="uid://boiev6fve4756" path="res://assets/Enemy/Boss/Templar/Knight 2 REMASTER/attack_from_air.png" id="3_8fyhe"]
 [ext_resource type="Texture2D" uid="uid://dytryiwt1umd5" path="res://assets/Enemy/Boss/Templar/Knight 2 REMASTER/Death.png" id="3_fkcge"]
 [ext_resource type="Texture2D" uid="uid://bl5di8lanjn5f" path="res://assets/Enemy/Boss/Templar/Knight 2 REMASTER/Jump.png" id="6_cjpeh"]
 [ext_resource type="Texture2D" uid="uid://ct74xjs376tju" path="res://assets/Enemy/Boss/Templar/Knight 2 REMASTER/Run.png" id="6_xebtj"]
+
+[sub_resource type="Resource" id="Resource_vurkc"]
+script = ExtResource("2_a2cjd")
+health = 2000
+maxHealth = 115
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fmlph"]
 size = Vector2(17, 46)
@@ -370,10 +376,10 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0cbm8"]
-size = Vector2(384, 192)
+size = Vector2(1000, 1000)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_n562r"]
-radius = 12.0
+radius = 21.0
 height = 46.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6igq5"]
@@ -505,9 +511,11 @@ _data = {
 }
 
 [node name="Templar" type="CharacterBody2D"]
+position = Vector2(0, -1)
 collision_layer = 8
 collision_mask = 4
 script = ExtResource("1_dvyqy")
+stats = SubResource("Resource_vurkc")
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -533,7 +541,7 @@ position = Vector2(16, 9)
 collision_layer = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CollisionSlash/hitbox_forward_slash"]
-position = Vector2(0, -8)
+position = Vector2(-9, -15)
 shape = SubResource("CapsuleShape2D_n562r")
 disabled = true
 
