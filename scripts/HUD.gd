@@ -11,6 +11,12 @@ func _ready():
 	$GameOver.visible = false
 	player.stats.dead.connect(dying)
 	player.stats.health_changed.connect(health_changed)
+	player.bat_time_left.connect(bat_time)
+
+
+func bat_time(value):
+	%Bat.value = (float(value) / float(player.BAT_DURATION)) * 100
+	
 
 func dying():
 	print("done")
