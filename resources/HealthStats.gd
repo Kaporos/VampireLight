@@ -4,8 +4,6 @@ class_name HealthStats
 signal health_changed(value, hit);
 signal dead;
 
-var frozen = false;
-
 @export var health: int = 100: set=_changed;
 @export var maxHealth: int = 115;
 
@@ -25,8 +23,6 @@ func set_health_without_hit(value):
 
 
 func _changed(value):
-	if frozen:
-		return
 	health_changed.emit(value, justHit)
 	health = value
 	if health <= 0:

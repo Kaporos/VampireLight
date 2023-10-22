@@ -17,7 +17,7 @@ maxHealth = 115
 
 [sub_resource type="Resource" id="Resource_siyw8"]
 script = ExtResource("9_d42lu")
-health = 100
+health = 5000
 maxHealth = 115
 
 [sub_resource type="Resource" id="Resource_qntsn"]
@@ -54,8 +54,8 @@ position = Vector2(778, 701)
 [node name="HUD" parent="CanvasLayer" node_paths=PackedStringArray("player") instance=ExtResource("11_c8yvh")]
 player = NodePath("../../Vampire")
 
-[node name="enemy2" parent="." node_paths=PackedStringArray("idle_points_list") instance=ExtResource("9_wgmaj")]
-position = Vector2(972, 711)
+[node name="enemy1" parent="." node_paths=PackedStringArray("idle_points_list") instance=ExtResource("9_wgmaj")]
+position = Vector2(974, 713)
 stats = SubResource("Resource_siyw8")
 idle_points_list = [NodePath("../StartEnemy"), NodePath("../EndEnemy")]
 idle_movement = SubResource("Resource_qntsn")

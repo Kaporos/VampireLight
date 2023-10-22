@@ -1,15 +1,22 @@
-[gd_scene load_steps=55 format=3 uid="uid://q7ffgqou1sfe"]
+[gd_scene load_steps=57 format=3 uid="uid://q7ffgqou1sfe"]
 
 [ext_resource type="Texture2D" uid="uid://cpxs4tibh06kn" path="res://assets/enemies/enemy1_left.png" id="1_0cuda"]
 [ext_resource type="Script" path="res://scenes/enemies/enemy_1.gd" id="1_ett7i"]
 [ext_resource type="Texture2D" uid="uid://ei3clxucmu3t" path="res://assets/enemies/enemy1_right.png" id="2_qa3cw"]
 [ext_resource type="Script" path="res://resources/IdleMovement.gd" id="2_whc3k"]
+[ext_resource type="PackedScene" path="res://scenes/blinker.tscn" id="5_ogjgh"]
 
 [sub_resource type="Resource" id="Resource_1cbf7"]
 script = ExtResource("2_whc3k")
 started = true
 retour = true
 tp_distance = 5
+
+[sub_resource type="Shader" id="Shader_mnbia"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ebes3"]
+render_priority = 0
+shader = SubResource("Shader_mnbia")
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_l3b6a"]
 atlas = ExtResource("1_0cuda")
@@ -367,9 +374,6 @@ size = Vector2(13, 4.625)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_63ywk"]
 size = Vector2(77, 66)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_p7vf3"]
-size = Vector2(85, 73)
-
 [node name="enemy1" type="CharacterBody2D"]
 collision_layer = 8
 collision_mask = 4
@@ -377,6 +381,7 @@ script = ExtResource("1_ett7i")
 idle_movement = SubResource("Resource_1cbf7")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+material = SubResource("ShaderMaterial_ebes3")
 position = Vector2(-1, -37)
 scale = Vector2(3.875, 4.375)
 sprite_frames = SubResource("SpriteFrames_c082r")
@@ -407,6 +412,9 @@ collision_layer = 0
 position = Vector2(-0.5, 0)
 shape = SubResource("RectangleShape2D_63ywk")
 
+[node name="blinker" parent="." node_paths=PackedStringArray("sprites") instance=ExtResource("5_ogjgh")]
+duration = 0.05
+sprites = [NodePath("../AnimatedSprite2D")]
+
 [connection signal="body_entered" from="agro_zone" to="." method="_on_agro_zone_body_entered"]
 [connection signal="body_exited" from="agro_zone" to="." method="_on_agro_zone_body_exited"]
-[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

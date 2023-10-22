@@ -34,7 +34,6 @@ signal bat_time_left(value);
 func _ready():
 	stats.health_changed.connect(_show_hit_anim)
 	stats.health = stats.maxHealth
-	stats.frozen = false
 
 func _show_hit_anim(_v, isHitted):
 	if !isHitted:
@@ -293,7 +292,6 @@ func die():
 	visible = false
 	$DeathSound.play()
 	$DeathSound.is_playing = true
-	stats.frozen = true
 
 
 

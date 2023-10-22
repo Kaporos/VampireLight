@@ -10,5 +10,5 @@
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_1ii1j")
-levels = Array[PackedScene]([ExtResource("2_msey6"), ExtResource("3_rtgef"), ExtResource("3_1233x"), ExtResource("3_aqkw1"), ExtResource("5_e067w")])
+levels = Array[PackedScene]([ExtResource("3_1233x"), ExtResource("2_msey6"), ExtResource("3_rtgef"), ExtResource("3_aqkw1"), ExtResource("5_e067w")])
 menu = ExtResource("4_xonjd")

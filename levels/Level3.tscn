@@ -281,7 +281,8 @@ position = Vector2(2809, 438)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="HUD" parent="CanvasLayer" instance=ExtResource("12_rtqu4")]
+[node name="HUD" parent="CanvasLayer" node_paths=PackedStringArray("player") instance=ExtResource("12_rtqu4")]
+player = NodePath("../../Vampire")
 
 [node name="Moving Platform" parent="." node_paths=PackedStringArray("idle_points_list") instance=ExtResource("13_s731i")]
 position = Vector2(5109, 94)
