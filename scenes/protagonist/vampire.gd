@@ -247,7 +247,7 @@ func check_for_transform():
 			$WalkingSound.is_playing = false
 
 		if is_bat:
-			stats.health = old_vampire_life if old_vampire_life else stats.maxHealth
+			stats.set_health_without_hit(old_vampire_life if old_vampire_life else stats.maxHealth)
 			is_tranforming = true
 			elevate_bat = true
 			if orientation_was_right:
@@ -269,7 +269,7 @@ func check_for_transform():
 		elif is_on_floor():
 			time_count = Time.get_ticks_msec()
 			old_vampire_life = stats.health
-			stats.health = 2
+			stats.set_health_without_hit(2)
 
 			is_tranforming = true
 			if orientation_was_right:

@@ -52,7 +52,7 @@ position = Vector2(778, 701)
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="HUD" parent="CanvasLayer" node_paths=PackedStringArray("player") instance=ExtResource("11_c8yvh")]
-player = NodePath("")
+player = NodePath("../../Vampire")
 
 [node name="enemy2" parent="." node_paths=PackedStringArray("idle_points_list") instance=ExtResource("9_wgmaj")]
 position = Vector2(972, 711)

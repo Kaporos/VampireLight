@@ -67,11 +67,10 @@ tint_progress = Color(1, 0, 0, 1)
 [node name="Bat" type="TextureProgressBar" parent="Stats/Icons"]
 unique_name_in_owner = true
 layout_mode = 2
-value = 100.0
 fill_mode = 3
 texture_under = ExtResource("3_xsdd1")
 texture_progress = ExtResource("3_xsdd1")
-tint_under = Color(0.658824, 0.658824, 0.658824, 1)
+tint_under = Color(0.341176, 0.341176, 0.341176, 1)
 tint_progress = Color(0.752941, 0.4, 0.196078, 1)
 
 [node name="GameOver" type="VBoxContainer" parent="."]

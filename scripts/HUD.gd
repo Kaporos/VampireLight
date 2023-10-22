@@ -13,6 +13,9 @@ func _ready():
 	player.stats.dead.connect(dying)
 	player.stats.health_changed.connect(health_changed)
 	player.bat_time_left.connect(bat_time)
+	if !player.can_transform:
+		%Bat.value = 0
+		%Bat.tint_under = Color("ffffff26")
 
 
 func bat_time(value):

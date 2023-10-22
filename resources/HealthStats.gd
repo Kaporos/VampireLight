@@ -17,6 +17,10 @@ func hit(value):
 	justHit = true;
 	health -= value;
 
+func set_health_without_hit(value):
+	justHit = false;
+	health = value
+
 
 func _changed(value):
 	health_changed.emit(value, justHit)
