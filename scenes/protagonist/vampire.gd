@@ -8,6 +8,7 @@ var is_bat = false;
 
 @export var BAT_SPEED = 1000
 @export var HUMANOID_SPEED = 100
+@export var BAT_DURATION = 5000
 
 const SPEED = 300.0
 const JUMP_VELOCITY = -750.0
@@ -21,6 +22,8 @@ var body_in_lava = false
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var old_vampire_life;	
 var allow_up = false;
+
+var time_count = 0 #compte le temps depuis la transformation
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -219,7 +222,7 @@ func animate_humanoid(input_vector):
 
 func check_for_transform():
 
-	var transform_command = Input.is_action_pressed("bat_transform")
+	var transform_command = Input.is_action_pressed("bat_transform") or (is_bat and (Time.get_ticks_msec() - time_count >= BAT_DURATION))
 	$Transform.play()
 	if transform_command:
 		
@@ -248,6 +251,7 @@ func check_for_transform():
 				is_bat = false
 			return
 		elif is_on_floor():
+			time_count = Time.get_ticks_msec()
 			old_vampire_life = stats.health
 			stats.health = 2
 
