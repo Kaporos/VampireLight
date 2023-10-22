@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://cxnggpl0csp8o"]
+[gd_scene load_steps=11 format=3 uid="uid://cxnggpl0csp8o"]
 
 [ext_resource type="TileSet" uid="uid://dqiohjw4a40w2" path="res://resources/level_tileset.tres" id="1_pd7la"]
 [ext_resource type="Script" path="res://scenes/nodes/LightedTilemap.gd" id="2_ln2gy"]
@@ -43,6 +43,7 @@ limit_bottom = 1500
 player = NodePath("../../Vampire")
 
 [node name="Label" type="Label" parent="CanvasLayer/HUD"]
+layout_mode = 0
 offset_left = 13.0
 offset_top = 297.0
 offset_right = 289.0
@@ -54,6 +55,7 @@ text = "You can climb up
 or down ladders"
 
 [node name="Label2" type="Label" parent="CanvasLayer/HUD"]
+layout_mode = 0
 offset_left = 909.0
 offset_top = 159.0
 offset_right = 1247.0

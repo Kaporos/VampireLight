@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://bktr7y8m4404r"]
+[gd_scene load_steps=19 format=3 uid="uid://bktr7y8m4404r"]
 
 [ext_resource type="Script" path="res://scripts/autoload/Game.gd" id="1_1ii1j"]
 [ext_resource type="PackedScene" uid="uid://e2543eqwyajk" path="res://levels/Level - 2.tscn" id="2_h3asc"]
@@ -11,7 +11,6 @@
 [ext_resource type="PackedScene" uid="uid://cxrw5iyiqmovd" path="res://levels/Level - After.tscn" id="5_e067w"]
 [ext_resource type="PackedScene" uid="uid://cnsk1261ow1cr" path="res://levels/Level - 3.tscn" id="5_sppt3"]
 [ext_resource type="PackedScene" uid="uid://dnui1b27ihfua" path="res://components/coffin.tscn" id="5_sr72f"]
-[ext_resource type="PackedScene" uid="uid://lv56gm8dut8h" path="res://levels/Level - 4.tscn" id="6_b0827"]
 [ext_resource type="PackedScene" uid="uid://bfg0pl4n5f661" path="res://scenes/protagonist/vampire.tscn" id="6_h3ddy"]
 [ext_resource type="PackedScene" uid="uid://nts0a2yks63o" path="res://scenes/HUD.tscn" id="7_iloh8"]
 [ext_resource type="Script" path="res://scripts/Darkness.gd" id="8_cmk4l"]
@@ -38,6 +37,6 @@ _bundled = {
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_1ii1j")
-levels = Array[PackedScene]([ExtResource("2_w82km"), SubResource("PackedScene_ab4pm"), ExtResource("2_h3asc"), ExtResource("5_sppt3"), ExtResource("6_b0827"), ExtResource("3_1233x"), ExtResource("3_aqkw1"), ExtResource("5_e067w")])
+levels = Array[PackedScene]([ExtResource("2_w82km"), SubResource("PackedScene_ab4pm"), ExtResource("2_h3asc"), ExtResource("5_sppt3"), ExtResource("3_aqkw1"), ExtResource("3_1233x"), ExtResource("3_aqkw1"), ExtResource("5_e067w")])
 menu = ExtResource("4_xonjd")
 index = 3
