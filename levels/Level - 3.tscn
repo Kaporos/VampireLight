@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://cnsk1261ow1cr"]
+[gd_scene load_steps=10 format=3 uid="uid://cnsk1261ow1cr"]
 
 [ext_resource type="TileSet" uid="uid://dqiohjw4a40w2" path="res://resources/level_tileset.tres" id="1_b4cyl"]
 [ext_resource type="Script" path="res://scenes/nodes/LightedTilemap.gd" id="2_hnevo"]
@@ -7,24 +7,12 @@
 [ext_resource type="Script" path="res://resources/HealthStats.gd" id="5_1y6jm"]
 [ext_resource type="Script" path="res://scripts/Darkness.gd" id="6_qo3sk"]
 [ext_resource type="PackedScene" uid="uid://nts0a2yks63o" path="res://scenes/HUD.tscn" id="7_movfr"]
-[ext_resource type="PackedScene" uid="uid://q7ffgqou1sfe" path="res://scenes/enemies/enemy_1.tscn" id="8_kg60u"]
-[ext_resource type="Script" path="res://resources/IdleMovement.gd" id="9_dmg5l"]
+[ext_resource type="FontFile" uid="uid://bavm1lx3rpsgq" path="res://assets/BLOODY.TTF" id="8_btyvt"]
 
 [sub_resource type="Resource" id="Resource_ean88"]
 script = ExtResource("5_1y6jm")
 health = 100
 maxHealth = 115
-
-[sub_resource type="Resource" id="Resource_siyw8"]
-script = ExtResource("5_1y6jm")
-health = 5000
-maxHealth = 115
-
-[sub_resource type="Resource" id="Resource_qntsn"]
-script = ExtResource("9_dmg5l")
-started = true
-retour = true
-tp_distance = 40
 
 [node name="Level1" type="Node2D"]
 
@@ -54,13 +42,27 @@ position = Vector2(778, 701)
 [node name="HUD" parent="CanvasLayer" node_paths=PackedStringArray("player") instance=ExtResource("7_movfr")]
 player = NodePath("../../Vampire")
 
-[node name="enemy1" parent="." node_paths=PackedStringArray("idle_points_list") instance=ExtResource("8_kg60u")]
-position = Vector2(974, 713)
-stats = SubResource("Resource_siyw8")
-idle_points_list = [NodePath("../StartEnemy"), NodePath("../EndEnemy")]
-idle_movement = SubResource("Resource_qntsn")
-
 [node name="EndEnemy" type="Node2D" parent="."]
 position = Vector2(869, 693)
+
+[node name="Label" type="Label" parent="."]
+offset_left = 1561.0
+offset_top = 589.0
+offset_right = 2099.0
+offset_bottom = 632.0
+theme_override_colors/font_color = Color(0.6, 0.6, 0.6, 1)
+theme_override_fonts/font = ExtResource("8_btyvt")
+theme_override_font_sizes/font_size = 35
+text = "Press Q to tranform into a bat"
+
+[node name="Label2" type="Label" parent="."]
+offset_left = 2332.0
+offset_top = 390.0
+offset_right = 2547.0
+offset_bottom = 433.0
+theme_override_colors/font_color = Color(0.6, 0.6, 0.6, 1)
+theme_override_fonts/font = ExtResource("8_btyvt")
+theme_override_font_sizes/font_size = 35
+text = "and fly ..."
 
 [connection signal="body_shape_entered" from="coffin" to="Vampire" method="_on_coffin_body_shape_entered"]

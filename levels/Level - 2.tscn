@@ -1,10 +1,11 @@
-[gd_scene load_steps=45 format=3 uid="uid://e2543eqwyajk"]
+[gd_scene load_steps=46 format=3 uid="uid://e2543eqwyajk"]
 
 [ext_resource type="PackedScene" uid="uid://bt3n046gcsnj1" path="res://scenes/nodes/LightedTilemap.tscn" id="1_f4ms8"]
 [ext_resource type="TileSet" uid="uid://dqiohjw4a40w2" path="res://resources/level_tileset.tres" id="2_mtbcm"]
 [ext_resource type="PackedScene" uid="uid://dnui1b27ihfua" path="res://components/coffin.tscn" id="3_6my1i"]
 [ext_resource type="PackedScene" uid="uid://bfg0pl4n5f661" path="res://scenes/protagonist/vampire.tscn" id="4_l3awe"]
 [ext_resource type="PackedScene" uid="uid://nts0a2yks63o" path="res://scenes/HUD.tscn" id="5_prqib"]
+[ext_resource type="FontFile" uid="uid://bavm1lx3rpsgq" path="res://assets/BLOODY.TTF" id="6_1gmhu"]
 [ext_resource type="Texture2D" uid="uid://dk8v0pci6bekp" path="res://assets/ray.png" id="6_54m7e"]
 [ext_resource type="PackedScene" uid="uid://cyfw5khdfsw5j" path="res://components/platforms/moving_platform.tscn" id="7_bjd7a"]
 [ext_resource type="Script" path="res://resources/IdleMovement.gd" id="8_18fdf"]
@@ -165,6 +166,16 @@ can_transform = false
 
 [node name="HUD" parent="CanvasLayer" node_paths=PackedStringArray("player") instance=ExtResource("5_prqib")]
 player = NodePath("../../Vampire")
+
+[node name="Label" type="Label" parent="CanvasLayer/HUD"]
+offset_left = 290.0
+offset_top = 250.0
+offset_right = 744.0
+offset_bottom = 293.0
+theme_override_colors/font_color = Color(0.6, 0.6, 0.6, 1)
+theme_override_fonts/font = ExtResource("6_1gmhu")
+theme_override_font_sizes/font_size = 35
+text = "Watch out for the ligth !"
 
 [node name="lights" type="Node2D" parent="."]
 

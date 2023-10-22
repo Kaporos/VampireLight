@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://dnui1b27ihfua" path="res://components/coffin.tscn" id="3_f52in"]
 [ext_resource type="PackedScene" uid="uid://bfg0pl4n5f661" path="res://scenes/protagonist/vampire.tscn" id="4_exhg4"]
 [ext_resource type="PackedScene" uid="uid://nts0a2yks63o" path="res://scenes/HUD.tscn" id="5_ehyom"]
+[ext_resource type="FontFile" uid="uid://bavm1lx3rpsgq" path="res://assets/BLOODY.TTF" id="6_asmd8"]
 [ext_resource type="Script" path="res://scripts/Darkness.gd" id="6_ubgkc"]
 [ext_resource type="PackedScene" uid="uid://cd5f77omlys6g" path="res://music.tscn" id="7_ndrl3"]
 
@@ -40,6 +41,28 @@ limit_bottom = 1500
 
 [node name="HUD" parent="CanvasLayer" node_paths=PackedStringArray("player") instance=ExtResource("5_ehyom")]
 player = NodePath("../../Vampire")
+
+[node name="Label" type="Label" parent="CanvasLayer/HUD"]
+offset_left = 13.0
+offset_top = 297.0
+offset_right = 289.0
+offset_bottom = 444.0
+theme_override_colors/font_color = Color(0.6, 0.6, 0.6, 1)
+theme_override_fonts/font = ExtResource("6_asmd8")
+theme_override_font_sizes/font_size = 35
+text = "You can climb up
+or down ladders"
+
+[node name="Label2" type="Label" parent="CanvasLayer/HUD"]
+offset_left = 909.0
+offset_top = 159.0
+offset_right = 1247.0
+offset_bottom = 202.0
+theme_override_colors/font_color = Color(0.6, 0.6, 0.6, 1)
+theme_override_fonts/font = ExtResource("6_asmd8")
+theme_override_font_sizes/font_size = 35
+text = "Beware of the lava
+"
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 scale = Vector2(6, 6)
