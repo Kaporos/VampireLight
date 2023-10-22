@@ -34,6 +34,7 @@ signal bat_time_left(value);
 func _ready():
 	stats.health_changed.connect(_show_hit_anim)
 	stats.health = stats.maxHealth
+	stats.dead_sent = false
 
 func _show_hit_anim(_v, isHitted):
 	if !isHitted:
