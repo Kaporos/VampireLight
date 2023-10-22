@@ -580,3 +580,27 @@ position = Vector2(96, 168)
 lifetime = 3.0
 lifetime_randomness = 0.7
 emission_rect_extents = Vector2(50, 10)
+
+[node name="CPUParticles2D2" parent="particles" instance=ExtResource("11_jfltd")]
+position = Vector2(336, 112)
+lifetime = 3.0
+lifetime_randomness = 0.7
+emission_rect_extents = Vector2(50, 10)
+
+[node name="CPUParticles2D3" parent="particles" instance=ExtResource("11_jfltd")]
+position = Vector2(480, 112)
+lifetime = 3.0
+lifetime_randomness = 0.7
+emission_rect_extents = Vector2(50, 10)
+
+[node name="CPUParticles2D4" parent="particles" instance=ExtResource("11_jfltd")]
+position = Vector2(968, 112)
+lifetime = 3.0
+lifetime_randomness = 0.7
+emission_rect_extents = Vector2(50, 10)
+
+[node name="CPUParticles2D5" parent="particles" instance=ExtResource("11_jfltd")]
+position = Vector2(1224, 64)
+lifetime = 3.0
+lifetime_randomness = 0.7
+emission_rect_extents = Vector2(50, 10)
