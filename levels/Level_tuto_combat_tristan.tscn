@@ -1,9 +1,10 @@
-[gd_scene load_steps=31 format=3 uid="uid://lv56gm8dut8h"]
+[gd_scene load_steps=37 format=3 uid="uid://lv56gm8dut8h"]
 
 [ext_resource type="TileSet" uid="uid://dqiohjw4a40w2" path="res://resources/level_tileset.tres" id="1_1hy4h"]
 [ext_resource type="Script" path="res://scenes/nodes/LightedTilemap.gd" id="2_ns1t8"]
 [ext_resource type="PackedScene" uid="uid://dnui1b27ihfua" path="res://components/coffin.tscn" id="3_7iti0"]
 [ext_resource type="PackedScene" uid="uid://bfg0pl4n5f661" path="res://scenes/protagonist/vampire.tscn" id="6_0yq8u"]
+[ext_resource type="Script" path="res://resources/HealthStats.gd" id="7_2d28p"]
 [ext_resource type="Script" path="res://scripts/Darkness.gd" id="7_3d4h3"]
 [ext_resource type="Script" path="res://resources/IdleMovement.gd" id="8_5bjkl"]
 [ext_resource type="PackedScene" uid="uid://1s4y5trxxv4t" path="res://scenes/enemies/enemy_2.tscn" id="8_q4o7g"]
@@ -14,15 +15,32 @@
 [ext_resource type="PackedScene" uid="uid://cyfw5khdfsw5j" path="res://components/platforms/moving_platform.tscn" id="13_s731i"]
 [ext_resource type="Texture2D" uid="uid://ctpniknd1owsh" path="res://assets/cavesofgallet_tiles.png" id="14_68ibi"]
 
+[sub_resource type="Resource" id="Resource_7ban4"]
+script = ExtResource("7_2d28p")
+health = 100
+maxHealth = 115
+
 [sub_resource type="Resource" id="Resource_c2pj5"]
 script = ExtResource("8_5bjkl")
 started = true
 retour = true
+tp_distance = 5
+
+[sub_resource type="Resource" id="Resource_lfkii"]
+script = ExtResource("7_2d28p")
+health = 100
+maxHealth = 115
+
+[sub_resource type="Resource" id="Resource_puuvl"]
+script = ExtResource("7_2d28p")
+health = 100
+maxHealth = 115
 
 [sub_resource type="Resource" id="Resource_egiha"]
 script = ExtResource("8_5bjkl")
 started = true
 retour = true
+tp_distance = 5
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7soxr"]
 size = Vector2(143, 35)
@@ -50,14 +68,26 @@ region = Rect2(32, 8, 8, 8)
 script = ExtResource("8_5bjkl")
 started = true
 retour = true
+tp_distance = 5
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xr5u8"]
 size = Vector2(143, 35)
+
+[sub_resource type="Resource" id="Resource_74iym"]
+script = ExtResource("7_2d28p")
+health = 100
+maxHealth = 115
+
+[sub_resource type="Resource" id="Resource_xfsf5"]
+script = ExtResource("7_2d28p")
+health = 100
+maxHealth = 115
 
 [sub_resource type="Resource" id="Resource_vorik"]
 script = ExtResource("8_5bjkl")
 started = true
 retour = true
+tp_distance = 5
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7lbe3"]
 size = Vector2(33, 134)
@@ -94,10 +124,9 @@ metadata/_edit_group_ = true
 
 [node name="coffin" parent="." instance=ExtResource("3_7iti0")]
 position = Vector2(6427, 777)
-scale = Vector2(6, 6)
 
 [node name="Vampire" parent="." instance=ExtResource("6_0yq8u")]
-position = Vector2(106, 160)
+position = Vector2(138, 159)
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 color = Color(0.47451, 0.47451, 0.47451, 1)
@@ -105,6 +134,7 @@ script = ExtResource("7_3d4h3")
 
 [node name="enemy2" parent="." node_paths=PackedStringArray("idle_points_list") instance=ExtResource("8_q4o7g")]
 position = Vector2(5769, 764)
+stats = SubResource("Resource_7ban4")
 idle_points_list = [NodePath("../start2"), NodePath("../end2")]
 idle_movement = SubResource("Resource_c2pj5")
 
@@ -112,15 +142,17 @@ idle_movement = SubResource("Resource_c2pj5")
 position = Vector2(6016, 577)
 
 [node name="enemy_5" parent="." instance=ExtResource("9_g3o6a")]
-position = Vector2(5131, 186)
+position = Vector2(5126, 203)
 cooldown = 7000
 
 [node name="enemy1" parent="." node_paths=PackedStringArray("idle_points_list") instance=ExtResource("10_2y4ta")]
 position = Vector2(1526, 375)
+stats = SubResource("Resource_lfkii")
 idle_points_list = [NodePath("../start3"), NodePath("../end3")]
 
 [node name="enemy4" parent="." node_paths=PackedStringArray("idle_points_list") instance=ExtResource("10_2y4ta")]
 position = Vector2(5615, 772)
+stats = SubResource("Resource_puuvl")
 idle_points_list = [NodePath("../start4"), NodePath("../end4")]
 
 [node name="start2" type="Node2D" parent="."]
@@ -144,13 +176,19 @@ position = Vector2(5903, 767)
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="HUD" parent="CanvasLayer" node_paths=PackedStringArray("player") instance=ExtResource("12_rtqu4")]
+anchors_preset = -1
+anchor_left = -0.0140625
+anchor_top = -0.179167
+offset_left = 15.0
+offset_top = 128.0
+offset_right = 15.0
+offset_bottom = 128.0
 player = NodePath("../../Vampire")
 metadata/_edit_use_anchors_ = true
 
 [node name="Moving Platform" parent="." node_paths=PackedStringArray("idle_points_list") instance=ExtResource("13_s731i")]
 position = Vector2(4415, -41)
 collision_layer = 4
-speed = 100
 idle_points_list = [NodePath("../start5"), NodePath("../end5")]
 idle_movement = SubResource("Resource_egiha")
 
@@ -185,7 +223,6 @@ texture = SubResource("AtlasTexture_hpatl")
 [node name="Moving Platform3" parent="." node_paths=PackedStringArray("idle_points_list") instance=ExtResource("13_s731i")]
 position = Vector2(2438, 138)
 collision_layer = 4
-speed = 100
 idle_points_list = [NodePath("../start6"), NodePath("../end6")]
 idle_movement = SubResource("Resource_fjy3a")
 
@@ -261,10 +298,12 @@ position = Vector2(4283, 475)
 
 [node name="enemy3" parent="." node_paths=PackedStringArray("idle_points_list") instance=ExtResource("10_2y4ta")]
 position = Vector2(3063, 469)
+stats = SubResource("Resource_74iym")
 idle_points_list = [NodePath("../start12"), NodePath("../end12")]
 
 [node name="enemy5" parent="." node_paths=PackedStringArray("idle_points_list") instance=ExtResource("10_2y4ta")]
 position = Vector2(3045, 420)
+stats = SubResource("Resource_xfsf5")
 idle_points_list = [NodePath("../start13"), NodePath("../end13")]
 
 [node name="start12" type="Node2D" parent="."]
@@ -335,7 +374,6 @@ polygon = PackedVector2Array(31.2557, 243.712, -33.6305, 250.645, -33.0529, -53.
 [node name="Moving Platform2" parent="." node_paths=PackedStringArray("idle_points_list") instance=ExtResource("13_s731i")]
 position = Vector2(4283, 837)
 collision_layer = 4
-speed = 100
 idle_points_list = [NodePath("../start11"), NodePath("../end11")]
 idle_movement = SubResource("Resource_vorik")
 

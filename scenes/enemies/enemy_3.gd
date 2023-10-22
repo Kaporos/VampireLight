@@ -91,4 +91,5 @@ func _on_animated_sprite_2d_animation_looped():
 
 
 func _on_hitbox_area_entered(area):
+	print("a")
 	hp.hit(10)

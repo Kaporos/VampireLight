@@ -16,6 +16,8 @@ var jumping = false
 var attack = false
 var att_time = 0
 
+var target_is_in_body = false
+
 func _ready():
 	idle_movement.points_list = idle_points_list;
 	global_position = idle_movement.points_list[0].global_position
@@ -84,8 +86,19 @@ func _on_death():
 		$AnimatedSprite2D.play("death_right")
 	else:
 		$AnimatedSprite2D.play("death_left")
+	$hitbox.disconnect("body_entered",_on_hitbox_body_entered)
 	await $AnimatedSprite2D.animation_finished
 	queue_free()
 
 func _on_hitbox_body_entered(body):
-	body.stats.hit(dmg)
+	if($AnimatedSprite2D.is_playing()):
+		target_is_in_body = true
+
+
+func _on_animated_sprite_2d_animation_looped():
+	if(target_is_in_body):
+		target.stats.hit(dmg)
+
+
+func _on_hitbox_body_exited(body):
+	target_is_in_body = false
