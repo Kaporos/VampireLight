@@ -406,6 +406,7 @@ shape = SubResource("RectangleShape2D_h5ya5")
 
 [node name="hitbox" type="Area2D" parent="."]
 collision_layer = 0
+collision_mask = 9
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox"]
 position = Vector2(-0.5, 0)
@@ -414,3 +415,4 @@ shape = SubResource("RectangleShape2D_63ywk")
 
 [connection signal="body_entered" from="agro_zone" to="." method="_on_agro_zone_body_entered"]
 [connection signal="body_exited" from="agro_zone" to="." method="_on_agro_zone_body_exited"]
+[connection signal="body_entered" from="hitbox" to="." method="_on_hitbox_body_entered"]
