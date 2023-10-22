@@ -53,7 +53,7 @@ offset_bottom = 632.0
 theme_override_colors/font_color = Color(0.6, 0.6, 0.6, 1)
 theme_override_fonts/font = ExtResource("8_btyvt")
 theme_override_font_sizes/font_size = 35
-text = "Press Q to tranform into a bat"
+text = "Press Q to tranform into a bat "
 
 [node name="Label2" type="Label" parent="."]
 offset_left = 2332.0

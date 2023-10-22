@@ -162,20 +162,20 @@ position = Vector2(3088, 288)
 position = Vector2(248, 464)
 can_transform = false
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="HUD" parent="CanvasLayer" node_paths=PackedStringArray("player") instance=ExtResource("5_prqib")]
-player = NodePath("../../Vampire")
-
-[node name="Label" type="Label" parent="CanvasLayer/HUD"]
-offset_left = 290.0
-offset_top = 250.0
-offset_right = 744.0
-offset_bottom = 293.0
+[node name="Label" type="Label" parent="."]
+offset_left = 835.0
+offset_top = 446.0
+offset_right = 1289.0
+offset_bottom = 489.0
 theme_override_colors/font_color = Color(0.6, 0.6, 0.6, 1)
 theme_override_fonts/font = ExtResource("6_1gmhu")
 theme_override_font_sizes/font_size = 35
 text = "Watch out for the ligth !"
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="HUD" parent="CanvasLayer" node_paths=PackedStringArray("player") instance=ExtResource("5_prqib")]
+player = NodePath("../../Vampire")
 
 [node name="lights" type="Node2D" parent="."]
 
