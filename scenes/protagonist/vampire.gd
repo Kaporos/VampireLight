@@ -9,6 +9,7 @@ var is_bat = false;
 @export var BAT_SPEED = 1000
 @export var DAMAGE : int = 1000
 @export var HUMANOID_SPEED = 100
+@export var BAT_DURATION = 5000
 
 const SPEED = 300.0
 const JUMP_VELOCITY = -750.0
@@ -22,6 +23,11 @@ var body_in_lava = false
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var old_vampire_life;	
 var allow_up = false;
+
+var time_count = 0 #compte le temps depuis la transformation
+
+signal bat_time_left(value);
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -78,41 +84,43 @@ func stop_physics():
 	$HumanoidAnimation.play("idle_right")
 
 func move_bat(input_vector):
-	$HumanoidCollision.disabled = true
-	$BatCollision.disabled = false
-	var direction_horizontal = input_vector.x
-	var direction_vertical = input_vector.y
-	velocity.x = direction_horizontal
-	velocity.y = direction_vertical
-	velocity = velocity.normalized() * BAT_SPEED
-	move_and_slide()
+	if(visible):
+		$HumanoidCollision.disabled = true
+		$BatCollision.disabled = false
+		var direction_horizontal = input_vector.x
+		var direction_vertical = input_vector.y
+		velocity.x = direction_horizontal
+		velocity.y = direction_vertical
+		velocity = velocity.normalized() * BAT_SPEED
+		move_and_slide()
 
 func move_humanoid(delta, input_vector):
-	$HumanoidCollision.disabled = false
-	$BatCollision.disabled = true
-	# Add the gravity.
-	if allow_up:
-		var directiony = input_vector.y
-		if directiony:
-			velocity.y = directiony*SPEED
+	if(visible):
+		$HumanoidCollision.disabled = false
+		$BatCollision.disabled = true
+		# Add the gravity.
+		if allow_up:
+			var directiony = input_vector.y
+			if directiony:
+				velocity.y = directiony*SPEED
+			else:
+				velocity.y = move_toward(velocity.y, 0, SPEED)
+		else :
+			if not is_on_floor():
+				velocity.y += gravity * delta
+
+			# Handle Jump.
+			if Input.is_action_just_pressed("w_pressed") and is_on_floor():
+				velocity.y = JUMP_VELOCITY
+
+			# Get the input direction and handle the movement/deceleration.
+			# As good practice, you should replace UI actions with custom gameplay actions.
+		var direction = input_vector.x
+		if direction:
+			velocity.x = direction * SPEED
 		else:
-			velocity.y = move_toward(velocity.y, 0, SPEED)
-	else :
-		if not is_on_floor():
-			velocity.y += gravity * delta
-
-		# Handle Jump.
-		if Input.is_action_just_pressed("w_pressed") and is_on_floor():
-			velocity.y = JUMP_VELOCITY
-
-		# Get the input direction and handle the movement/deceleration.
-		# As good practice, you should replace UI actions with custom gameplay actions.
-	var direction = input_vector.x
-	if direction:
-		velocity.x = direction * SPEED
-	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
-	move_and_slide()
+			velocity.x = move_toward(velocity.x, 0, SPEED)
+		move_and_slide()
 
 func animate_bat(input_vector):
 	$HumanoidAnimation.visible = false
@@ -223,8 +231,11 @@ func animate_humanoid(input_vector):
 		return
 
 func check_for_transform():
-
-	var transform_command = Input.is_action_pressed("bat_transform")
+	var transform_command = Input.is_action_pressed("bat_transform") or (is_bat and (Time.get_ticks_msec() - time_count >= BAT_DURATION))
+	if is_bat:
+		bat_time_left.emit(BAT_DURATION - (Time.get_ticks_msec() - time_count))
+	else:
+		bat_time_left.emit(BAT_DURATION)
 	$Transform.play()
 	if transform_command:
 		
@@ -253,6 +264,7 @@ func check_for_transform():
 				is_bat = false
 			return
 		elif is_on_floor():
+			time_count = Time.get_ticks_msec()
 			old_vampire_life = stats.health
 			stats.health = 2
 
