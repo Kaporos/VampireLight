@@ -239,7 +239,6 @@ func check_for_transform():
 		bat_time_left.emit(BAT_DURATION - (Time.get_ticks_msec() - time_count))
 	else:
 		bat_time_left.emit(BAT_DURATION)
-	var transform_command = Input.is_action_pressed("bat_transform")
 	$Transform.play()
 	if transform_command:
 		

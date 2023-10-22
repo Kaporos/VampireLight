@@ -281,8 +281,8 @@ position = Vector2(2809, 438)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="HUD" parent="CanvasLayer" node_paths=PackedStringArray("player") instance=ExtResource("12_rtqu4")]
-player = NodePath("../../Vampire")
+[node name="HUD" parent="CanvasLayer" instance=ExtResource("12_rtqu4")]
+player = null
 
 [node name="Moving Platform" parent="." node_paths=PackedStringArray("idle_points_list") instance=ExtResource("13_s731i")]
 position = Vector2(5109, 94)
@@ -322,7 +322,6 @@ texture = SubResource("AtlasTexture_hpatl")
 [node name="Moving Platform3" parent="." node_paths=PackedStringArray("idle_points_list") instance=ExtResource("13_s731i")]
 position = Vector2(5638, 100)
 collision_layer = 4
-speed = 100
 idle_points_list = [NodePath("../start6"), NodePath("../end6")]
 idle_movement = SubResource("Resource_fjy3a")
 
@@ -357,7 +356,6 @@ texture = SubResource("AtlasTexture_hpatl")
 [node name="Moving Platform4" parent="." node_paths=PackedStringArray("idle_points_list") instance=ExtResource("13_s731i")]
 position = Vector2(5874, 175)
 collision_layer = 4
-speed = 100
 idle_points_list = [NodePath("../start7"), NodePath("../end7")]
 idle_movement = SubResource("Resource_oa1jj")
 
@@ -392,7 +390,6 @@ texture = SubResource("AtlasTexture_hpatl")
 [node name="Moving Platform5" parent="." node_paths=PackedStringArray("idle_points_list") instance=ExtResource("13_s731i")]
 position = Vector2(7151, 711)
 collision_layer = 4
-speed = 100
 idle_points_list = [NodePath("../start8"), NodePath("../end8")]
 idle_movement = SubResource("Resource_nfpw6")
 
@@ -427,7 +424,6 @@ texture = SubResource("AtlasTexture_hpatl")
 [node name="Moving Platform6" parent="." node_paths=PackedStringArray("idle_points_list") instance=ExtResource("13_s731i")]
 position = Vector2(6828, 543)
 collision_layer = 4
-speed = 100
 idle_points_list = [NodePath("../start9"), NodePath("../end9")]
 idle_movement = SubResource("Resource_at308")
 
@@ -462,7 +458,6 @@ texture = SubResource("AtlasTexture_hpatl")
 [node name="Moving Platform7" parent="." node_paths=PackedStringArray("idle_points_list") instance=ExtResource("13_s731i")]
 position = Vector2(7175, 416)
 collision_layer = 4
-speed = 100
 idle_points_list = [NodePath("../start10"), NodePath("../end10")]
 idle_movement = SubResource("Resource_5ugqn")
 
@@ -497,7 +492,6 @@ texture = SubResource("AtlasTexture_hpatl")
 [node name="Moving Platform8" parent="." node_paths=PackedStringArray("idle_points_list") instance=ExtResource("13_s731i")]
 position = Vector2(7120, 112)
 collision_layer = 4
-speed = 100
 idle_points_list = [NodePath("../start11"), NodePath("../end11")]
 idle_movement = SubResource("Resource_g3gtg")
 
