@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://bdcq414d7l8g5" path="res://assets/icons/heart.png" id="3_jnykx"]
 [ext_resource type="FontFile" uid="uid://c2jjiune36dx4" path="res://assets/DEATHBLOOD.ttf" id="3_xifl6"]
 [ext_resource type="Texture2D" uid="uid://s0w84mbt0do4" path="res://assets/bat_icon.png" id="3_xsdd1"]
-[ext_resource type="Texture2D" path="res://assets/icons/dead.png" id="5_of1mn"]
+[ext_resource type="Texture2D" uid="uid://dxifdkie5s13f" path="res://assets/icons/dead.png" id="5_of1mn"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lfxs1"]
 bg_color = Color(0.6, 0.6, 0.6, 0)

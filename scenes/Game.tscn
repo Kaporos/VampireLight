@@ -1,14 +1,15 @@
-[gd_scene load_steps=8 format=3 uid="uid://bktr7y8m4404r"]
+[gd_scene load_steps=9 format=3 uid="uid://bktr7y8m4404r"]
 
 [ext_resource type="Script" path="res://scripts/autoload/Game.gd" id="1_1ii1j"]
+[ext_resource type="PackedScene" uid="uid://e2543eqwyajk" path="res://levels/level_light.tscn" id="2_h3asc"]
 [ext_resource type="PackedScene" uid="uid://bxddn0ig7wpfx" path="res://levels/level_ladder.tscn" id="2_msey6"]
 [ext_resource type="PackedScene" uid="uid://cy5r404jbs526" path="res://levels/level_2.tscn" id="3_1233x"]
-[ext_resource type="PackedScene" uid="uid://lv56gm8dut8h" path="res://levels/Level3.tscn" id="3_aqkw1"]
+[ext_resource type="PackedScene" uid="uid://lv56gm8dut8h" path="res://levels/Level_tuto_combat_tristan.tscn" id="3_aqkw1"]
 [ext_resource type="PackedScene" uid="uid://cnsk1261ow1cr" path="res://levels/Level1.tscn" id="3_rtgef"]
 [ext_resource type="PackedScene" uid="uid://ce3bfu2fifown" path="res://scenes/menu.tscn" id="4_xonjd"]
 [ext_resource type="PackedScene" uid="uid://cxrw5iyiqmovd" path="res://levels/end_level.tscn" id="5_e067w"]
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_1ii1j")
-levels = Array[PackedScene]([ExtResource("3_1233x"), ExtResource("2_msey6"), ExtResource("3_rtgef"), ExtResource("3_aqkw1"), ExtResource("5_e067w")])
+levels = Array[PackedScene]([ExtResource("2_h3asc"), ExtResource("3_1233x"), ExtResource("2_msey6"), ExtResource("3_rtgef"), ExtResource("3_aqkw1"), ExtResource("5_e067w")])
 menu = ExtResource("4_xonjd")

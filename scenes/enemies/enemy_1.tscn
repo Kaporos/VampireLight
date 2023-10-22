@@ -4,7 +4,6 @@
 [ext_resource type="Script" path="res://scenes/enemies/enemy_1.gd" id="1_ett7i"]
 [ext_resource type="Texture2D" uid="uid://ei3clxucmu3t" path="res://assets/enemies/enemy1_right.png" id="2_qa3cw"]
 [ext_resource type="Script" path="res://resources/IdleMovement.gd" id="2_whc3k"]
-[ext_resource type="PackedScene" path="res://scenes/blinker.tscn" id="5_ogjgh"]
 
 [sub_resource type="Resource" id="Resource_1cbf7"]
 script = ExtResource("2_whc3k")
@@ -412,9 +411,6 @@ collision_layer = 0
 position = Vector2(-0.5, 0)
 shape = SubResource("RectangleShape2D_63ywk")
 
-[node name="blinker" parent="." node_paths=PackedStringArray("sprites") instance=ExtResource("5_ogjgh")]
-duration = 0.05
-sprites = [NodePath("../AnimatedSprite2D")]
 
 [connection signal="body_entered" from="agro_zone" to="." method="_on_agro_zone_body_entered"]
 [connection signal="body_exited" from="agro_zone" to="." method="_on_agro_zone_body_exited"]
