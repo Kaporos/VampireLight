@@ -5,7 +5,7 @@ class_name GameAutoload
 @export var levels: Array[PackedScene] = [];
 @export var menu = load("res://scenes/menu.tscn")
 
-var index = -1;
+@export var index = -1;
 
 var deaths = 0;
 var elapsed = 0;
