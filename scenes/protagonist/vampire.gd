@@ -34,6 +34,7 @@ signal bat_time_left(value);
 func _ready():
 	stats.health_changed.connect(_show_hit_anim)
 	stats.health = stats.maxHealth
+	stats.frozen = false
 
 func _show_hit_anim(_v, isHitted):
 	if !isHitted:
@@ -292,6 +293,7 @@ func die():
 	visible = false
 	$DeathSound.play()
 	$DeathSound.is_playing = true
+	stats.frozen = true
 
 
 
@@ -301,22 +303,22 @@ func get_usefull_vector():
 	var y_comp = input_vector[3] - input_vector[2]
 	return Vector2(x_comp, y_comp)
 
-func _on_tiles_detector_body_entered(body: Node2D):
+func _on_tiles_detector_body_entered(_body: Node2D):
 	if not body_in_lava:
 		body_in_lava = true
 
-func _on_tiles_detector_body_exited(body: Node2D):
+func _on_tiles_detector_body_exited(_body: Node2D):
 	body_in_lava = false
 
 func _on_light_detector_exposed():
 	stats.hit(8)
 
 
-func _on_ladder_detector_body_exited(body:Node2D):
+func _on_ladder_detector_body_exited(_body:Node2D):
 	allow_up = false
 
 
-func _on_ladder_detector_body_entered(body:Node2D):
+func _on_ladder_detector_body_entered(_body:Node2D):
 	allow_up = true
 	print("setted allow-up")
 

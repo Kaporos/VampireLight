@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://nts0a2yks63o"]
+[gd_scene load_steps=10 format=3 uid="uid://nts0a2yks63o"]
 
 [ext_resource type="Script" path="res://scripts/HUD.gd" id="1_1xvwp"]
 [ext_resource type="Texture2D" uid="uid://bdcq414d7l8g5" path="res://assets/icons/heart.png" id="3_jnykx"]
 [ext_resource type="FontFile" uid="uid://c2jjiune36dx4" path="res://assets/DEATHBLOOD.ttf" id="3_xifl6"]
 [ext_resource type="Texture2D" uid="uid://s0w84mbt0do4" path="res://assets/bat_icon.png" id="3_xsdd1"]
+[ext_resource type="Texture2D" uid="uid://dxifdkie5s13f" path="res://assets/icons/dead.png" id="5_of1mn"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lfxs1"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -44,9 +45,9 @@ grow_vertical = 2
 script = ExtResource("1_1xvwp")
 
 [node name="Stats" type="MarginContainer" parent="."]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+layout_mode = 1
+offset_right = 1119.0
+offset_bottom = 604.0
 scale = Vector2(0.1, 0.1)
 theme_override_constants/margin_left = 150
 theme_override_constants/margin_top = 150
@@ -72,6 +73,10 @@ texture_under = ExtResource("3_xsdd1")
 texture_progress = ExtResource("3_xsdd1")
 tint_under = Color(0.341176, 0.341176, 0.341176, 1)
 tint_progress = Color(0.752941, 0.4, 0.196078, 1)
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Stats"]
+layout_mode = 2
+size_flags_horizontal = 8
 
 [node name="GameOver" type="VBoxContainer" parent="."]
 visible = false
@@ -150,6 +155,41 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_42ibj")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_60pu0")
 theme_override_styles/focus = SubResource("StyleBoxFlat_3xxv6")
 text = "Try    again    :D"
+
+[node name="TimeZone" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -40.0
+offset_bottom = 40.0
+grow_horizontal = 0
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 15
+
+[node name="HBoxContainer" type="HBoxContainer" parent="TimeZone"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="TimeZone/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_right = 20
+
+[node name="Sprite2D" type="Sprite2D" parent="TimeZone/HBoxContainer/MarginContainer"]
+position = Vector2(-15, 16)
+scale = Vector2(0.0443368, 0.0462891)
+texture = ExtResource("5_of1mn")
+
+[node name="Death" type="Label" parent="TimeZone/HBoxContainer/MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "1"
+
+[node name="Time" type="Label" parent="TimeZone/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "12:05"
 
 [connection signal="pressed" from="God" to="." method="_on_god_pressed"]
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

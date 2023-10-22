@@ -17,12 +17,20 @@ func _ready():
 		%Bat.value = 0
 		%Bat.tint_under = Color("ffffff26")
 
+func _process(_d):
+	%Death.text = str(Game.deaths)
+	var unix_time: float = Game.elapsed
+	var unix_time_int: int = unix_time
+	var dt: Dictionary = Time.get_datetime_dict_from_unix_time(unix_time)
+	var ms: int = (unix_time - unix_time_int) * 1000.0
+	%Time.text = "%s:%0*d" % [dt.minute,2, dt.second]
 
 func bat_time(value):
 	%Bat.value = (float(value) / float(player.BAT_DURATION)) * 100
 	
 
 func dying():
+	Game.deaths += 1
 	$GameOver.visible = true
 	$Stats.visible = false
 	$MarginContainer.visible = true
