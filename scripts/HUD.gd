@@ -9,12 +9,15 @@ extends Control
 func _ready():
 	$Stats.visible = true
 	$GameOver.visible = false
+	$MarginContainer.visible = false
 	player.stats.dead.connect(dying)
 	player.stats.health_changed.connect(health_changed)
 
 func dying():
 	$GameOver.visible = true
 	$Stats.visible = false
+	$MarginContainer.visible = true
+
 	%Restart.grab_focus();
 	player.die()
 
@@ -29,3 +32,7 @@ func _on_restart_pressed():
 	#Restarting current level
 	Game.index -= 1;
 	get_tree().change_scene_to_packed(Game.next_level())
+
+
+func _on_god_pressed():
+	player.stats.health = 1000000

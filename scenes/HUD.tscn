@@ -10,12 +10,29 @@ bg_color = Color(0.6, 0.6, 0.6, 0)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_42ibj"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
+border_color = Color(0.945098, 0.329412, 0.682353, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_60pu0"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3xxv6"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+expand_margin_left = 10.0
+expand_margin_top = 10.0
+expand_margin_right = 10.0
+expand_margin_bottom = 10.0
 
 [node name="HUD" type="Control"]
 layout_mode = 3
@@ -65,10 +82,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -20.0
-offset_right = 20.0
-offset_bottom = 20.0
+offset_left = -313.0
+offset_top = -75.0
+offset_right = 314.0
+offset_bottom = 76.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -91,20 +108,16 @@ theme_override_font_sizes/font_size = 100
 text = "Game Over"
 horizontal_alignment = 1
 
-[node name="Restart" type="Button" parent="GameOver"]
-unique_name_in_owner = true
-layout_mode = 2
-theme_override_colors/font_color = Color(1, 0.494118, 0.427451, 1)
-theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
-theme_override_fonts/font = ExtResource("3_xifl6")
-theme_override_styles/normal = SubResource("StyleBoxFlat_lfxs1")
-theme_override_styles/hover = SubResource("StyleBoxFlat_42ibj")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_60pu0")
-theme_override_styles/focus = SubResource("StyleBoxFlat_3xxv6")
-text = "Try    again    :D"
+[node name="God" type="Button" parent="."]
+layout_mode = 0
+offset_left = 12.0
+offset_top = 131.0
+offset_right = 76.0
+offset_bottom = 162.0
+text = "God mode
+"
 
 [node name="Button" type="Button" parent="."]
-visible = false
 layout_mode = 0
 offset_left = 12.0
 offset_top = 78.0
@@ -112,5 +125,33 @@ offset_right = 76.0
 offset_bottom = 109.0
 text = "Hit me "
 
-[connection signal="pressed" from="GameOver/Restart" to="." method="_on_restart_pressed"]
+[node name="MarginContainer" type="MarginContainer" parent="."]
+visible = false
+layout_mode = 2
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -63.5
+offset_top = -62.0
+offset_right = 63.5
+offset_bottom = 62.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_top = 100
+
+[node name="Restart" type="Button" parent="MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(1, 0.494118, 0.427451, 1)
+theme_override_fonts/font = ExtResource("3_xifl6")
+theme_override_styles/normal = SubResource("StyleBoxFlat_lfxs1")
+theme_override_styles/hover = SubResource("StyleBoxFlat_42ibj")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_60pu0")
+theme_override_styles/focus = SubResource("StyleBoxFlat_3xxv6")
+text = "Try    again    :D"
+
+[connection signal="pressed" from="God" to="." method="_on_god_pressed"]
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="MarginContainer/Restart" to="." method="_on_restart_pressed"]

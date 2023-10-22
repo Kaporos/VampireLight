@@ -36,7 +36,7 @@ layer_0/tile_data = PackedInt32Array(589824, 262144, 1, 589825, 262144, 1, 58982
 script = ExtResource("2_2scdj")
 
 [node name="coffin" parent="." instance=ExtResource("2_kmdkt")]
-position = Vector2(2552, 208)
+position = Vector2(3975, 331)
 
 [node name="Vampire" parent="." instance=ExtResource("4_h4bwy")]
 position = Vector2(104, 160)

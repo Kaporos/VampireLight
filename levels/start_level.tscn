@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://pimvyn750prq"]
+[gd_scene load_steps=40 format=3 uid="uid://pimvyn750prq"]
 
 [ext_resource type="Texture2D" uid="uid://umnt1y4vh5bo" path="res://assets/dungeon_tileset.png" id="1_i0u8l"]
 [ext_resource type="Texture2D" uid="uid://63cs6b0pq4gl" path="res://assets/cavesofgallet_tiles_blood.png" id="3_bv1op"]
@@ -10,6 +10,8 @@
 [ext_resource type="Texture2D" uid="uid://caciyihgsgatx" path="res://assets/vampire.png" id="8_w33i1"]
 [ext_resource type="Script" path="res://scripts/Wife.gd" id="9_meb5g"]
 [ext_resource type="AudioStream" uid="uid://bgubxepp13k2n" path="res://assets/doublage.mp3" id="10_30gh3"]
+[ext_resource type="FontFile" uid="uid://bavm1lx3rpsgq" path="res://assets/BLOODY.TTF" id="11_oaod1"]
+[ext_resource type="Texture2D" uid="uid://cjrdtd4fo0o7q" path="res://assets/arrw.png" id="12_k65kw"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_rfkua"]
 tile_data = PackedInt32Array(0, 3, 0, 65536, 3, 0, 131072, 3, 0, 196608, 3, 0, 262144, 196611, 65544, 327680, 196611, 65544, 393216, 3, 0, 1, 3, 0, 65537, 3, 0, 131073, 3, 0, 196609, 3, 9, 262145, 262147, 10, 327681, 262147, 8, 393217, 262147, 11, 2, 262147, 7, 65538, 262147, 8, 131074, 262147, 8, 196610, 262147, 9, 262146, 262147, 10, 327682, 262147, 8, 393218, 262147, 11, 3, 262147, 7, 65539, 262147, 8, 131075, 262147, 8, 196611, 262147, 9, 262147, 262147, 10, 327683, 262147, 8, 393219, 262147, 11, 4, 3, 0, 65540, 3, 0, 131076, 3, 0, 196612, 131075, 9, 262148, 262147, 10, 327684, 262147, 8, 393220, 262147, 11, 5, 3, 0, 65541, 3, 0, 131077, 3, 0, 196613, 3, 0, 262149, 196611, 8, 327685, 196611, 8, 393221, 3, 0)
@@ -726,6 +728,36 @@ _data = {
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_11qrv"]
 size = Vector2(50, 187)
 
+[sub_resource type="VisualShaderNodeColorConstant" id="VisualShaderNodeColorConstant_bdqcl"]
+constant = Color(0.6, 0.6, 0.6, 1)
+
+[sub_resource type="VisualShader" id="VisualShader_5jqct"]
+code = "shader_type canvas_item;
+render_mode blend_mix;
+
+
+
+
+void fragment() {
+// ColorConstant:2
+	vec4 n_out2p0 = vec4(0.600000, 0.600000, 0.600000, 1.000000);
+
+
+// Output:0
+	COLOR.rgb = vec3(n_out2p0.xyz);
+
+
+}
+"
+mode = 1
+flags/light_only = false
+nodes/fragment/2/node = SubResource("VisualShaderNodeColorConstant_bdqcl")
+nodes/fragment/2/position = Vector2(186, 172)
+nodes/fragment/connections = PackedInt32Array(2, 0, 0, 0)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7lu01"]
+shader = SubResource("VisualShader_5jqct")
+
 [node name="Node2D" type="Node2D"]
 
 [node name="StartLevel" type="TileMap" parent="."]
@@ -813,5 +845,34 @@ shape = SubResource("RectangleShape2D_11qrv")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("10_30gh3")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 35.0
+offset_top = 526.0
+offset_right = 451.0
+offset_bottom = 569.0
+theme_override_colors/font_color = Color(0.6, 0.6, 0.6, 1)
+theme_override_fonts/font = ExtResource("11_oaod1")
+theme_override_font_sizes/font_size = 35
+text = "Move using WASD or ZQSD"
+
+[node name="Label2" type="Label" parent="."]
+offset_left = 1150.0
+offset_top = 631.0
+offset_right = 1335.0
+offset_bottom = 674.0
+rotation = -0.250353
+theme_override_colors/font_color = Color(0.6, 0.6, 0.6, 1)
+theme_override_fonts/font = ExtResource("11_oaod1")
+theme_override_font_sizes/font_size = 35
+text = "This way"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_7lu01")
+position = Vector2(1371, 555)
+rotation = -1.47403
+scale = Vector2(0.521483, 0.538458)
+texture = ExtResource("12_k65kw")
+flip_v = true
 
 [connection signal="body_entered" from="Area2D" to="Wife" method="_on_area_2d_body_entered"]
