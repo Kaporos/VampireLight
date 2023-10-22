@@ -1,4 +1,4 @@
-[gd_scene load_steps=74 format=3 uid="uid://cy5r404jbs526"]
+[gd_scene load_steps=77 format=3 uid="uid://cy5r404jbs526"]
 
 [ext_resource type="TileSet" uid="uid://dqiohjw4a40w2" path="res://resources/level_tileset.tres" id="1_6m82o"]
 [ext_resource type="Script" path="res://levels/level_2.gd" id="1_bgfho"]
@@ -10,8 +10,10 @@
 [ext_resource type="Texture2D" uid="uid://ctpniknd1owsh" path="res://assets/cavesofgallet_tiles.png" id="7_n33ou"]
 [ext_resource type="Script" path="res://resources/IdleMovement.gd" id="9_22crq"]
 [ext_resource type="Texture2D" uid="uid://dk8v0pci6bekp" path="res://assets/ray.png" id="9_hvv6q"]
+[ext_resource type="PackedScene" uid="uid://q7ffgqou1sfe" path="res://scenes/enemies/enemy_1.tscn" id="11_61sk1"]
 [ext_resource type="Script" path="res://scripts/Darkness.gd" id="12_5r85e"]
 [ext_resource type="PackedScene" uid="uid://nts0a2yks63o" path="res://scenes/HUD.tscn" id="12_56muy"]
+[ext_resource type="Script" path="res://resources/HealthStats.gd" id="12_c8f7j"]
 
 [sub_resource type="Resource" id="Resource_xcinu"]
 script = ExtResource("9_22crq")
@@ -221,6 +223,11 @@ polygon = PackedVector2Array(5568, 384, 5568, 432, 5472, 432, 5472, 384)
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_4y3qy"]
 polygon = PackedVector2Array(5952, 672, 6032, 672, 6032, 688, 5952, 688)
 
+[sub_resource type="Resource" id="Resource_5mtpd"]
+script = ExtResource("12_c8f7j")
+health = 100
+maxHealth = 115
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_ljaj5"]
 atlas = ExtResource("7_n33ou")
 region = Rect2(32, 128, 8, 8)
@@ -279,7 +286,7 @@ layer_1/modulate = Color(1, 1, 1, 1)
 layer_1/y_sort_enabled = false
 layer_1/y_sort_origin = 0
 layer_1/z_index = 0
-layer_1/tile_data = PackedInt32Array(786482, 589824, 16)
+layer_1/tile_data = PackedInt32Array()
 script = ExtResource("2_u7d6t")
 
 [node name="LightedTilemap" type="TileMap" parent="TileMap"]
@@ -343,7 +350,7 @@ position = Vector2(2644, 136)
 
 [node name="Vampire" parent="." instance=ExtResource("5_m4quv")]
 z_index = 5
-position = Vector2(280, 504)
+position = Vector2(4968, 384)
 
 [node name="startends" type="Node2D" parent="."]
 
@@ -401,6 +408,12 @@ position = Vector2(6072, 536)
 [node name="End10" type="Node2D" parent="startends"]
 position = Vector2(6072, 250)
 
+[node name="Node2D" type="Node2D" parent="startends"]
+position = Vector2(5824, 752)
+
+[node name="Node2D2" type="Node2D" parent="startends"]
+position = Vector2(5344, 752)
+
 [node name="platforms" type="Node2D" parent="."]
 
 [node name="Moving Platform1" parent="platforms" node_paths=PackedStringArray("idle_points_list") instance=ExtResource("6_daoww")]
@@ -440,7 +453,6 @@ texture = SubResource("AtlasTexture_x51kn")
 [node name="Moving Platform3" parent="platforms" node_paths=PackedStringArray("idle_points_list") instance=ExtResource("6_daoww")]
 position = Vector2(1000, 504)
 collision_layer = 4
-speed = 100
 idle_points_list = [NodePath("../../startends/Start2"), NodePath("../../startends/End2")]
 idle_movement = SubResource("Resource_it3fj")
 
@@ -539,7 +551,6 @@ texture = SubResource("AtlasTexture_w2joa")
 [node name="Moving Platform6" parent="platforms" node_paths=PackedStringArray("idle_points_list") instance=ExtResource("6_daoww")]
 position = Vector2(2352, 360)
 collision_layer = 4
-speed = 100
 idle_points_list = [NodePath("../../startends/Start6"), NodePath("../../startends/End6")]
 idle_movement = SubResource("Resource_4r5e7")
 
@@ -572,7 +583,6 @@ texture = SubResource("AtlasTexture_w2joa")
 [node name="Moving Platform7" parent="platforms" node_paths=PackedStringArray("idle_points_list") instance=ExtResource("6_daoww")]
 position = Vector2(3080, 80)
 collision_layer = 4
-speed = 100
 idle_points_list = [NodePath("../../startends/Start7"), NodePath("../../startends/End7")]
 idle_movement = SubResource("Resource_ustjv")
 
@@ -932,6 +942,11 @@ occluder = SubResource("OccluderPolygon2D_4y3qy")
 
 [node name="ennemies" type="Node2D" parent="."]
 position = Vector2(160, 8)
+
+[node name="enemy1" parent="ennemies" node_paths=PackedStringArray("idle_points_list") instance=ExtResource("11_61sk1")]
+position = Vector2(5416, 728)
+stats = SubResource("Resource_5mtpd")
+idle_points_list = [NodePath("../../startends/Node2D"), NodePath("../../startends/Node2D2")]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 

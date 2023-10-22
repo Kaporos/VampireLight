@@ -3,13 +3,13 @@ class_name Enemy1
 
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 @export var stats: HealthStats;
-@export var JUMP_VELOCITY = -400.0
+@export var JUMP_VELOCITY = -750
 @export var direction = -1
 @export var dmg = 20
 
 var target = null
 var jumping = false
-
+var is_dead = true
 func _ready():
 	idle_movement.points_list = idle_points_list;
 	global_position = idle_movement.points_list[0].global_position
@@ -54,6 +54,8 @@ func _on_agro_zone_body_entered(body):
 	
 func _on_death():
 	set_process(false)
+	set_physics_process(false)
+	jumping = true
 	if direction == 1:
 		$AnimatedSprite2D.play("death_right")
 	else:

@@ -6,6 +6,7 @@ class_name Vampire
 
 var is_bat = false;
 
+@export var can_transform : bool = true
 @export var BAT_SPEED = 1000
 @export var DAMAGE : int = 1000
 @export var HUMANOID_SPEED = 100
@@ -223,7 +224,8 @@ func animate_humanoid(input_vector):
 		return
 
 func check_for_transform():
-
+	if !can_transform:
+		return
 	var transform_command = Input.is_action_pressed("bat_transform")
 	$Transform.play()
 	if transform_command:
