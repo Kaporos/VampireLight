@@ -113,6 +113,7 @@ text = "Game Over"
 horizontal_alignment = 1
 
 [node name="God" type="Button" parent="."]
+visible = false
 layout_mode = 0
 offset_left = 12.0
 offset_top = 131.0
@@ -122,6 +123,7 @@ text = "God mode
 "
 
 [node name="Button" type="Button" parent="."]
+visible = false
 layout_mode = 0
 offset_left = 12.0
 offset_top = 78.0
