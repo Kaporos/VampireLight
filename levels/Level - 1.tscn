@@ -42,8 +42,12 @@ limit_bottom = 1500
 [node name="HUD" parent="CanvasLayer" node_paths=PackedStringArray("player") instance=ExtResource("5_ehyom")]
 player = NodePath("../../Vampire")
 
-[node name="Label" type="Label" parent="CanvasLayer/HUD"]
-layout_mode = 0
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+scale = Vector2(6, 6)
+script = ExtResource("6_ubgkc")
+
+[node name="Label" type="Label" parent="."]
+visible = false
 offset_left = 13.0
 offset_top = 297.0
 offset_right = 289.0
@@ -54,8 +58,8 @@ theme_override_font_sizes/font_size = 35
 text = "You can climb up
 or down ladders"
 
-[node name="Label2" type="Label" parent="CanvasLayer/HUD"]
-layout_mode = 0
+[node name="Label2" type="Label" parent="."]
+visible = false
 offset_left = 909.0
 offset_top = 159.0
 offset_right = 1247.0
@@ -65,10 +69,6 @@ theme_override_fonts/font = ExtResource("6_asmd8")
 theme_override_font_sizes/font_size = 35
 text = "Beware of the lava
 "
-
-[node name="CanvasModulate" type="CanvasModulate" parent="."]
-scale = Vector2(6, 6)
-script = ExtResource("6_ubgkc")
 
 [node name="AudioStreamPlayer" parent="." instance=ExtResource("7_ndrl3")]
 
